@@ -1,0 +1,509 @@
+/* ============================================================
+   ESTILOS DEL SITIO
+   ATMÓSFERAS DE LOS PLANETAS
+============================================================ */
+
+
+/* ============================================================
+   1. BASE
+============================================================ */
+
+* {
+  box-sizing: border-box;
+}
+
+
+html {
+  scroll-behavior: smooth;
+}
+
+
+body {
+
+  background-color: #0b1026;
+
+  color: #f2f2f2;
+
+  font-family: Arial, sans-serif;
+
+  margin: 0;
+
+  padding: 16px;
+
+  line-height: 1.6;
+
+}
+
+
+/* ============================================================
+   2. TÍTULOS
+============================================================ */
+
+h1 {
+
+  font-size: 42px;
+
+  line-height: 1.2;
+
+  color: #ffffff;
+
+  margin-bottom: 20px;
+
+}
+
+
+h2 {
+
+  font-size: 30px;
+
+  color: #ffc857;
+
+  margin-top: 0;
+
+}
+
+
+h3 {
+
+  font-size: 22px;
+
+  color: #9ecbff;
+
+  margin-top: 30px;
+
+}
+
+
+p {
+
+  font-size: 16px;
+
+}
+
+
+/* ============================================================
+   3. PORTADA
+============================================================ */
+
+#portada {
+
+  text-align: center;
+
+  padding: 50px 20px;
+
+  margin-bottom: 25px;
+
+  background:
+
+    radial-gradient(
+      circle at center,
+      #182653,
+      #0b1026 70%
+    );
+
+  border-radius: 20px;
+
+  border: 1px solid #1e2740;
+
+}
+
+
+#portada p {
+
+  max-width: 800px;
+
+  margin: auto;
+
+  color: #cbd4e8;
+
+}
+
+
+/* ============================================================
+   4. MENÚ
+============================================================ */
+
+nav {
+
+  display: flex;
+
+  flex-wrap: wrap;
+
+  justify-content: center;
+
+  gap: 10px;
+
+  margin-bottom: 40px;
+
+  padding: 15px;
+
+  background-color: #0d1326;
+
+  border-radius: 12px;
+
+  border: 1px solid #1e2740;
+
+}
+
+
+nav a {
+
+  display: inline-block;
+
+  padding: 10px 15px;
+
+  color: #9ecbff;
+
+  text-decoration: none;
+
+  border-radius: 8px;
+
+  transition: 0.3s;
+
+}
+
+
+nav a:hover {
+
+  background-color: #1e2740;
+
+  color: #ffc857;
+
+}
+
+
+/* ============================================================
+   5. SECCIONES
+============================================================ */
+
+section {
+
+  margin-bottom: 50px;
+
+  padding: 25px;
+
+  background-color: rgba(13, 19, 38, 0.65);
+
+  border-radius: 16px;
+
+  border: 1px solid #1e2740;
+
+}
+
+
+/* ============================================================
+   6. LISTAS
+============================================================ */
+
+ul {
+
+  padding-left: 25px;
+
+}
+
+
+li {
+
+  margin-bottom: 10px;
+
+}
+
+
+/* ============================================================
+   7. FIGURAS
+============================================================ */
+
+figure {
+
+  margin: 30px 0;
+
+}
+
+
+figure img {
+
+  width: 100%;
+
+  height: auto;
+
+  display: block;
+
+  border-radius: 12px;
+
+}
+
+
+figcaption {
+
+  font-size: 14px;
+
+  color: #98a3bb;
+
+  margin-top: 8px;
+
+}
+
+
+/* ============================================================
+   8. TABLAS
+============================================================ */
+
+.tabla-contenedor {
+
+  width: 100%;
+
+  overflow-x: auto;
+
+}
+
+
+table {
+
+  width: 100%;
+
+  border-collapse: collapse;
+
+  font-size: 15px;
+
+  margin: 20px 0;
+
+}
+
+
+th,
+td {
+
+  border: 1px solid #1e2740;
+
+  padding: 12px;
+
+  text-align: left;
+
+}
+
+
+th {
+
+  background-color: #0d1326;
+
+  color: #ffc857;
+
+}
+
+
+td {
+
+  background-color: #111a35;
+
+}
+
+
+tr:hover td {
+
+  background-color: #182653;
+
+}
+
+
+/* ============================================================
+   9. VISOR DE THREE.JS
+============================================================ */
+
+.visor-planetas {
+
+  width: 100%;
+
+  height: 650px;
+
+  margin-top: 25px;
+
+  border-radius: 20px;
+
+  overflow: hidden;
+
+  border: 1px solid #1e2740;
+
+  background-color: #050510;
+
+  box-shadow:
+    0 0 30px rgba(80, 130, 255, 0.15);
+
+}
+
+
+#lienzo {
+
+  width: 100%;
+
+  height: 100%;
+
+  display: block;
+
+}
+
+
+/* ============================================================
+   10. CONTROLES
+============================================================ */
+
+.controles {
+
+  background-color: #0d1326;
+
+  padding: 20px;
+
+  border-radius: 12px;
+
+  margin-top: 15px;
+
+  text-align: center;
+
+  border: 1px solid #1e2740;
+
+}
+
+
+.controles label {
+
+  color: #ffc857;
+
+  font-weight: bold;
+
+  margin-right: 15px;
+
+}
+
+
+#control {
+
+  width: 60%;
+
+  cursor: pointer;
+
+  accent-color: #ffc857;
+
+}
+
+
+#valor {
+
+  color: #9ecbff;
+
+  font-weight: bold;
+
+  margin-left: 10px;
+
+}
+
+
+/* ============================================================
+   11. FOOTER
+============================================================ */
+
+footer {
+
+  margin-top: 50px;
+
+  padding: 30px;
+
+  background-color: #0d1326;
+
+  border-radius: 16px;
+
+  border: 1px solid #1e2740;
+
+}
+
+
+footer li {
+
+  margin-bottom: 12px;
+
+}
+
+
+/* ============================================================
+   12. RESPONSIVE
+============================================================ */
+
+@media (max-width: 700px) {
+
+  body {
+
+    padding: 10px;
+
+  }
+
+
+  h1 {
+
+    font-size: 30px;
+
+  }
+
+
+  h2 {
+
+    font-size: 25px;
+
+  }
+
+
+  h3 {
+
+    font-size: 20px;
+
+  }
+
+
+  section {
+
+    padding: 18px;
+
+  }
+
+
+  .visor-planetas {
+
+    height: 500px;
+
+  }
+
+
+  #control {
+
+    width: 100%;
+
+    margin-top: 15px;
+
+  }
+
+
+  .controles label {
+
+    display: block;
+
+    margin-bottom: 10px;
+
+  }
+
+}
+
+
+/* ============================================================
+   13. PANTALLA GRANDE
+============================================================ */
+
+@media (min-width: 900px) {
+
+  body {
+
+    max-width: 1200px;
+
+    margin: 0 auto;
+
+    padding: 32px;
+
+  }
+
+}
