@@ -1,0 +1,272 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Satélites | Explorando el Universo</title>
+  <link rel="stylesheet" href="estilos.css">
+</head>
+
+<body>
+
+  <!-- PORTADA -->
+  <header id="portada">
+    <h1>SATÉLITES</h1>
+    <p>Viaja más allá de las estrellas y descubre el fascinante mundo de los satélites.</p>
+  </header>
+
+  <!-- MENÚ -->
+  <nav>
+    <a href="#introduccion">Introducción</a>
+    <a href="#objetivos">Objetivos</a>
+    <a href="#marco-teorico">Marco teórico</a>
+    <a href="#simulacion">Simulación 3D</a>
+    <a href="#stand">Stand</a>
+    <a href="#referencias">Referencias</a>
+  </nav>
+
+  <!-- INTRODUCCIÓN -->
+  <section id="introduccion">
+    <h2>Introducción</h2>
+
+    <p>
+      Los satélites son objetos que se encuentran en órbita alrededor
+      de un planeta, una estrella u otro cuerpo celeste. Pueden ser
+      naturales, como la Luna, o artificiales, creados por el ser humano
+      y enviados al espacio mediante cohetes.
+    </p>
+
+    <p>
+      Los satélites artificiales tienen diferentes funciones, como
+      facilitar las comunicaciones, estudiar el clima, observar la
+      Tierra, ayudar en la navegación GPS y realizar investigaciones
+      científicas. Gracias a ellos podemos obtener información sobre
+      nuestro planeta y explorar el espacio.
+    </p>
+
+    <p>
+      Vale la pena entender este tema porque los satélites son muy
+      importantes en nuestra vida diaria. Gracias a ellos podemos usar
+      el GPS, comunicarnos, consultar el clima y observar cambios en
+      el medio ambiente. También permiten estudiar el espacio y
+      desarrollar nuevas tecnologías.
+    </p>
+
+    <p>
+      Los satélites meteorológicos modernos permiten observar
+      continuamente la atmósfera y ayudan a detectar fenómenos
+      meteorológicos extremos, como tormentas y lluvias fuertes.
+    </p>
+  </section>
+
+  <!-- OBJETIVOS -->
+  <section id="objetivos">
+    <h2>Objetivos</h2>
+
+    <h3>Objetivo general</h3>
+    <p>
+      Comprender cómo funcionan los satélites, cómo se mantienen
+      en órbita y de qué manera contribuyen a la ciencia, las
+      comunicaciones, la navegación y el estudio de la Tierra.
+    </p>
+
+    <h3>Objetivos específicos</h3>
+    <ul>
+      <li>
+        Identificar las principales funciones y características de
+        los satélites y reconocer su importancia en la vida cotidiana.
+      </li>
+      <li>
+        Explicar cómo funcionan los satélites, cómo permanecen en
+        órbita y cómo envían y reciben información.
+      </li>
+      <li>
+        Analizar la importancia de los satélites en la predicción
+        del clima, la prevención de desastres y la investigación espacial.
+      </li>
+    </ul>
+  </section>
+
+  <!-- MARCO TEÓRICO -->
+  <section id="marco-teorico">
+    <h2>Marco teórico</h2>
+
+    <h3>1. Definición de satélites</h3>
+    <p>
+      Los satélites son objetos naturales o artificiales que orbitan
+      alrededor de un cuerpo celeste. Los artificiales son dispositivos
+      construidos por el ser humano para cumplir funciones como la
+      comunicación, la observación de la Tierra, la navegación y la
+      investigación científica.
+    </p>
+
+    <figure>
+      <img src="imagenes/figura1.jpg"
+           alt="Imagen de la Luna como satélite natural">
+      <figcaption>
+        Figura 1. La Luna es el satélite natural de la Tierra.
+      </figcaption>
+    </figure>
+
+    <h3>2. Clasificación de los satélites</h3>
+    <p>
+      Los satélites se pueden clasificar en naturales y artificiales.
+      Los naturales existen sin intervención humana, como la Luna.
+      Los artificiales son fabricados y lanzados al espacio para
+      realizar diferentes tareas.
+    </p>
+
+    <p>
+      También se clasifican según su órbita. La órbita baja terrestre
+      se utiliza para observar la Tierra y realizar investigaciones.
+      La órbita media es utilizada por muchos satélites de navegación,
+      como los del sistema GPS. La órbita geoestacionaria permite que
+      un satélite permanezca aproximadamente sobre la misma región
+      de la Tierra.
+    </p>
+
+    <div class="tarjeta">
+      <p class="dato">35.786 km</p>
+      <p>
+        Altitud aproximada de la órbita geoestacionaria sobre el
+        ecuador terrestre.
+      </p>
+    </div>
+
+    <h3>3. Datos y características</h3>
+    <p>
+      Los satélites cuentan con diferentes componentes, como antenas,
+      paneles solares, sistemas de comunicación y equipos de control.
+      Los paneles solares producen electricidad para mantener sus
+      instrumentos funcionando.
+    </p>
+
+    <figure>
+      <img src="imagenes/figura2.jpg"
+           alt="Ilustración de un satélite artificial en el espacio">
+      <figcaption>
+        Figura 2. Los satélites artificiales utilizan tecnología
+        para comunicarse y estudiar la Tierra.
+      </figcaption>
+    </figure>
+  </section>
+
+  <!-- SIMULACIÓN 3D -->
+  <section id="simulacion">
+    <h2>Simulación 3D: Satélites alrededor de la Tierra</h2>
+
+    <p>
+      En esta simulación puedes observar un planeta rodeado de
+      satélites artificiales que se desplazan por diferentes órbitas.
+      Mueve el control para cambiar la cantidad de satélites visibles.
+    </p>
+
+    <div class="simulacion-contenedor">
+      <canvas id="lienzo"></canvas>
+
+      <div class="controles-satelites">
+        <label for="control">Cantidad de satélites</label>
+
+        <input
+          type="range"
+          id="control"
+          min="0"
+          max="20"
+          step="1"
+          value="10"
+        >
+
+        <p>
+          Satélites visibles:
+          <span id="valor">10</span>
+          de 20
+        </p>
+      </div>
+    </div>
+
+    <p class="nota-simulacion">
+      Nota: esta simulación es una representación educativa.
+      Los tamaños, las distancias y las velocidades no están
+      representados a escala real.
+    </p>
+  </section>
+
+  <!-- STAND -->
+  <section id="stand">
+    <h2>Nuestro stand durante la presentación del proyecto final</h2>
+
+    <p>
+      En nuestro stand, los visitantes podrán conocer qué son los
+      satélites, cuáles son sus funciones y cómo ayudan a la sociedad.
+      También podrán interactuar con la simulación 3D para observar
+      el movimiento de varios satélites alrededor de un planeta.
+    </p>
+
+    <table>
+      <thead>
+        <tr>
+          <th>El experimento físico muestra</th>
+          <th>El sitio web muestra</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Una representación del movimiento orbital.</td>
+          <td>Una simulación 3D de satélites en movimiento.</td>
+        </tr>
+        <tr>
+          <td>La explicación del funcionamiento de los satélites.</td>
+          <td>Información sobre sus funciones y características.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <figure>
+      <img src="imagenes/stand.jpg"
+           alt="Diseño del stand del proyecto de satélites">
+      <figcaption>
+        Figura 3. Representación del stand del proyecto.
+      </figcaption>
+    </figure>
+  </section>
+
+  <!-- REFERENCIAS -->
+  <footer id="referencias">
+    <h2>Referencias</h2>
+
+    <ol>
+      <li>
+        NASA. Información educativa sobre satélites y exploración espacial.
+        <a href="https://science.nasa.gov/" target="_blank"
+           rel="noopener noreferrer">NASA Science</a>.
+      </li>
+      <li>
+        NASA. Información sobre navegación por satélite.
+        <a href="https://www.gps.gov/" target="_blank"
+           rel="noopener noreferrer">GPS.gov</a>.
+      </li>
+      <li>
+        Agencia Espacial Europea.
+        <a href="https://www.esa.int/" target="_blank"
+           rel="noopener noreferrer">ESA</a>.
+      </li>
+    </ol>
+
+    <p class="creditos">
+      Proyecto interdisciplinar Explorando el Universo ·
+      Gimnasio Los Arrayanes Bilingüe · Grado 11
+    </p>
+
+    <p class="integrantes">
+      Integrantes: Sebastián Perdomo, Daniela Troncoso,
+      Julián Benacho y Mariana Guts.
+    </p>
+  </footer>
+
+  <!-- THREE.JS DEBE CARGARSE ANTES DE SCRIPT.JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="script.js"></script>
+
+</body>
+</html>

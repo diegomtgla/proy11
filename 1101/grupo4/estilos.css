@@ -1,0 +1,292 @@
+
+/* ==================================================
+   ESTILOS DEL SITIO - PROYECTO SATÉLITES
+   ================================================== */
+
+/* 1. ESTILOS GENERALES */
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #0b1026;
+  color: #f2f2f2;
+  font-family: Arial, sans-serif;
+  margin: 0 auto;
+  padding: 16px;
+  line-height: 1.6;
+  max-width: 1100px;
+}
+
+h1 {
+  font-size: 36px;
+  line-height: 1.2;
+}
+
+h2 {
+  font-size: 26px;
+  color: #ffc857;
+  margin-bottom: 16px;
+}
+
+h3 {
+  font-size: 19px;
+  color: #9ecbff;
+}
+
+p {
+  font-size: 16px;
+}
+
+section {
+  margin-bottom: 45px;
+  scroll-margin-top: 20px;
+}
+
+img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+
+a {
+  color: #9ecbff;
+}
+
+/* 2. PORTADA */
+
+#portada {
+  padding: 35px 20px;
+  margin-bottom: 20px;
+  text-align: center;
+  background: linear-gradient(135deg, #101b40, #162b55);
+  border: 1px solid #26385f;
+  border-radius: 14px;
+}
+
+#portada h1 {
+  color: #ffc857;
+  font-size: clamp(32px, 6vw, 54px);
+  margin-bottom: 12px;
+  letter-spacing: 3px;
+}
+
+#portada p {
+  color: #dbe8ff;
+  margin: 0;
+}
+
+/* 3. MENÚ */
+
+nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 35px;
+  padding: 12px;
+  background-color: #0d1326;
+  border: 1px solid #1e2740;
+  border-radius: 12px;
+}
+
+nav a {
+  display: inline-block;
+  padding: 9px 12px;
+  color: #9ecbff;
+  text-decoration: none;
+  border-radius: 8px;
+  transition: background-color 0.2s;
+}
+
+nav a:hover {
+  background-color: #1e2c4d;
+  color: #ffc857;
+}
+
+/* 4. FIGURAS E IMÁGENES */
+
+figure {
+  margin: 25px 0;
+}
+
+figure img {
+  max-height: 450px;
+  object-fit: contain;
+  background-color: #0d1326;
+}
+
+figcaption {
+  font-size: 14px;
+  color: #98a3bb;
+  margin-top: 8px;
+}
+
+/* 5. TARJETAS */
+
+.tarjeta {
+  background-color: #0d1326;
+  border: 1px solid #1e2740;
+  border-radius: 12px;
+  padding: 18px;
+  margin: 25px 0;
+}
+
+.dato {
+  font-size: clamp(28px, 5vw, 38px);
+  font-weight: bold;
+  color: #ffc857;
+  margin: 0;
+}
+
+/* 6. TABLAS */
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 15px;
+  margin: 20px 0;
+}
+
+th,
+td {
+  border: 1px solid #263452;
+  padding: 12px;
+  text-align: left;
+  vertical-align: top;
+}
+
+th {
+  background-color: #0d1326;
+  color: #ffc857;
+}
+
+td {
+  background-color: #10182f;
+}
+
+/* 7. SIMULACIÓN 3D */
+
+#simulacion {
+  scroll-margin-top: 20px;
+}
+
+.simulacion-contenedor {
+  background-color: #080d1d;
+  border: 1px solid #263452;
+  border-radius: 14px;
+  padding: 16px;
+  margin-top: 20px;
+  overflow: hidden;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
+}
+
+#lienzo {
+  display: block;
+  width: 100%;
+  height: 420px;
+  background-color: #000308;
+  border-radius: 10px;
+  outline: none;
+}
+
+.controles-satelites {
+  margin-top: 20px;
+  padding: 4px;
+}
+
+.controles-satelites label {
+  display: block;
+  color: #9ecbff;
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.controles-satelites input[type="range"] {
+  display: block;
+  width: 100%;
+  height: 30px;
+  accent-color: #ffc857;
+  cursor: pointer;
+}
+
+.controles-satelites p {
+  margin: 8px 0 0;
+  color: #dbe8ff;
+}
+
+#valor {
+  color: #ffc857;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.nota-simulacion {
+  color: #98a3bb;
+  font-size: 13px;
+  margin-top: 12px;
+}
+
+/* 8. PIE DE PÁGINA */
+
+footer {
+  border-top: 1px solid #263452;
+  padding-top: 20px;
+  margin-top: 40px;
+  overflow-wrap: anywhere;
+}
+
+footer li {
+  margin-bottom: 12px;
+}
+
+.creditos,
+.integrantes {
+  font-size: 14px;
+  color: #98a3bb;
+}
+
+/* 9. PANTALLAS PEQUEÑAS */
+
+@media (max-width: 600px) {
+  body {
+    padding: 12px;
+  }
+
+  h1 {
+    font-size: 30px;
+  }
+
+  h2 {
+    font-size: 23px;
+  }
+
+  nav {
+    gap: 4px;
+  }
+
+  nav a {
+    padding: 8px;
+    font-size: 14px;
+  }
+
+  #lienzo {
+    height: 300px;
+  }
+
+  .simulacion-contenedor {
+    padding: 10px;
+  }
+
+  th,
+  td {
+    padding: 8px;
+    font-size: 13px;
+  }
+}

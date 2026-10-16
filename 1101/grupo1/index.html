@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Explora las características físicas de los ocho planetas del Sistema Solar y compáralas con un simulador 3D interactivo.">
+  <title>Explorando el universo | Características físicas de los planetas</title>
+  <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+  <header id="portada" class="hero">
+    <p class="etiqueta">PROYECTO INTERDISCIPLINAR · GRADO 11</p>
+    <h1>Explorando el universo</h1>
+    <p class="hero-subtitulo">Las características físicas de los planetas del Sistema Solar</p>
+    <p class="hero-texto">Ocho planetas, muchas diferencias: descubre cómo la masa, el volumen, la densidad, la gravedad y la composición nos ayudan a entender cada mundo.</p>
+    <a class="enlace-principal" href="#simulador">Explorar los planetas ↓</a>
+  </header>
+
+  <nav class="menu" aria-label="Menú principal">
+    <a href="#introduccion">Introducción</a>
+    <a href="#objetivos">Objetivos</a>
+    <a href="#marco-teorico">Marco teórico</a>
+    <a href="#comparacion">Comparación</a>
+    <a href="#simulador">Simulador 3D</a>
+    <a href="#reubicacion">Reubicación humana</a>
+    <a href="#stand">Stand</a>
+    <a href="#referencias">Referencias</a>
+  </nav>
+
+  <main>
+    <section id="introduccion" class="seccion">
+      <p class="numero-seccion">01 · CONTEXTO</p>
+      <h2>Introducción</h2>
+      <p>Las características físicas son propiedades que permiten describir y diferenciar los cuerpos celestes. En los planetas, algunas de las más importantes son la masa, el volumen, la densidad, la gravedad y la composición.</p>
+      <p>Conocer estas propiedades ayuda a comprender por qué los planetas tienen estructuras distintas. Los cuatro planetas interiores son rocosos, mientras que los exteriores son gigantes gaseosos o gigantes helados. Estas diferencias influyen en su tamaño, su gravedad y los materiales que los forman.</p>
+      <p>En este sitio podrás conocer los conceptos principales, comparar datos de los ocho planetas y explorar una representación tridimensional interactiva. Los tamaños del simulador son ilustrativos y no representan una escala exacta.</p>
+    </section>
+
+    <section id="objetivos" class="seccion">
+      <p class="numero-seccion">02 · PROPÓSITO</p>
+      <h2>Objetivos</h2>
+      <div class="tarjetas dos-columnas">
+        <article class="tarjeta">
+          <h3>Objetivo general</h3>
+          <p>Comprender y comparar las principales características físicas de los planetas del Sistema Solar.</p>
+        </article>
+        <article class="tarjeta">
+          <h3>Objetivos específicos</h3>
+          <ul>
+            <li>Identificar las características físicas más importantes de cada planeta.</li>
+            <li>Comparar masa, volumen, densidad, gravedad y composición.</li>
+            <li>Relacionar estas propiedades con la estructura de los planetas.</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section id="marco-teorico" class="seccion">
+      <p class="numero-seccion">03 · CONCEPTOS CLAVE</p>
+      <h2>Marco teórico</h2>
+      <p>Para comparar los planetas es importante entender qué representa cada propiedad y en qué unidades se expresa.</p>
+      <div class="tarjetas conceptos-grid">
+        <article class="tarjeta concepto"><span class="icono">M</span><h3>Masa</h3><p>Cantidad de materia de un cuerpo. Se expresa en kilogramos (kg). Júpiter es el planeta con mayor masa del Sistema Solar.</p></article>
+        <article class="tarjeta concepto"><span class="icono">V</span><h3>Volumen</h3><p>Espacio que ocupa un cuerpo. Se expresa aquí en kilómetros cúbicos (km³). Los planetas gigantes tienen volúmenes muy superiores a los rocosos.</p></article>
+        <article class="tarjeta concepto"><span class="icono">ρ</span><h3>Densidad</h3><p>Relación entre la masa y el volumen. Se expresa en g/cm³. Los planetas rocosos suelen tener densidades más altas que los gigantes gaseosos.</p></article>
+        <article class="tarjeta concepto"><span class="icono">g</span><h3>Gravedad</h3><p>Aceleración gravitatoria en la zona de referencia del planeta, expresada en m/s². Depende de su masa y de la distancia al centro.</p></article>
+        <article class="tarjeta concepto concepto-ancho"><span class="icono">C</span><h3>Composición</h3><p>Materiales que forman el planeta. Mercurio, Venus, la Tierra y Marte son principalmente rocosos y metálicos; Júpiter y Saturno están dominados por hidrógeno y helio; Urano y Neptuno contienen además grandes cantidades de sustancias volátiles como agua, amoníaco y metano.</p></article>
+      </div>
+      <h3 class="subtitulo">Planetas rocosos y gigantes</h3>
+      <div class="tarjetas dos-columnas">
+        <article class="tarjeta tipo-planeta"><h3>Planetas rocosos</h3><p><strong>Mercurio, Venus, Tierra y Marte.</strong> Son relativamente pequeños, tienen superficies sólidas y están compuestos principalmente por rocas y metales.</p></article>
+        <article class="tarjeta tipo-planeta"><h3>Planetas gigantes</h3><p><strong>Júpiter y Saturno</strong> son gigantes gaseosos; <strong>Urano y Neptuno</strong> son gigantes helados. Son mucho más grandes y no tienen una superficie sólida como la terrestre.</p></article>
+      </div>
+    </section>
+
+    <section id="comparacion" class="seccion">
+      <p class="numero-seccion">04 · DATOS</p>
+      <h2>Comparación de los ocho planetas</h2>
+      <p>La tabla reúne valores aproximados para observar diferencias entre los planetas. La masa se presenta en kilogramos, el volumen en kilómetros cúbicos, la densidad en g/cm³ y la gravedad en m/s².</p>
+      <div class="tabla-contenedor" role="region" aria-label="Tabla comparativa de planetas" tabindex="0">
+        <table>
+          <thead><tr><th>Planeta</th><th>Masa (kg)</th><th>Volumen (km³)</th><th>Densidad (g/cm³)</th><th>Gravedad (m/s²)</th><th>Composición principal</th></tr></thead>
+          <tbody>
+            <tr><th>Mercurio</th><td>3,30 × 10²³</td><td>6,08 × 10¹⁰</td><td>5,43</td><td>3,70</td><td>Rocas y metales; núcleo rico en hierro</td></tr>
+            <tr><th>Venus</th><td>4,87 × 10²⁴</td><td>9,28 × 10¹¹</td><td>5,24</td><td>8,87</td><td>Rocas y metales</td></tr>
+            <tr><th>Tierra</th><td>5,97 × 10²⁴</td><td>1,08 × 10¹²</td><td>5,51</td><td>9,81</td><td>Rocas, metales y agua</td></tr>
+            <tr><th>Marte</th><td>6,42 × 10²³</td><td>1,63 × 10¹¹</td><td>3,93</td><td>3,71</td><td>Rocas, minerales y metales</td></tr>
+            <tr><th>Júpiter</th><td>1,90 × 10²⁷</td><td>1,43 × 10¹⁵</td><td>1,33</td><td>24,79</td><td>Principalmente hidrógeno y helio</td></tr>
+            <tr><th>Saturno</th><td>5,68 × 10²⁶</td><td>8,27 × 10¹⁴</td><td>0,69</td><td>10,44</td><td>Principalmente hidrógeno y helio</td></tr>
+            <tr><th>Urano</th><td>8,68 × 10²⁵</td><td>6,83 × 10¹³</td><td>1,27</td><td>8,69</td><td>Agua, amoníaco, metano, rocas, hidrógeno y helio</td></tr>
+            <tr><th>Neptuno</th><td>1,02 × 10²⁶</td><td>6,25 × 10¹³</td><td>1,64</td><td>11,15</td><td>Agua, amoníaco, metano, rocas, hidrógeno y helio</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="nota">Nota científica: los valores pueden variar ligeramente según la fuente y el criterio de referencia. La gravedad indicada corresponde a valores aproximados cerca del nivel de referencia de cada planeta.</p>
+    </section>
+
+    <section id="simulador" class="seccion simulador-seccion">
+      <p class="numero-seccion">05 · EXPLORA</p>
+      <h2>Simulador interactivo 3D</h2>
+      <p>Selecciona un planeta con el deslizador. Observa su apariencia y compara sus datos físicos. El modelo incluye detalles visuales propios de cada mundo, como los anillos de Saturno y Urano.</p>
+      <div class="simulador-contenedor">
+        <div class="simulador-visual">
+          <canvas id="lienzo" aria-label="Modelo tridimensional del planeta seleccionado"></canvas>
+          <p class="ayuda-canvas">El modelo gira automáticamente. Los tamaños son ilustrativos, no están a escala real.</p>
+        </div>
+        <div class="simulador-controles">
+          <label for="control">Selecciona un planeta</label>
+          <input id="control" type="range" min="0" max="7" step="1" value="0" aria-label="Seleccionar planeta">
+          <div class="navegacion-planetas"><button id="anterior" type="button" aria-label="Planeta anterior">← Anterior</button><span id="valor" aria-live="polite">Mercurio</span><button id="siguiente" type="button" aria-label="Planeta siguiente">Siguiente →</button></div>
+          <h3 id="nombrePlaneta">Mercurio</h3>
+          <p class="tipo-etiqueta" id="tipoPlaneta">Planeta rocoso</p>
+          <p id="resumenPlaneta">Un planeta pequeño, rocoso y rico en metales.</p>
+          <div class="datos-grid">
+            <div class="dato-simulador"><span>Masa</span><strong id="masa">0,055 masas terrestres</strong></div>
+            <div class="dato-simulador"><span>Volumen</span><strong id="volumen">0,056 volúmenes terrestres</strong></div>
+            <div class="dato-simulador"><span>Densidad</span><strong id="densidad">5,43 g/cm³</strong></div>
+            <div class="dato-simulador"><span>Gravedad</span><strong id="gravedad">3,70 m/s²</strong></div>
+            <div class="dato-simulador"><span>Radio</span><strong id="radio">0,38 radios terrestres</strong></div>
+          </div>
+          <p class="composicion"><strong>Composición:</strong> <span id="composicionPlaneta">Hierro y silicatos</span></p>
+          <p id="comparacion" class="comparacion-simulador">La gravedad equivale aproximadamente al 37,7 % de la gravedad terrestre.</p>
+          <div class="barra-dato"><span>Gravedad comparada con la Tierra</span><div class="barra-fondo"><div id="barraGravedad" class="barra-relleno"></div></div></div>
+          <div class="barra-dato"><span>Densidad comparada con la Tierra</span><div class="barra-fondo"><div id="barraDensidad" class="barra-relleno"></div></div></div>
+        </div>
+      </div>
+      <p class="nota">Las masas y los volúmenes del simulador se expresan en relación con la Tierra; la tabla comparativa utiliza unidades físicas. Las escalas visuales están comprimidas para que los ocho planetas puedan verse en pantalla.</p>
+    </section>
+
+    <section id="reubicacion" class="seccion">
+      <p class="numero-seccion">06 · APLICACIÓN INTERDISCIPLINAR</p>
+      <h2>¿Podrían vivir los seres humanos en otro planeta?</h2>
+      <p>Una propuesta de reubicación humana debe considerar más que el tamaño de un planeta. También se necesitan agua disponible, protección frente a la radiación, una fuente de energía, alimentos, presión adecuada y condiciones que permitan mantener la vida.</p>
+      <div class="tarjetas dos-columnas">
+        <article class="tarjeta"><h3>Opción para estudiar: Marte</h3><p>Marte es una opción de investigación porque tiene una superficie sólida y un día de duración parecida al terrestre. Sin embargo, su atmósfera es muy delgada, hace frío y existe radiación; por eso, una futura base tendría que ser cerrada, presurizada y proteger a sus habitantes.</p></article>
+        <article class="tarjeta"><h3>Propuesta inicial</h3><ul><li>Construir hábitats presurizados con protección contra la radiación.</li><li>Investigar sistemas de reciclaje de agua y aire.</li><li>Producir alimentos en invernaderos controlados.</li><li>Usar energía solar y sistemas de respaldo.</li><li>Evaluar impactos físicos, psicológicos, económicos y ambientales.</li></ul></article>
+      </div>
+      <p class="nota">Esta propuesta es conceptual: no significa que hoy exista una tecnología capaz de hacer una reubicación humana permanente y segura en Marte.</p>
+    </section>
+
+   
+<section id="stand">
+
+    <h2>Nuestro stand: Explorando el Universo</h2>
+
+    <p>
+        Nuestro stand busca explicar las características físicas de los
+        planetas del Sistema Solar mediante una experiencia experimental
+        y una herramienta digital interactiva. A través de estas actividades,
+        los visitantes podrán comprender conceptos como la masa, el volumen,
+        la densidad, la gravedad y la composición planetaria.
+    </p>
+
+    <h3>Experimento: Comparación de líquidos de diferentes densidades</h3>
+
+    <p>
+        Realizaremos un experimento en el que compararemos líquidos con
+        diferentes densidades. Observaremos su comportamiento al colocarlos
+        en un mismo recipiente y analizaremos las diferencias entre ellos.
+        Esta actividad nos permitirá comprender que la densidad es una
+        propiedad física que relaciona la masa de una sustancia con el
+        volumen que ocupa.
+    </p>
+
+    <p>
+        Si los líquidos no se mezclan, podremos observar cómo se organizan
+        en capas: generalmente, los más densos quedan en la parte inferior
+        y los menos densos en la superior. El resultado dependerá de las
+        propiedades de los líquidos utilizados.
+    </p>
+
+    <h3>Relación con el Sistema Solar</h3>
+
+    <p>
+        Relacionaremos los resultados del experimento con las densidades
+        de los planetas. Estos presentan diferencias en su composición y
+        estructura, lo que influye en su densidad. Por ejemplo, los planetas
+        rocosos tienen características diferentes de las de los gigantes
+        gaseosos y los gigantes de hielo.
+    </p>
+
+    <p>
+        Además, los visitantes podrán explorar nuestro simulador 3D para
+        consultar y comparar la masa, el volumen, la densidad, la gravedad
+        y la composición de los ocho planetas del Sistema Solar.
+    </p>
+
+    <h3>¿Qué encontrará el visitante?</h3>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Experimento físico</th>
+                <th>Simulador digital</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr>
+                <td>
+                    Comparación de líquidos con diferentes densidades.
+                </td>
+                <td>
+                    Consulta de las densidades de los ocho planetas.
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    Observación del comportamiento de los líquidos.
+                </td>
+                <td>
+                    Exploración de los planetas mediante un modelo 3D.
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    Comprensión de la relación entre masa, volumen y densidad.
+                </td>
+                <td>
+                    Comparación de la masa, el volumen y la gravedad planetaria.
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    Aplicación experimental de un concepto físico.
+                </td>
+                <td>
+                    Análisis de las propiedades físicas y la composición de
+                    los planetas.
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h3>Propósito de nuestro stand</h3>
+
+    <p>
+        Nuestro propósito es demostrar que los conceptos científicos pueden
+        comprenderse mejor cuando se combinan la experimentación y la
+        tecnología. De esta manera, los visitantes podrán relacionar una
+        propiedad física observable, como la densidad, con el estudio de
+        los planetas y sus diferencias.
+    </p>
+
+    <figure>
+        <img
+            src="imagen.jpg"
+            alt="Propuesta de adecuación del stand sobre las características físicas de los planetas"
+            style="width: 100%; max-width: 800px; height: auto;"
+        >
+        <figcaption>
+            Figura 3. Propuesta de adecuación del stand.
+        </figcaption>
+    </figure>
+
+</section>
+
+  </main>
+
+  <footer id="referencias" class="pie">
+    <p class="numero-seccion">08 · FUENTES</p>
+    <h2>Referencias</h2>
+    <ol>
+      <li>NASA Space Place. <em>How do we weigh planets?</em> <a href="https://spaceplace.nasa.gov/planets-weight/sp/" target="_blank" rel="noopener noreferrer">https://spaceplace.nasa.gov/planets-weight/sp/</a></li>
+      <li>Universe Today. <em>Volume of the Planets.</em> <a href="https://www.universetoday.com/articles/volume-of-the-planets" target="_blank" rel="noopener noreferrer">https://www.universetoday.com/articles/volume-of-the-planets</a></li>
+      <li>Deplanetas. <em>¿Cuál es la gravedad de los planetas del Sistema Solar?</em> <a href="https://deplanetas.com/cual-es-la-gravedad-de-los-planetas-del-sistema-solar/" target="_blank" rel="noopener noreferrer">https://deplanetas.com/cual-es-la-gravedad-de-los-planetas-del-sistema-solar/</a></li>
+      <li>NASA Solar System Exploration. <em>Solar System Exploration.</em> <a href="https://science.nasa.gov/solar-system/" target="_blank" rel="noopener noreferrer">https://science.nasa.gov/solar-system/</a></li>
+    </ol>
+    <p class="creditos">Proyecto interdisciplinar “Explorando el Universo” · Gimnasio Los Arrayanes Bilingüe · Grado 11 · Integrantes: escriban aquí los nombres del grupo.</p>
+    <a class="volver" href="#portada">Volver al inicio ↑</a>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
