@@ -1,11 +1,636 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Proyectos Grado 11</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Explorando el Universo · Proyectos Grado 11</title>
+  <meta name="description" content="Proyecto interdisciplinar Explorando el Universo: proyectos de los cursos 1101, 1102, 1103 y 1104.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #070a17;
+      --bg-2: #0d1230;
+      --card: rgba(20, 26, 58, 0.72);
+      --card-hover: rgba(30, 38, 82, 0.85);
+      --border: rgba(140, 160, 255, 0.16);
+      --text: #eef1ff;
+      --muted: #a3abd6;
+      --c1101: #4fd1c5;
+      --c1102: #f6ad55;
+      --c1103: #fc8181;
+      --c1104: #b794f4;
+      --radius: 18px;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: "Inter", system-ui, sans-serif;
+      color: var(--text);
+      background: radial-gradient(ellipse at top, #1a1f4d 0%, var(--bg) 55%) fixed, var(--bg);
+      min-height: 100vh;
+      line-height: 1.5;
+    }
+
+    #estrellas {
+      position: fixed;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      pointer-events: none;
+    }
+
+    .contenedor {
+      width: min(1200px, 100% - 32px);
+      margin-inline: auto;
+    }
+
+    /* ---------- Encabezado ---------- */
+    header {
+      padding: 72px 0 40px;
+      text-align: center;
+    }
+
+    .etiqueta {
+      display: inline-block;
+      font-size: 0.8rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--muted);
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      padding: 6px 16px;
+      margin-bottom: 20px;
+      background: rgba(255, 255, 255, 0.03);
+    }
+
+    h1 {
+      font-family: "Space Grotesk", sans-serif;
+      font-size: clamp(2.4rem, 7vw, 4.6rem);
+      line-height: 1.05;
+      font-weight: 700;
+      background: linear-gradient(120deg, #ffffff 10%, #a5b4fc 45%, #f0abfc 80%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .subtitulo {
+      margin-top: 16px;
+      color: var(--muted);
+      font-size: clamp(1rem, 2.4vw, 1.2rem);
+    }
+
+    /* ---------- Controles ---------- */
+    .controles {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      padding: 14px 0;
+      background: linear-gradient(to bottom, rgba(7, 10, 23, 0.95) 70%, rgba(7, 10, 23, 0));
+      backdrop-filter: blur(6px);
+    }
+
+    .controles .contenedor {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .filtros {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .filtro {
+      font: inherit;
+      font-weight: 600;
+      font-size: 0.95rem;
+      color: var(--text);
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      padding: 8px 18px;
+      cursor: pointer;
+      transition: background 0.2s, border-color 0.2s, transform 0.2s;
+    }
+
+    .filtro:hover { transform: translateY(-1px); border-color: rgba(255, 255, 255, 0.35); }
+
+    .filtro.activo {
+      background: var(--color, #6366f1);
+      border-color: var(--color, #6366f1);
+      color: #0b0f24;
+    }
+
+    .buscador {
+      flex: 1 1 260px;
+      max-width: 380px;
+      position: relative;
+    }
+
+    .buscador input {
+      width: 100%;
+      font: inherit;
+      color: var(--text);
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      padding: 10px 18px 10px 42px;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+
+    .buscador input::placeholder { color: var(--muted); }
+    .buscador input:focus { border-color: #a5b4fc; }
+
+    .buscador svg {
+      position: absolute;
+      left: 15px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 18px;
+      height: 18px;
+      stroke: var(--muted);
+    }
+
+    /* ---------- Cursos ---------- */
+    main { padding: 24px 0 64px; }
+
+    .curso { margin-bottom: 56px; scroll-margin-top: 90px; }
+
+    .curso-encabezado {
+      display: flex;
+      align-items: baseline;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin-bottom: 20px;
+      padding-bottom: 14px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .curso-encabezado h2 {
+      font-family: "Space Grotesk", sans-serif;
+      font-size: clamp(1.8rem, 4vw, 2.4rem);
+      color: var(--color);
+    }
+
+    .curso-encabezado p { color: var(--muted); font-size: 1.05rem; }
+
+    .grilla {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 18px;
+    }
+
+    .tarjeta {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      padding: 22px;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      transition: transform 0.25s, background 0.25s, border-color 0.25s, box-shadow 0.25s;
+    }
+
+    .tarjeta::before {
+      content: "";
+      position: absolute;
+      inset: 0 0 auto 0;
+      height: 4px;
+      background: var(--color);
+      opacity: 0.85;
+    }
+
+    .tarjeta:hover {
+      transform: translateY(-4px);
+      background: var(--card-hover);
+      border-color: color-mix(in srgb, var(--color) 55%, transparent);
+      box-shadow: 0 14px 40px -18px var(--color);
+    }
+
+    .tarjeta-num {
+      font-family: "Space Grotesk", sans-serif;
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--color);
+    }
+
+    .tarjeta h3 {
+      font-family: "Space Grotesk", sans-serif;
+      font-size: 1.25rem;
+      line-height: 1.25;
+    }
+
+    .tarjeta h3.pendiente { color: var(--muted); font-style: italic; font-weight: 500; }
+
+    .tarjeta ul {
+      list-style: none;
+      font-size: 0.9rem;
+      color: var(--muted);
+      display: grid;
+      gap: 2px;
+    }
+
+    .tarjeta ul li::before {
+      content: "✦ ";
+      color: var(--color);
+      opacity: 0.7;
+    }
+
+    .tarjeta-acciones {
+      margin-top: auto;
+      padding-top: 6px;
+      display: flex;
+      gap: 8px;
+    }
+
+    .boton {
+      font: inherit;
+      font-weight: 600;
+      font-size: 0.92rem;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      padding: 10px 16px;
+      border-radius: 12px;
+      text-decoration: none;
+      cursor: pointer;
+      transition: filter 0.2s, background 0.2s;
+    }
+
+    .boton-principal {
+      flex: 1;
+      background: var(--color);
+      color: #0b0f24;
+      border: none;
+    }
+
+    .boton-principal:hover { filter: brightness(1.12); }
+
+    .boton-secundario {
+      background: transparent;
+      color: var(--text);
+      border: 1px solid var(--border);
+    }
+
+    .boton-secundario:hover { background: rgba(255, 255, 255, 0.08); }
+
+    .boton svg { width: 18px; height: 18px; }
+
+    .sin-resultados {
+      text-align: center;
+      color: var(--muted);
+      padding: 48px 0;
+      font-size: 1.1rem;
+    }
+
+    footer {
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.9rem;
+      padding: 24px 0 40px;
+      border-top: 1px solid var(--border);
+    }
+
+    /* ---------- Modal QR ---------- */
+    .modal {
+      position: fixed;
+      inset: 0;
+      z-index: 50;
+      display: grid;
+      place-items: center;
+      padding: 16px;
+      background: rgba(3, 5, 14, 0.75);
+      backdrop-filter: blur(4px);
+    }
+
+    .modal[hidden] { display: none; }
+
+    .modal-caja {
+      width: min(380px, 100%);
+      background: var(--bg-2);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 24px;
+      text-align: center;
+      display: grid;
+      gap: 14px;
+    }
+
+    .modal-caja h3 { font-family: "Space Grotesk", sans-serif; font-size: 1.2rem; }
+
+    #qr {
+      background: #fff;
+      border-radius: 12px;
+      padding: 16px;
+      display: grid;
+      place-items: center;
+      min-height: 200px;
+    }
+
+    #qr img, #qr canvas { width: 100% !important; max-width: 260px; height: auto !important; }
+
+    .modal-url {
+      font-size: 0.82rem;
+      color: var(--muted);
+      word-break: break-all;
+    }
+
+    .modal-acciones { display: flex; gap: 8px; }
+    .modal-acciones .boton { flex: 1; }
+
+    @media (max-width: 480px) {
+      header { padding: 48px 0 28px; }
+      .etiqueta { font-size: 0.7rem; letter-spacing: 0.1em; padding: 6px 12px; }
+      .filtros { gap: 6px; }
+      .filtro { padding: 7px 12px; font-size: 0.88rem; }
+      .buscador { max-width: none; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      * { transition: none !important; scroll-behavior: auto !important; }
+    }
+  </style>
 </head>
 <body>
-    
+  <canvas id="estrellas" aria-hidden="true"></canvas>
+
+  <header>
+    <div class="contenedor">
+      <span class="etiqueta">Proyecto interdisciplinar · Grado 11</span>
+      <h1>Explorando el Universo</h1>
+      <p class="subtitulo">Planetas, exoplanetas, estrellas y galaxias: los proyectos de los cursos 1101, 1102, 1103 y 1104.</p>
+    </div>
+  </header>
+
+  <nav class="controles" aria-label="Filtros">
+    <div class="contenedor">
+      <div class="filtros" id="filtros"></div>
+      <label class="buscador">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+        <input type="search" id="busqueda" placeholder="Buscar estudiante o tema…" aria-label="Buscar estudiante o tema">
+      </label>
+    </div>
+  </nav>
+
+  <main class="contenedor" id="cursos"></main>
+
+  <footer>
+    <div class="contenedor">Proyecto interdisciplinar «Explorando el Universo» · Grado 11</div>
+  </footer>
+
+  <div class="modal" id="modal" hidden>
+    <div class="modal-caja" role="dialog" aria-modal="true" aria-labelledby="modal-titulo">
+      <h3 id="modal-titulo"></h3>
+      <div id="qr"></div>
+      <p class="modal-url" id="modal-url"></p>
+      <div class="modal-acciones">
+        <button class="boton boton-principal" id="descargar" style="--color:#a5b4fc">Descargar QR</button>
+        <button class="boton boton-secundario" id="cerrar">Cerrar</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="assets/qrcode.js"></script>
+  <script>
+    const CURSOS = {
+      "1101": { tema: "Planetas y mundos habitables", color: "var(--c1101)" },
+      "1102": { tema: "Exoplanetas", color: "var(--c1102)" },
+      "1103": { tema: "Estrellas", color: "var(--c1103)" },
+      "1104": { tema: "Galaxias y cosmología", color: "var(--c1104)" }
+    };
+
+    // Un proyecto por grupo. La carpeta de cada uno es <curso>/grupo<n>/
+    const PROYECTOS = [
+    // 1101
+    { curso: "1101", grupo: 1, titulo: "Características físicas de los planetas", integrantes: ["Barragán Muñoz Guadalupe", "Cediel Torres Aitana Catalina", "Melo Parra David Santiago", "Sánchez Osorio Miguel Ángel"] },
+    { curso: "1101", grupo: 2, titulo: "Habitabilidad de planetas y su composición", integrantes: ["Caycedo Ortiz Isabella", "López Mora María Luciana", "Robelto Aguilar Sara Salomé"] },
+    { curso: "1101", grupo: 3, titulo: "Tectónica de placas y geología planetaria", integrantes: ["Alvarado Ramirez Maria Angelica", "Castañeda Solorzano Isabella", "Mateus Bojaca Ian Alejandro", "Rodríguez Hernández Juan Manuel"] },
+    { curso: "1101", grupo: 4, titulo: "Satélites", integrantes: ["Benavides Rivas Julian Camilo", "Gutiérrez Vera Mariana", "Perdomo Cadavid Sebastian Camilo", "Troncoso Lozada Daniela"] },
+    { curso: "1101", grupo: 5, titulo: "", integrantes: ["Álvarez Fonseca Gabriela", "Carreño Rojas Juan Esteban", "González Barco Felipe Alejandro", "Meléndez Pérez Juan Felipe"] },
+    { curso: "1101", grupo: 6, titulo: "¿Qué es un mundo habitable?", integrantes: ["Bernal Sandoval Nicolás", "Pérez Patiño Daniela", "Sáenz Celis Juanita Isabella", "Zabala Bernal Isabella"] },
+    { curso: "1101", grupo: 7, titulo: "Exploración espacial y misiones planetarias", integrantes: ["Canales Ríos Gabriel Tomás", "Chacón Rueda María Paula", "Reatigui Contreras Silvana", "Zambrano Guzmán Sergio Daniel"] },
+    // 1102
+    { curso: "1102", grupo: 1, titulo: "Detección de exoplanetas", integrantes: ["Gaitán Galvis Juan Diego", "Ladino Martinez Sara Jimena", "Rodríguez Blanco Gabriela", "Soler Manrique Sara Sofía"] },
+    { curso: "1102", grupo: 2, titulo: "Exoplanetas: ¿qué tipo de mundo descubrimos?", integrantes: ["Bautista Rodríguez Paula Camila", "Gutiérrez Cogollo Juan José", "Ochoa Ramos César David", "Zambrano Baron Maria Paula"] },
+    { curso: "1102", grupo: 3, titulo: "Zona habitable", integrantes: ["Escobar Sanabria María José", "Hernández Paredes Thomas Felipe", "Prieto Castiblanco María Alejandra", "Vega Ramírez Daniel Esteban"] },
+    { curso: "1102", grupo: 4, titulo: "Composición atmosférica de exoplanetas", integrantes: ["Calderón Medina Isabella", "Ospina Bastos Isabel Sophia", "Montes Salgado Juan Manuel", "Segura Pardo Juan Santiago"] },
+    { curso: "1102", grupo: 5, titulo: "¿Y si no estuviéramos solos?", integrantes: ["Aponte Ramírez María Juliana", "Solano García Valeria", "Triana Ortega Bianca Sofia", "Vargas Cruz Santiago"] },
+    { curso: "1102", grupo: 6, titulo: "Estrellas: ciclo de vida y energía", integrantes: ["Díaz Vásquez Gabriela", "González Alfonso Juan Andrés", "Gutiérrez Martínez Juan José", "Peláez Loaiza Catalina"] },
+    { curso: "1102", grupo: 7, titulo: "Radiación estelar y habitabilidad de exoplanetas", integrantes: ["Gamboa Suárez Lina Sofía", "Gutiérrez Galindo Juan Felipe", "Maldonado Reina Juan David", "Zambrano Salazar Juana Valentina"] },
+    // 1103
+    { curso: "1103", grupo: 1, titulo: "Formación estelar", integrantes: ["Escobar Hernández Sebastian", "Mesa Díaz Esteban", "Rodríguez Morales Valentina", "Villamil Beltrán Valentina"] },
+    { curso: "1103", grupo: 2, titulo: "Clasificación de estrellas", integrantes: ["Cabrejo Santos Sara Sofia", "Guevara Álvarez María Camila", "Hernández Lopera Sofia", "Ruiz Serrano Sofia"] },
+    { curso: "1103", grupo: 3, titulo: "Fusión nuclear en las estrellas", integrantes: ["Durán Rodríguez María José", "Merino Torres Sara Valentina", "Reyes Rico Isabella", "Velandia Quiroga Antonia"] },
+    { curso: "1103", grupo: 4, titulo: "Ciclo de vida de una estrella", integrantes: ["Benavides Acosta Catalina", "Gaitán Quinche Sofía", "Moncada Rodríguez Manuela", "Romero Corrales Alejandro"] },
+    { curso: "1103", grupo: 5, titulo: "Estrellas binarias y no binarias", integrantes: ["Chivatá Vilá Martín", "Mendoza Garzón Juan Sebastian", "Perdomo Marin Samuel Esteban", "Tovar Cordoba Isabella"] },
+    { curso: "1103", grupo: 6, titulo: "Estrellas y cómo afectan a su entorno", integrantes: ["Chacón Rueda Mariana", "Lazaro Leal Sebastian", "Oyuela Ospina María Paula", "Tinoco Rodriguez Santiago"] },
+    { curso: "1103", grupo: 7, titulo: "Tecnología de observación estelar", integrantes: ["Caldera Torres Juan José", "Moreno Sanabria Andrés David", "Norman Sarria Santiago", "Sánchez Sanabria Camila"] },
+    // 1104
+    { curso: "1104", grupo: 1, titulo: "La estructura de las galaxias", integrantes: ["Aguilar Hernández Juan José", "Garzón Sanabria Samuel Esteban", "Hernández Henao Samuel", "Morales Caballero María Paula"] },
+    { curso: "1104", grupo: 2, titulo: "Las galaxias y sus clasificaciones", integrantes: ["Cortés Leonel Sarah Nicolle", "Robles Garzón Catalina", "Sepulveda Sanabria John Sebastian", "Triana Jaramillo Maria Camila"] },
+    { curso: "1104", grupo: 3, titulo: "Formación y evolución de las galaxias", integrantes: ["Barriga Marín Gabriela", "Hortua Montes Alejandro", "Páez González Isabella", "Ruiz Avendaño Diego Alejandro"] },
+    { curso: "1104", grupo: 4, titulo: "Colisiones y fusiones de galaxias", integrantes: ["Castro Peñarete María Juliana", "Maduro Gil Valeria", "Rangel Balbuena Paula Sofía", "Silva Morales Isabella"] },
+    { curso: "1104", grupo: 5, titulo: "Materia oscura", integrantes: ["Melo Rodríguez Juan Felipe", "Rodríguez Ruiz Isabella del Valle", "Rubiano Pulido Juan José", "Zuluaga Palomino José Manuel"] },
+    { curso: "1104", grupo: 6, titulo: "Agujeros negros", integrantes: ["Aldana Pinzón Danna Gabriela", "Muñoz Delgado David Santiago", "Peña Alayón María Camila", "Rojas Cruz Catalina"] },
+    { curso: "1104", grupo: 7, titulo: "Cosmología y distribución de galaxias", integrantes: ["Beltrán Pardo Felipe", "Chaves Cardenas Maria Jose", "Jiménez Ballén Karen Sofía", "Meléndez Pérez María Paula"] }
+    ];
+
+    const rutaProyecto = (p) => `${p.curso}/grupo${p.grupo}/`;
+    const urlProyecto = (p) => new URL(rutaProyecto(p), location.href).href;
+
+    const normalizar = (t) => t.normalize("NFD").replace(/[̀-ͯ]/g, "").toLowerCase();
+
+    const icono = {
+      flecha: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>',
+      qr: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><path d="M14 14h3v3h-3zM20 14v.01M14 20h.01M17 20h4v-3"/></svg>'
+    };
+
+    const escapar = (t) => t.replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+
+    let filtroActivo = "todos";
+    let textoBusqueda = "";
+
+    // ---------- Filtros ----------
+    const contenedorFiltros = document.getElementById("filtros");
+    const opciones = [["todos", "Todos", "#a5b4fc"], ...Object.entries(CURSOS).map(([c, d]) => [c, c, d.color])];
+    contenedorFiltros.innerHTML = opciones.map(([id, texto, color]) =>
+      `<button class="filtro${id === filtroActivo ? " activo" : ""}" data-filtro="${id}" style="--color:${color}">${texto}</button>`
+    ).join("");
+
+    contenedorFiltros.addEventListener("click", (e) => {
+      const boton = e.target.closest(".filtro");
+      if (!boton) return;
+      filtroActivo = boton.dataset.filtro;
+      contenedorFiltros.querySelectorAll(".filtro").forEach((b) => b.classList.toggle("activo", b === boton));
+      dibujar();
+    });
+
+    document.getElementById("busqueda").addEventListener("input", (e) => {
+      textoBusqueda = normalizar(e.target.value.trim());
+      dibujar();
+    });
+
+    // ---------- Tarjetas ----------
+    function tarjeta(p) {
+      const titulo = p.titulo
+        ? `<h3>${escapar(p.titulo)}</h3>`
+        : `<h3 class="pendiente">Subtema por definir</h3>`;
+      return `
+        <article class="tarjeta">
+          <span class="tarjeta-num">Grupo ${p.grupo}</span>
+          ${titulo}
+          <ul>${p.integrantes.map((n) => `<li>${escapar(n)}</li>`).join("")}</ul>
+          <div class="tarjeta-acciones">
+            <a class="boton boton-principal" href="${rutaProyecto(p)}">Ver proyecto ${icono.flecha}</a>
+            <button class="boton boton-secundario" data-qr="${p.curso}-${p.grupo}" aria-label="Código QR del grupo ${p.grupo} del curso ${p.curso}" title="Código QR">${icono.qr}</button>
+          </div>
+        </article>`;
+    }
+
+    function coincide(p) {
+      if (!textoBusqueda) return true;
+      const texto = normalizar([p.titulo, `grupo ${p.grupo}`, p.curso, ...p.integrantes].join(" "));
+      return textoBusqueda.split(/\s+/).every((palabra) => texto.includes(palabra));
+    }
+
+    function dibujar() {
+      const main = document.getElementById("cursos");
+      const html = Object.entries(CURSOS)
+        .filter(([c]) => filtroActivo === "todos" || filtroActivo === c)
+        .map(([c, datos]) => {
+          const lista = PROYECTOS.filter((p) => p.curso === c && coincide(p));
+          if (!lista.length) return "";
+          return `
+            <section class="curso" id="curso-${c}" style="--color:${datos.color}">
+              <div class="curso-encabezado">
+                <h2>${c}</h2>
+                <p>${datos.tema}</p>
+              </div>
+              <div class="grilla">${lista.map(tarjeta).join("")}</div>
+            </section>`;
+        }).join("");
+      main.innerHTML = html || `<p class="sin-resultados">No se encontraron proyectos para «${escapar(textoBusqueda)}».</p>`;
+    }
+
+    dibujar();
+
+    // ---------- Código QR ----------
+    const modal = document.getElementById("modal");
+    const cajaQR = document.getElementById("qr");
+    let proyectoQR = null;
+
+    document.getElementById("cursos").addEventListener("click", (e) => {
+      const boton = e.target.closest("[data-qr]");
+      if (!boton) return;
+      const [curso, grupo] = boton.dataset.qr.split("-");
+      proyectoQR = PROYECTOS.find((p) => p.curso === curso && p.grupo === Number(grupo));
+      abrirQR(proyectoQR);
+    });
+
+    function abrirQR(p) {
+      const url = urlProyecto(p);
+      document.getElementById("modal-titulo").textContent = `${p.curso} · Grupo ${p.grupo}`;
+      document.getElementById("modal-url").textContent = url;
+      cajaQR.innerHTML = "";
+      if (window.qrcode) {
+        cajaQR.appendChild(dibujarQR(url));
+      } else {
+        cajaQR.innerHTML = '<p style="color:#333">No se pudo cargar el generador de QR. Use el enlace de abajo.</p>';
+      }
+      modal.hidden = false;
+      document.getElementById("cerrar").focus();
+    }
+
+    // Dibuja el QR en un lienzo con margen blanco, listo para imprimir
+    function dibujarQR(texto) {
+      const qr = qrcode(0, "H");
+      qr.addData(texto);
+      qr.make();
+      const modulos = qr.getModuleCount();
+      const celda = 16;
+      const margen = 4 * celda;
+      const lienzo = document.createElement("canvas");
+      lienzo.width = lienzo.height = modulos * celda + margen * 2;
+      const ctx = lienzo.getContext("2d");
+      ctx.fillStyle = "#fff";
+      ctx.fillRect(0, 0, lienzo.width, lienzo.height);
+      ctx.fillStyle = "#000";
+      for (let f = 0; f < modulos; f++) {
+        for (let c = 0; c < modulos; c++) {
+          if (qr.isDark(f, c)) ctx.fillRect(margen + c * celda, margen + f * celda, celda, celda);
+        }
+      }
+      return lienzo;
+    }
+
+    function cerrarQR() { modal.hidden = true; }
+
+    document.getElementById("cerrar").addEventListener("click", cerrarQR);
+    modal.addEventListener("click", (e) => { if (e.target === modal) cerrarQR(); });
+    document.addEventListener("keydown", (e) => { if (e.key === "Escape" && !modal.hidden) cerrarQR(); });
+
+    document.getElementById("descargar").addEventListener("click", () => {
+      const lienzo = cajaQR.querySelector("canvas");
+      if (!lienzo || !proyectoQR) return;
+      const enlace = document.createElement("a");
+      enlace.download = `QR-${proyectoQR.curso}-grupo${proyectoQR.grupo}.png`;
+      enlace.href = lienzo.toDataURL("image/png");
+      enlace.click();
+    });
+
+    // ---------- Fondo de estrellas ----------
+    const cielo = document.getElementById("estrellas");
+    const ctx = cielo.getContext("2d");
+    const quieto = matchMedia("(prefers-reduced-motion: reduce)").matches;
+    let estrellas = [];
+
+    function crearEstrellas() {
+      const dpr = window.devicePixelRatio || 1;
+      cielo.width = innerWidth * dpr;
+      cielo.height = innerHeight * dpr;
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      const cantidad = Math.round((innerWidth * innerHeight) / 4500);
+      estrellas = Array.from({ length: cantidad }, () => ({
+        x: Math.random() * innerWidth,
+        y: Math.random() * innerHeight,
+        r: Math.random() * 1.3 + 0.2,
+        fase: Math.random() * Math.PI * 2,
+        vel: Math.random() * 0.02 + 0.005
+      }));
+    }
+
+    function pintarCielo() {
+      ctx.clearRect(0, 0, innerWidth, innerHeight);
+      for (const e of estrellas) {
+        e.fase += e.vel;
+        ctx.globalAlpha = 0.35 + 0.65 * Math.abs(Math.sin(e.fase));
+        ctx.beginPath();
+        ctx.arc(e.x, e.y, e.r, 0, Math.PI * 2);
+        ctx.fillStyle = "#fff";
+        ctx.fill();
+      }
+      if (!quieto) requestAnimationFrame(pintarCielo);
+    }
+
+    crearEstrellas();
+    pintarCielo();
+    addEventListener("resize", () => { crearEstrellas(); if (quieto) pintarCielo(); });
+  </script>
 </body>
 </html>
