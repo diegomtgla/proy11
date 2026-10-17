@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Proyecto educativo sobre las nebulosas y la formación estelar.">
+  <title>Formación estelar</title>
+  <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+  <header id="portada">
+    <h1>FORMACIÓN ESTELAR</h1>
+    <p>En las profundidades oscuras del universo, entre nubes de gas y polvo, nacen las estrellas que iluminan el cosmos.</p>
+  </header>
+
+  <nav aria-label="Menú principal">
+    <a href="#introduccion">Introducción</a>
+    <a href="#objetivos">Objetivos</a>
+    <a href="#marco-teorico">Marco teórico</a>
+    <a href="#simulacion">Simulación interactiva</a>
+    <a href="#stand">Stand</a>
+    <a href="#referencias">Referencias</a>
+  </nav>
+
+  <main>
+    <section id="introduccion">
+      <h2>Introducción</h2>
+      <p>La formación estelar es el proceso mediante el cual nacen las estrellas a partir de grandes nubes de gas y polvo llamadas nubes moleculares, compuestas principalmente por hidrógeno. Cuando una región de estas nubes se vuelve lo suficientemente densa, la gravedad provoca que el material colapse y se concentre, formando una protoestrella.</p>
+      <p>Durante este proceso, la materia se comprime y aumenta la temperatura y la presión en el núcleo. Cuando se alcanzan las condiciones adecuadas, puede comenzar la fusión nuclear. La masa de la estrella determina en gran medida su temperatura, brillo, tamaño y duración, por lo que no todas las estrellas evolucionan de la misma manera.</p>
+    </section>
+
+    <section id="objetivos">
+      <h2>Objetivos</h2>
+      <h3>Objetivo general</h3>
+      <p>Comprender cómo las nubes de gas y polvo del espacio dan origen a las estrellas e inician el ciclo de formación estelar.</p>
+      <h3>Objetivos específicos</h3>
+      <ul>
+        <li>Comprender cómo y por qué se forman las estrellas e identificar las etapas por las que pasan desde su nacimiento hasta el final de su evolución.</li>
+        <li>Diferenciar los tipos de nebulosas, sus características y su relación con la formación estelar.</li>
+      </ul>
+    </section>
+
+    <section id="marco-teorico">
+      <h2>Marco teórico</h2>
+      <h3>1. ¿Qué son las nebulosas y cuáles son sus tipos?</h3>
+      <figure>
+        <img src="imagenes/figura1.png" alt="Mapa conceptual sobre las nebulosas y sus tipos" loading="lazy">
+        <figcaption>Escanea el código QR para explorar el mapa conceptual sobre las nebulosas y sus distintos tipos.</figcaption>
+      </figure>
+
+      <h3>2. Características de la formación estelar</h3>
+      <figure>
+        <img src="imagenes/figura1.jpg" alt="Ilustración relacionada con la formación estelar" loading="lazy">
+        <figcaption>Representación visual de las características de la formación estelar.</figcaption>
+      </figure>
+
+      <div class="tarjeta">
+        <p class="dato">1–2 estrellas por año</p>
+        <p>En una galaxia como la Vía Láctea nacen aproximadamente entre una y dos estrellas por año. Mientras lees esto, en algún lugar de nuestra galaxia pueden estar formándose nuevas estrellas a partir de enormes nubes de gas y polvo.</p>
+      </div>
+
+      <h3>3. Datos y cifras</h3>
+      <p>Una nube molecular donde nacen estrellas puede extenderse a lo largo de cientos de años luz y contener suficiente gas para formar miles o incluso millones de estrellas.</p>
+      <figure>
+        <img src="imagenes/figura2.png" alt="Etapas del proceso de formación estelar" loading="lazy">
+        <figcaption>Figura 2. Procesos de formación estelar.</figcaption>
+      </figure>
+    </section>
+
+    <!-- NUEVA SECCIÓN: SIMULACIÓN INTERACTIVA -->
+    <section id="simulacion">
+      <h2>Simulación interactiva: nacimiento de una estrella</h2>
+      <p>Observa una representación simplificada del proceso: una nube molecular se contrae por efecto de la gravedad, el material forma un disco y en el centro aparece una protoestrella que aumenta su brillo.</p>
+
+      <div class="simulacion-contenedor">
+        <canvas id="lienzo" aria-label="Animación 3D de una nube molecular que se contrae y forma una estrella">
+          Tu navegador no permite mostrar la simulación 3D.
+        </canvas>
+
+        <div id="panel">
+          <h3 id="etapa" aria-live="polite">1. Nebulosa molecular</h3>
+          <div class="barra-fondo" role="progressbar" aria-label="Progreso de la simulación" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" id="barraAccesible">
+            <div id="progreso"></div>
+          </div>
+
+          <label for="velocidad">Velocidad de simulación</label>
+          <input id="velocidad" type="range" min="0.02" max="0.5" step="0.01" value="0.08">
+          <p class="valor-velocidad">Velocidad seleccionada: <span id="valorVelocidad">0.08</span></p>
+
+          <div class="botones">
+            <button id="iniciar" type="button">Continuar</button>
+            <button id="pausar" type="button">Pausar</button>
+            <button id="reiniciar" type="button">Reiniciar</button>
+          </div>
+          <p id="explicacion" aria-live="polite">Una nube de gas y polvo comienza a contraerse por efecto de la gravedad.</p>
+          <p class="nota-simulacion">Esta animación es un modelo visual educativo y no representa todas las escalas de tiempo ni todos los procesos físicos reales.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="stand">
+      <h2>Nuestro stand durante la presentación del proyecto final</h2>
+      <p>El stand propone un recorrido visual por la formación estelar, desde una nube molecular hasta el nacimiento de una protoestrella. Incluye modelos y elementos físicos que representan objetos y procesos del espacio, como el disco de acreción, además de un simulador educativo para explorar de manera sencilla algunas condiciones que intervienen en el proceso. También cuenta con materiales identificados como “catalizador” y “nutriente”, tarjetas informativas, un código QR para ampliar la información y la invitación “Deja que la ciencia te sorprenda”, pensada para que el visitante participe y descubra.</p>
+
+      <table>
+        <thead>
+          <tr><th>El experimento físico muestra</th><th>El sitio web muestra</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Una representación de la formación estelar mediante un experimento químico.</td><td>Una propuesta visual de cómo se vería y realizaría el experimento.</td></tr>
+          <tr><td>Cómo se observa una reacción química exotérmica con elementos sencillos.</td><td>Los materiales necesarios para el experimento y los elementos requeridos para la seguridad.</td></tr>
+        </tbody>
+      </table>
+
+      <figure>
+        <img src="imagenes/stand.png" alt="Boceto del stand del grupo" loading="lazy">
+        <figcaption>Figura 3. Propuesta de adecuación del stand.</figcaption>
+      </figure>
+    </section>
+  </main>
+
+  <footer id="referencias">
+    <h2>Referencias</h2>
+    <ol>
+      <li>Aprendix. (2025, 7 de abril). <em>Nebulosa: significado, tipos y características esenciales</em>. Aprende En Casa. <a href="https://aprendix.org/nebulosa-significado/" target="_blank" rel="noopener noreferrer">https://aprendix.org/nebulosa-significado/</a></li>
+      <li>Cendrero, &amp; Cendrero. (2011, 8 de septiembre). <em>Cien años del diagrama de Hertzsprung-Russell, el gráfico que organizó las estrellas</em>. Naukas. <a href="https://naukas.com/2011/09/08/cien-anos-del-diagrama-de-hertzsprung-russell-el-grafico-que-organizo-las-estrellas/" target="_blank" rel="noopener noreferrer">Leer artículo</a></li>
+      <li>Instituto de Astrofísica de Canarias. (s. f.). <em>Física estelar e interestelar</em>. <a href="https://iac.es/es/severoochoa/fisica-estelar-e-interestelar" target="_blank" rel="noopener noreferrer">https://iac.es/es/severoochoa/fisica-estelar-e-interestelar</a></li>
+      <li>Instituto Geográfico Nacional. (s. f.). <em>Formación de estrellas</em>. Astronomía. <a href="https://astronomia.ign.es/formacion-de-estrellas" target="_blank" rel="noopener noreferrer">https://astronomia.ign.es/formacion-de-estrellas</a></li>
+      <li>National Geographic España. (s. f.). <em>Nebulosa a supernova: así es la vida de una estrella</em>. <a href="https://www.nationalgeographic.com.es/ciencia/nebulosa-a-supernova-asi-es-vida-estrella_22189" target="_blank" rel="noopener noreferrer">Leer artículo</a></li>
+      <li>Simoes, C. (2023, 29 de diciembre). <em>Ciclo de vida de las estrellas: del nacimiento a la muerte estelar</em>. Astronoo. <a href="https://astronoo.com/es/articulos/vida-de-las-estrellas.html" target="_blank" rel="noopener noreferrer">https://astronoo.com/es/articulos/vida-de-las-estrellas.html</a></li>
+    </ol>
+    <p class="creditos">Proyecto interdisciplinar Explorando el Universo · Gimnasio Los Arrayanes Bilingüe · Grado 11 · Integrantes: Sebastian Escobar, Esteban Mesa, Valentina Rodriguez y Villamil.</p>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

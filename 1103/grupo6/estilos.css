@@ -1,0 +1,252 @@
+
+
+/* =========================================
+   1. ESTILOS GENERALES
+========================================= */
+
+body {
+  background-color: #300117;
+  color: #f2f2f2;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 16px;
+  line-height: 1.6;
+}
+
+h1 {
+  font-size: 28px;
+  line-height: 1.2;
+}
+
+h2 {
+  font-size: 22px;
+  color: #be8314;
+}
+
+h3 {
+  font-size: 18px;
+}
+
+p {
+  font-size: 16px;
+}
+
+section {
+  margin-bottom: 40px;
+  scroll-margin-top: 20px;
+}
+
+img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+figure {
+  margin: 0 0 26px;
+}
+
+figcaption {
+  font-size: 14px;
+  color: #c0c5d2;
+  margin-top: 8px;
+}
+
+/* =========================================
+   2. PORTADA Y NAVEGACIÓN
+========================================= */
+
+#portada {
+  padding: 24px 0;
+}
+
+nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 32px;
+  border-bottom: 1px solid #633047;
+  padding-bottom: 16px;
+}
+
+nav a {
+  display: inline-block;
+  padding: 10px 12px;
+  color: #9ecbff;
+  text-decoration: none;
+  border-radius: 6px;
+}
+
+nav a:hover {
+  background-color: #50152e;
+  color: #ffffff;
+}
+
+/* =========================================
+   3. GALERÍA DE ESTRELLAS
+========================================= */
+
+.galeria-estrellas {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.galeria-estrellas figure {
+  min-width: 0;
+  margin-bottom: 10px;
+}
+
+.galeria-estrellas img {
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+}
+
+.galeria-estrellas figcaption {
+  color: #ffc857;
+  font-weight: bold;
+}
+
+/* =========================================
+   4. TABLAS
+========================================= */
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 15px;
+  margin-bottom: 20px;
+}
+
+th,
+td {
+  border: 1px solid #633047;
+  padding: 10px;
+  text-align: left;
+}
+
+th {
+  background-color: #0d1326;
+  color: #ffc857;
+}
+
+td {
+  overflow-wrap: anywhere;
+}
+
+/* =========================================
+   5. TARJETAS Y DATOS DESTACADOS
+========================================= */
+
+.tarjeta {
+  background-color: #0d1326;
+  border: 1px solid #633047;
+  border-radius: 12px;
+  padding: 18px;
+  margin-bottom: 16px;
+}
+
+.dato {
+  font-size: 36px;
+  font-weight: bold;
+  color: #ffc857;
+  margin: 0;
+}
+
+/* =========================================
+   6. SIMULACIÓN 3D
+========================================= */
+
+#simulacion {
+  background-color: #240216;
+  border: 1px solid #633047;
+  border-radius: 12px;
+  padding: 16px;
+}
+
+.contenedor-simulacion {
+  width: 100%;
+  overflow: hidden;
+  background-color: #05070f;
+  border-radius: 12px;
+}
+
+#lienzo {
+  display: block;
+  width: 100%;
+  height: 320px;
+  background-color: #05070f;
+  border-radius: 12px;
+}
+
+.nota-simulacion {
+  color: #c0c5d2;
+  font-size: 13px;
+}
+
+/* =========================================
+   7. PIE DE PÁGINA
+========================================= */
+
+footer {
+  border-top: 1px solid #633047;
+  padding-top: 24px;
+  margin-top: 40px;
+}
+
+/* =========================================
+   8. PANTALLAS MEDIANAS Y GRANDES
+========================================= */
+
+@media (min-width: 700px) {
+  body {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 32px;
+  }
+
+  h1 {
+    font-size: 44px;
+  }
+
+  h2 {
+    font-size: 30px;
+  }
+
+  .galeria-estrellas {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  #simulacion {
+    padding: 24px;
+  }
+
+  #lienzo {
+    height: 420px;
+  }
+}
+
+/* =========================================
+   9. TELÉFONOS PEQUEÑOS
+========================================= */
+
+@media (max-width: 380px) {
+  body {
+    padding: 12px;
+  }
+
+  .galeria-estrellas {
+    grid-template-columns: 1fr;
+  }
+
+  th,
+  td {
+    padding: 6px;
+    font-size: 13px;
+  }
+
+  #lienzo {
+    height: 260px;
+  }
+}

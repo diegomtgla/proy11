@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DETECCIÓN DE EXOPLANETAS</title>
+  <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+
+  <!-- ===== PORTADA =====================================
+       RESPONSABLE: entrada
+       Cambien el titulo y la frase de entrada.
+  ==================================================== -->
+  <header id="portada">
+    <h1>Detección de Exoplanetas</h1>
+    <p>Buscando mundos desconocidos</p>
+  </header>
+
+  <!-- ===== MENU ======================================== -->
+  <nav>
+    <a href="#introduccion">Introducción</a>
+    <a href="#objetivos">Objetivos</a>
+    <a href="#marco-teorico">Marco teórico</a>
+    <a href="#stand">Stand</a>
+    <a href="#referencias">Referencias</a>
+  </nav>
+
+  <!-- ===== INTRODUCCION ================================
+       RESPONSABLE: entrada
+       Tres parrafos, uno por pregunta:
+         1. Que es el fenomeno
+         2. Por que importa
+         3. Que va a encontrar el visitante aqui
+  ==================================================== -->
+  <section id="introduccion">
+    <h2>Introducción</h2>
+    <p>¿Qué es el fenómeno?</p>
+     <p>Los exoplanetas son planetas que se encuentran fuera de nuestro Sistema Solar y orbitan alrededor de otras estrellas. Aunque no podemos ver la mayoría directamente, los científicos pueden detectarse observando cambios en la luz de sus estrellas y estudiando sus características.</p> 
+    <p>¿Por qué importa?</p>
+      <p>El estudio de los exoplanetas es importante porque nos ayuda a comprender cómo se forman y evolucionan los planetas y a conocer mejor nuestro lugar en el universo. Además, algunos exoplanetas se encuentran en zonas donde podrían existir condiciones adecuadas para la presencia de agua líquida, lo que los convierte en objetos de gran interés científico.</p>
+   
+    <p>¿Qué va a encontrar el visitante?</p>
+    <p>El visitante encontrará un recorrido visual por diferentes exoplanetas, sus características, métodos de detección y las condiciones que los científicos consideran importantes para estudiar su posible habitabilidad. También podrá comprender cómo los investigadores buscan señales que permitan conocer más sobre estos mundos lejanos.</p>
+  </section>
+
+  <!-- ===== OBJETIVOS ===================================
+       RESPONSABLE: entrada
+       1. Analizar las condiciones necesarias para la existencia de vida y compararlas con las características de los exoplanteas
+       2. Identificar la composicion quimica de las atmosferas de los exoplanetas mediante el analisis de elementos y moleculas presentes
+       3. Calcular parametros como la distancia, el tamaño, el periodo orbital y otras variables 
+       4. Comprender los principios fisicos utilizados para detectar exoplanetas, como el transito planetario y el efecto Doppler
+  ==================================================== -->
+  <section id="objetivos">
+    <h2>Objetivos</h2>
+
+    <h3>Objetivo general</h3>
+    <p>Verbo en infinitivo, qué quieren lograr y para qué.</p>
+
+    <h3>Objetivos específicos</h3>
+    <ul>
+      <li>Describir ...</li>
+      <li>Explicar ...</li>
+      <li>Relacionar el sitio con el experimento del stand.</li>
+    </ul>
+  </section>
+
+  <!-- ===== MARCO TEORICO ===============================
+       RESPONSABLE: contenido
+       Minimo tres subsecciones con h3.
+       Minimo dos figuras numeradas con su pie.
+  ==================================================== -->
+  <section id="marco-teorico">
+    <h2>Marco teórico</h2>
+
+    <h3>Detección por el Método del Tránsito</h3>
+    <h4>¿Qué Es?</h4>
+    <p>Consiste en observar cómo cambia el brillo de una estrella cuando un planeta pasa por delante de ella desde nuestro punto de vista. El planeta bloquea una pequeña parte de la luz de la estrella.</p>
+    <p>Como consecuencia, el brillo observado disminuye ligeramente cuando el planeta termina de pasar, el brillo vuelve a su nivel normal. Si esta disminución se repite periódicamente, puede indicar la presencia de un exoplaneta.</p>
+    <h4>¿Qué podemos obtener con el tránsito?</h4>
+    <p>A partir de la curva de luz podemos obtener información sobre el exoplaneta:</p>
+    <p>1. Período orbital: tiempo que tarda el planeta en completar una órbita.</p>
+    <p>2.Tamaño relativo: la profundidad del descenso de brillo permite estimar el radio del planeta respecto al de la estrella.</p>
+    <p>3.Duración del tránsito: proporciona información sobre la órbita y el movimiento del planeta.</p>
+    <p>Si conocemos las características de la estrella, podemos obtener una estimación del radio del exoplaneta.
+La simulación con Arduino presentada en la Revista Española de Física sirve como modelo didáctico para comprender cómo se puede representar esta variación de luminosidad.</p>
+    <figure>
+      <img src="imagenes/figura1.jpg" alt="Descripcion de lo que muestra la figura">
+      <figcaption>Figura 1. Qué muestra la figura y quién la elaboró.</figcaption>
+    </figure>
+
+    <h3>Detección por Velocidad Radial</h3>
+    <h4>¿Qué Es?</h4>
+    <p>La velocidad radial se basa en detectar el movimiento que produce el planeta sobre su estrella debido a la gravedad. Aunque normalmente pensamos que el planeta gira alrededor de una estrella inmóvil, ambos cuerpos interactúan gravitacionalmente.
+La estrella realiza un pequeño movimiento alrededor del centro de masa del sistema desde la Tierra podemos medir si la estrella se acerca o se aleja de nosotros. Este movimiento modifica ligeramente las líneas de su espectro.
+El fenómeno se conoce como efecto Doppler.</p>
+<h4>El Efecto Doppler</h4>
+<p>El efecto Doppler permite detectar el movimiento de la estrella mediante su espectro. Cuando la estrella se acerca:</p>
+<p>1. Sus líneas espectrales se desplazan hacia longitudes de onda menores.</p>
+    <p>2.Se produce un corrimiento al azul.</p>
+    <p>Cuando la estrella se aleja:</p>
+    <p>1.Sus líneas espectrales se desplazan hacia longitudes de onda mayores.</p>
+    <p>2.Se produce un corrimiento al rojo.</p>
+    <p>Al medir estos desplazamientos a lo largo del tiempo, se obtiene una curva de velocidad radial. A partir de ella se pueden determinar características de la órbita y estimar la masa mínima del planeta.</p>
+    <figure>
+      <img src="imagenes/figura2.jpg" alt="Descripcion de lo que muestra la figura">
+      <figcaption>Figura 1. Qué muestra la figura y quién la elaboró.</figcaption>
+    </figure>
+
+    <div class="tarjeta">
+      <p class="dato">CIFRA</p>
+      <p>Qué significa esa cifra, en una frase.</p>
+    </div>
+
+    <h3>3. Datos y cifras</h3>
+    <p>Las magnitudes que hacen concreto el fenómeno.</p>
+
+    <figure>
+      <img src="imagenes/figura2.jpg" alt="Descripcion de lo que muestra la figura">
+      <figcaption>Figura 2. Qué muestra la figura y quién la elaboró.</figcaption>
+    </figure>
+  </section>
+
+  <!-- ===== STAND =======================================
+       RESPONSABLE: stand y fuentes
+  ==================================================== -->
+  <section id="stand">
+    <h2>Nuestro stand durante la presentación del proyecto final</h2>
+    <p>Qué encuentra el visitante.</p>
+
+    <table>
+      <tr>
+        <th>El experimento físico muestra</th>
+        <th>El sitio web muestra</th>
+      </tr>
+      <tr>
+        <td>—</td>
+        <td>—</td>
+      </tr>
+      <tr>
+        <td>—</td>
+        <td>—</td>
+      </tr>
+    </table>
+
+    <figure>
+      <img src="imagenes/stand.jpg" alt="Boceto del stand del grupo">
+      <figcaption>Figura 3. Propuesta de adecuación del stand.</figcaption>
+    </figure>
+  </section>
+
+  <!-- ===== REFERENCIAS =================================
+       RESPONSABLE: stand y fuentes
+       Autor. (Ano). Titulo. Sitio. Enlace. Fecha de consulta.
+  ==================================================== -->
+  <footer id="referencias">
+    <h2>Referencias</h2>
+    <ol>
+      <li>Primera fuente.</li>
+      <li>Segunda fuente.</li>
+      <li>Tercera fuente.</li>
+    </ol>
+
+    <p>
+      Proyecto interdisciplinar Explorando el Universo · Gimnasio Los Arrayanes
+      Bilingüe · Grado 11 · Integrantes: nombres del grupo.
+    </p>
+  </footer>
+
+</body>
+</html>

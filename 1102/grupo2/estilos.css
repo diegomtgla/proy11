@@ -1,0 +1,130 @@
+/* ============================================================
+   ESTILOS DEL SITIO — CICLO 3
+   Proyecto: Explorando el Universo
+   Tema: Clasificación de exoplanetas + simulación 3D
+   ============================================================ */
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  background:
+    radial-gradient(circle at 20% 10%, rgba(75, 100, 180, .18), transparent 25%),
+    radial-gradient(circle at 80% 30%, rgba(255, 200, 87, .08), transparent 22%),
+    #0b1026;
+  color: #f2f2f2;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 16px;
+  line-height: 1.6;
+}
+h1 { font-size: 28px; line-height: 1.1; margin: 10px 0 18px; }
+h1 span { color: #ffc857; }
+h2 {
+  font-size: 22px; color: #ffc857;
+  border-left: 4px solid #ffc857; padding-left: 12px; margin-top: 0;
+}
+h3 { font-size: 18px; }
+p { font-size: 16px; }
+img { width: 100%; height: auto; border-radius: 14px; }
+section {
+  margin-bottom: 40px; background: rgba(13, 19, 38, .72);
+  border: 1px solid #1e2740; border-radius: 18px; padding: 22px;
+}
+.hero {
+  min-height: 430px; display: flex; align-items: center;
+  border: 1px solid #27345a; border-radius: 20px; padding: 30px;
+  background:
+    radial-gradient(circle at 75% 30%, rgba(255, 200, 87, .25) 0 2px, transparent 3px),
+    radial-gradient(circle at 20% 70%, rgba(158, 203, 255, .45) 0 1px, transparent 2px),
+    radial-gradient(circle at 85% 75%, rgba(158, 203, 255, .35) 0 1px, transparent 2px),
+    linear-gradient(135deg, #080d21, #121c42 55%, #080d21);
+}
+.hero-content { max-width: 680px; }
+.eyebrow { color: #9ecbff; font-size: 13px; font-weight: bold; letter-spacing: 1.5px; }
+.hero-content > p:not(.eyebrow) { color: #d7dced; max-width: 600px; }
+.boton {
+  display: inline-block; background: #ffc857; color: #0b1026; text-decoration: none;
+  font-weight: bold; padding: 12px 18px; border-radius: 10px; margin-top: 12px;
+}
+.menu {
+  position: sticky; top: 0; z-index: 10; margin: 14px 0 28px; padding: 8px;
+  background: rgba(11, 16, 38, .94); border: 1px solid #1e2740;
+  border-radius: 12px; backdrop-filter: blur(8px);
+}
+nav a { display: inline-block; padding: 8px 10px; color: #9ecbff; text-decoration: none; font-weight: bold; font-size: 14px; }
+nav a:hover { color: #ffc857; }
+ul { padding-left: 22px; }
+li { margin-bottom: 8px; }
+figure { margin: 24px 0 26px; }
+figcaption { font-size: 14px; color: #98a3bb; margin-top: 8px; }
+table { width: 100%; border-collapse: collapse; font-size: 15px; margin-bottom: 20px; }
+th, td { border: 1px solid #1e2740; padding: 10px; text-align: left; vertical-align: top; }
+th { background-color: #0d1326; color: #ffc857; }
+tr:nth-child(even) td { background-color: rgba(255,255,255,.025); }
+.tarjeta { background: linear-gradient(135deg, #0d1326, #111b38); border: 1px solid #27345a; border-radius: 14px; padding: 18px; margin: 22px 0; }
+.dato { font-size: 36px; font-weight: bold; color: #ffc857; margin: 0; }
+.cards { display: grid; gap: 14px; }
+.planet-card { border: 1px solid #263254; border-radius: 15px; padding: 18px; background: #0d1326; }
+.planet-card h3 { margin-top: 4px; }
+.planet-icon { font-size: 42px; }
+.earth { border-top: 4px solid #5cb8ff; }
+.super { border-top: 4px solid #c6a0ff; }
+.hot { border-top: 4px solid #ff8b5c; }
+.selector { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; margin: 20px 0; }
+.selector button {
+  border: 1px solid #334267; background: #111a35; color: #f2f2f2;
+  padding: 13px; border-radius: 10px; font-weight: bold; cursor: pointer;
+}
+.selector button:hover { background: #1a2850; color: #ffc857; }
+.resultado { min-height: 150px; background: #080d21; border: 1px solid #ffc857; border-radius: 15px; padding: 20px; }
+.resultado h3 { color: #ffc857; }
+.mini-titulo { color: #9ecbff; font-weight: bold; margin: 0; }
+.regla { margin-top: 15px; padding: 14px; border-left: 4px solid #9ecbff; background: rgba(158,203,255,.08); }
+.reto { border-color: #ffc857; }
+.creditos { color: #98a3bb; font-size: 14px; }
+footer { padding: 22px; margin-bottom: 20px; border-top: 1px solid #1e2740; }
+footer a { color: #9ecbff; }
+
+/* Simulación 3D integrada en el tema espacial del sitio */
+.simulacion-panel {
+  background: linear-gradient(135deg, rgba(13,19,38,.96), rgba(17,27,56,.96));
+  border: 1px solid #27345a;
+  border-radius: 18px;
+  padding: 18px;
+  margin: 22px 0;
+  overflow: hidden;
+}
+.simulacion-panel .sim-intro { color: #d7dced; max-width: 760px; }
+#lienzo {
+  display: block;
+  width: 100%;
+  height: 360px;
+  min-height: 260px;
+  border: 1px solid #334267;
+  border-radius: 14px;
+  overflow: hidden;
+  background: #080d21;
+}
+.controles {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 8px;
+  padding: 16px 4px 2px;
+}
+.controles label { color: #9ecbff; font-weight: bold; }
+.controles input[type="range"] { width: 100%; accent-color: #ffc857; cursor: pointer; }
+.controles p { margin: 0; }
+#valor { color: #ffc857; font-weight: bold; }
+.nota-simulacion { font-size: 14px; color: #98a3bb; margin-bottom: 0; }
+
+@media (min-width: 700px) {
+  body { max-width: 900px; margin: 0 auto; padding: 32px; }
+  h1 { font-size: 48px; }
+  h2 { font-size: 30px; }
+  .cards { grid-template-columns: repeat(3, 1fr); }
+  .selector { grid-template-columns: repeat(4, 1fr); }
+  section { padding: 30px; }
+  .simulacion-panel { padding: 22px; }
+  #lienzo { height: 420px; }
+  .controles { grid-template-columns: 1fr; }
+}

@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Exoplanetas: Clasifica tu mundo</title>
+  <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+  <header id="portada" class="hero">
+    <div class="hero-content">
+      <p class="eyebrow">PROYECTO INTERDISCIPLINAR · EXPLORANDO EL UNIVERSO</p>
+      <h1>Exoplanetas:<br><span>¿qué tipo de mundo descubrimos?</span></h1>
+      <p>Explora las diferencias entre planetas similares a la Tierra, supertierras y Júpiteres calientes.</p>
+      <a class="boton" href="#introduccion">Comenzar exploración ↓</a>
+    </div>
+  </header>
+
+  <nav class="menu" aria-label="Navegación principal">
+    <a href="#introduccion">Introducción</a>
+    <a href="#objetivos">Objetivos</a>
+    <a href="#marco-teorico">Marco teórico</a>
+    <a href="#simulacion">Simulación 3D</a>
+    <a href="#clasificador">Clasificador</a>
+    <a href="#stand">Stand</a>
+    <a href="#referencias">Referencias</a>
+  </nav>
+
+  <section id="introduccion">
+    <h2>Introducción</h2>
+    <p>Un exoplaneta es un planeta que se encuentra fuera de nuestro sistema solar, normalmente orbitando una estrella diferente al Sol. Estos mundos presentan una enorme variedad de tamaños, masas, composiciones y temperaturas.</p>
+    <p>Estudiarlos permite comprender mejor cómo se forman y evolucionan los sistemas planetarios. Además, comparar sus características con las de la Tierra ayuda a identificar mundos que podrían ser interesantes para estudiar su habitabilidad.</p>
+    <p>En este sitio aprenderás a diferenciar tres grupos de interés: planetas similares a la Tierra, supertierras y Júpiteres calientes. Al final podrás utilizar un clasificador y una simulación interactiva para explorar un sistema planetario.</p>
+  </section>
+
+  <section id="objetivos">
+    <h2>Objetivos</h2>
+    <h3>Objetivo general</h3>
+    <p><strong>Analizar</strong> las características que permiten clasificar distintos tipos de exoplanetas y relacionarlas con el estudio de mundos potencialmente habitables.</p>
+    <h3>Objetivos específicos</h3>
+    <ul>
+      <li><strong>Describir</strong> las características principales de los exoplanetas.</li>
+      <li><strong>Diferenciar</strong> planetas similares a la Tierra, supertierras y Júpiteres calientes.</li>
+      <li><strong>Relacionar</strong> tamaño, composición, temperatura y distancia orbital con la clasificación de un planeta.</li>
+      <li><strong>Aplicar</strong> estos conceptos mediante actividades interactivas de clasificación y simulación.</li>
+    </ul>
+  </section>
+
+  <section id="marco-teorico">
+    <h2>Marco teórico</h2>
+    <h3>1. ¿Qué es un exoplaneta?</h3>
+    <p>Los exoplanetas son mundos situados fuera de nuestro sistema solar. Los astrónomos pueden estudiarlos mediante observaciones de la luz de sus estrellas. Uno de los métodos más utilizados es el tránsito: cuando un planeta pasa frente a su estrella desde nuestro punto de vista, la cantidad de luz observada disminuye ligeramente. La repetición de esa disminución permite obtener información sobre el planeta y su órbita.</p>
+    <figure>
+      <img src="imagenes/planetas.png" alt="Esquema del método de tránsito de un exoplaneta">
+      <figcaption>Figura 1. Representación simplificada del método de tránsito para detectar un exoplaneta. Elaboración propia.</figcaption>
+    </figure>
+
+    <h3>2. Tres tipos de mundos para comparar</h3>
+    <div class="cards">
+      <article class="planet-card earth">
+        <div class="planet-icon">🌎</div>
+        <h3>Planeta similar a la Tierra</h3>
+        <p>Son mundos rocosos que se encuentran en un rango de tamaño cercano al terrestre. Algunos pueden recibir una cantidad de energía de su estrella compatible con la existencia de agua líquida, aunque esto no garantiza que sean habitables.</p>
+      </article>
+      <article class="planet-card super">
+        <div class="planet-icon">🪨</div>
+        <h3>Supertierras</h3>
+        <p>Son exoplanetas más grandes o masivos que la Tierra, pero menores que Neptuno. El nombre describe principalmente su tamaño o masa y no significa que necesariamente tengan condiciones parecidas a las de nuestro planeta.</p>
+      </article>
+      <article class="planet-card hot">
+        <div class="planet-icon">🔥</div>
+        <h3>Júpiteres calientes</h3>
+        <p>Son gigantes gaseosos que orbitan muy cerca de sus estrellas. Debido a esa proximidad pueden alcanzar temperaturas extremadamente elevadas y completar una vuelta alrededor de su estrella en pocos días.</p>
+      </article>
+    </div>
+
+    <div class="tarjeta">
+      <p class="dato">6.200+</p>
+      <p>NASA reporta más de 6.200 exoplanetas confirmados. La cifra cambia con nuevas observaciones y confirmaciones.</p>
+    </div>
+
+    <h3>3. ¿Qué características observamos?</h3>
+    <p>Para comparar exoplanetas podemos observar variables como el tamaño, la masa, la composición, la distancia respecto a su estrella y la temperatura. Ninguna característica por sí sola demuestra que un planeta sea habitable. Por eso, los científicos combinan diferentes tipos de datos para seleccionar objetivos interesantes para futuras investigaciones.</p>
+    <figure>
+      <img src="imagenes/supertierra.png" alt="Comparación visual entre Tierra, supertierra y Júpiter caliente">
+      <figcaption>Figura 2. Comparación conceptual de tres categorías de exoplanetas. Elaboración propia.</figcaption>
+    </figure>
+  </section>
+
+  <section id="simulacion">
+    <h2>Simulación 3D: un planeta en movimiento</h2>
+    <p>Observa cómo un planeta se desplaza frente a su estrella. Usa el control para cambiar su tamaño y ver cómo varía su apariencia en esta representación simplificada de un sistema planetario.</p>
+    <div class="simulacion-panel">
+      <p class="mini-titulo">EXPERIMENTO INTERACTIVO</p>
+      <canvas id="lienzo" aria-label="Simulación tridimensional de una estrella y un exoplaneta"></canvas>
+      <div class="controles">
+        <label for="control">Tamaño del planeta (escala visual)</label>
+        <input type="range" id="control" min="1" max="50" step="1" value="10">
+        <p>Valor: <span id="valor">10</span> / 50</p>
+      </div>
+      <p class="nota-simulacion">Nota: esta animación es ilustrativa y no representa distancias, tamaños ni velocidades orbitales reales.</p>
+    </div>
+  </section>
+
+  <section id="clasificador">
+    <h2>Clasifica tu exoplaneta</h2>
+    <p>Selecciona una tarjeta y analiza sus características. Después intenta decidir a qué categoría pertenece antes de mirar la respuesta.</p>
+    <div class="selector">
+      <button type="button" onclick="mostrarPlaneta('a')">Planeta A</button>
+      <button type="button" onclick="mostrarPlaneta('b')">Planeta B</button>
+      <button type="button" onclick="mostrarPlaneta('c')">Planeta C</button>
+      <button type="button" onclick="mostrarPlaneta('d')">Planeta D</button>
+    </div>
+    <div id="resultado" class="resultado" aria-live="polite">
+      <h3>Elige un planeta</h3>
+      <p>Sus características aparecerán aquí.</p>
+    </div>
+    <div class="regla"><strong>Recuerda:</strong> la clasificación es un modelo educativo. En la investigación real se necesitan muchas observaciones para conocer las características de un exoplaneta.</div>
+  </section>
+
+  <section id="stand">
+    <h2>Nuestro stand: “Clasifica tu exoplaneta”</h2>
+    <p>En el stand, los visitantes reciben tarjetas con datos de diferentes planetas ficticios y deben decidir si corresponden a un planeta similar a la Tierra, una supertierra o un Júpiter caliente. Después, el grupo explica la respuesta y conecta la actividad física con la información de esta página.</p>
+    <table>
+      <tr><th>El experimento físico muestra</th><th>El sitio web muestra</th></tr>
+      <tr><td>Tarjetas con tamaño, temperatura y composición de un planeta.</td><td>La explicación científica de las tres categorías.</td></tr>
+      <tr><td>El visitante clasifica el planeta y recibe una explicación.</td><td>El clasificador digital permite practicar con varios casos.</td></tr>
+      <tr><td>Modelos físicos de los tres tipos de mundos.</td><td>La simulación 3D y las comparaciones visuales ayudan a interpretar las diferencias.</td></tr>
+    </table>
+    <figure>
+      <img src="imagenes/stand.png" alt="Boceto del stand Clasifica tu exoplaneta">
+      <figcaption>Figura 3. Propuesta de adecuación del stand. Elaboración propia.</figcaption>
+    </figure>
+    <div class="tarjeta reto">
+      <h3>🚀 Reto para el visitante</h3>
+      <p>“Tienes un planeta de 1,5 veces el tamaño de la Tierra, composición rocosa, temperatura moderada y una órbita que recibe una cantidad adecuada de energía. ¿En qué categoría lo colocarías?”</p>
+      <p><strong>Respuesta esperada:</strong> podría clasificarse como una supertierra de características potencialmente interesantes, pero esos datos no bastan para afirmar que sea habitable.</p>
+    </div>
+  </section>
+
+  <footer id="referencias">
+    <h2>Referencias</h2>
+    <ol>
+      <li>NASA Science. (2026). <em>What is an exoplanet?</em> NASA. <a href="https://science.nasa.gov/exoplanets/what-is-an-exoplanet/" target="_blank" rel="noopener">Consultar fuente</a></li>
+      <li>NASA Science. (2026). <em>Overview: Planet types.</em> NASA. <a href="https://science.nasa.gov/exoplanets/planet-types/" target="_blank" rel="noopener">Consultar fuente</a></li>
+      <li>NASA Science. (2024). <em>What is a Super-Earth?</em> NASA. <a href="https://science.nasa.gov/exoplanets/super-earth/" target="_blank" rel="noopener">Consultar fuente</a></li>
+      <li>NASA Science. (2024). <em>Terrestrial.</em> NASA. <a href="https://science.nasa.gov/exoplanets/terrestrial/" target="_blank" rel="noopener">Consultar fuente</a></li>
+      <li>NASA Science. (2024). <em>Gas Giant.</em> NASA. <a href="https://science.nasa.gov/exoplanets/gas-giant/" target="_blank" rel="noopener">Consultar fuente</a></li>
+    </ol>
+    <p class="creditos">Proyecto interdisciplinar <strong>Explorando el Universo</strong> · Gimnasio Los Arrayanes Bilingüe · Grado 11 · Integrantes: Cesar David Ochoa Ramos · Juan Jose Gutierrez Cogollo · Paula Bautista · Paula Zambrano</p>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
