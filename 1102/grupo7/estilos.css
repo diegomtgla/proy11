@@ -6,7 +6,7 @@
 
 /* ---------- 1. BASE ---------- */
 body {
-  background-color: #1f491e;
+  background-color: #0b1026;
   color: #f2f2f2;
   font-family: Arial, sans-serif;
   margin: 0;
@@ -76,13 +76,13 @@ th, td {
 }
 
 th {
-  background-color: #000000;
+  background-color: #0d1326;
   color: #ffc857;
 }
 
 /* ---------- 5. DATO DESTACADO ---------- */
 .tarjeta {
-  background-color: #04050a;
+  background-color: #0d1326;
   border: 1px solid #1e2740;
   border-radius: 12px;
   padding: 18px;
