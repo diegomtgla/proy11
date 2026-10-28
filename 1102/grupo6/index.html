@@ -2,38 +2,509 @@
 <html lang="es">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="estilos.css">
-    <title>Estrellas — Ciclo de vida y energía</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tecnología de los telescopios</title>
+  <link rel="stylesheet" href="/1102/grupo6/estilos.css">
 </head>
 
 <body>
-    <header id="portada">
-        <h1>El ciclo de vida de una estrella abarca desde su nacimiento en una nube de gas y polvo hasta su muerte</h1>
-        <p>me gusta averiguar como es su tecnologia</p>
-        <p>me gustaria saber como es su funcionamiento</p>
-    </header>
-    <nav>
-        <a href="#que-es">Qué es</a>
-        <a href="#como-funciona">Cómo funciona</a>
-        <a href="#datos">Datos</a>
-    </nav>
-    <section id="que-es">
-        <h2>Qué es</h2>
-        <p>Es para ver como funciona un telescopio desde adentro.</p>
-    </section>
-    <section id="como-funciona">
-        <h2>Cómo funciona</h2>
-        <p>Es mirar por dentro las diferentes tecnolgias de aumento que tiene este.</p>
-        <img src="imagenes/portada.jpg" alt="Descripcion de la imagen">
-    </section>
-    <section id="datos">
-        <h2>Datos</h2>
-        <p>Apertura: El diámetro del lente o espejo. Determina el brillo y la nitidez.Distancia focal: El largo del tubo. Determina los aumentos disponibles..</p>
-    </section>
-    <footer id="fuentes">
-        <h2>Fuentes</h2>
-        <p>https://science.nasa.gov/wp-content/uploads/2024/05/jwst_artist_concept_0.png.</p>
-    </footer>
+
+  <!-- ===== PORTADA ===================================== -->
+  <header id="portada">
+    <h1>Tecnología de los telescopios</h1>
+    <h2>
+      Descubre cómo la tecnología de los telescopios nos permite
+      mirar más lejos que nunca del ojo humano a las fronteras
+      del universo.
+    </h2>
+  </header>
+
+  <!-- ===== MENÚ DESPLEGABLE ============================ -->
+  <nav id="menu-navegacion">
+    <button id="btn-toggle-menu" class="btn-menu-toggle">☰ Menú</button>
+    <div id="enlaces-menu" class="enlaces-menu">
+      <a href="#introduccion">Introducción</a>
+      <a href="#objetivos">Objetivos</a>
+      <a href="#marco-teorico">Marco teórico</a>
+      <a href="#interferencia atmosférica">Interferencia Atmosférica</a>
+      <a href="#detección por método de tránsito y curvas de luz">Detección por tránsito</a>
+      <a href="#fórmula que explica este fenomeno">Fórmula</a>
+      <a href="#zona habitable y espectroscopía de bioseñales">Bioseñales</a>
+      <a href="#telescopio espacial hubble">Hubble</a>
+      <a href="#telescopio espacial kepler">Kepler</a>
+      <a href="#telescopio espacial james webb">James Webb</a>
+      <a href="#TecnologíAS DE OBSERVACIÓN ESPACIAL">Tecnologías</a>
+      <a href="#Resolución Angular">Resolución Angular</a>
+      <a href="#Impacto en la ciencia">Impacto en la ciencia</a>
+      <a href="#reubicación humana">Reubicación humana</a>
+      <a href="#stand">Stand</a>
+      <a href="#simulacion">Simulación 3D</a>
+      <a href="#diagrama de flujo">Diagrama de flujo</a>
+      <a href="#fundamento cientifico">Fundamento cientifico</a>
+      <a href="#Conclusiones">Conclusiones</a>
+      <a href="#referencias">Referencias</a>
+    </div>
+  </nav>
+
+  <!-- ===== INTRODUCCIÓN ================================ -->
+  <section id="introduccion">
+    <h2>Introducción</h2>
+    <p>
+      La tecnología de los telescopios espaciales ha revolucionado
+      la exploración del universo, permitiendo observar más allá
+      de nuestro sistema solar con gran precisión. Gracias a los
+      telescopios espaciales como Hubble, Kepler y James Webb,
+      la comunidad científica hoy puede estudiar características
+      de exoplanetas que antes eran imposibles de detectar.
+    </p>
+    <p>
+      Estos avances han permitido pasar del simple hallazgo de
+      nuevos mundos a comprender cómo son, cómo se forman y si
+      algunos podrían presentar condiciones favorables para la vida.
+    </p>
+    <figure>
+      <img src="imagenes/figura1.jpg" alt="Telescopio espacial observando exoplanetas">
+    </figure>
+  </section>
+
+  <!-- ===== OBJETIVOS =================================== -->
+  <section id="objetivos">
+    <h2>Objetivos</h2>
+    <h3>Objetivo general</h3>
+    <p>
+      Explicar los avances tecnológicos en los telescopios espaciales
+      (Hubble, Kepler y James Webb), analizando cómo sus herramientas
+      de observación han impulsado la búsqueda e identificación de
+      exoplanetas con posibilidades de vida.
+    </p>
+    <h3>Objetivos específicos</h3>
+    <ul>
+      <li>
+        Comparar el funcionamiento de las tecnologías ópticas,
+        infrarrojas y espectroscópicas de los telescopios clave,
+        destacando su capacidad para superar barreras terrestres
+        y obtener información del espacio profundo.
+      </li>
+      <li>
+        Analizar el impacto de los descubrimientos científicos
+        de estos telescopios espaciales en la astronomía actual
+        y el futuro de la observación espacial enfocada en la habitabilidad.
+      </li>
+    </ul>
+    <figure>
+      <img src="imagenes/figura2.jpg" alt="Tecnología de observación espacial">
+    </figure>
+  </section>
+
+  <!-- ===== MARCO TEÓRICO =============================== -->
+  <section id="marco-teorico">
+    <h2>Marco teórico</h2>
+    <ul>
+      <li>Interferencia atmosférica.</li>
+      <li>Detección por método de tránsito y curvas de luz.</li>
+      <li>Zona habitable y espectroscopía de bioseñales.</li>
+      <li>Telescopios espaciales Hubble, Kepler y James Webb.</li>
+      <li>Tecnologías de observación espacial.</li>
+      <li>Impacto en la ciencia.</li>
+    </ul>
+    <figure>
+      <img src="imagenes/figura3.jpg" alt="Conceptos del marco teórico">
+    </figure>
+  </section>
+
+  <!-- ===== INTERFERENCIA ATMOSFÉRICA =================== -->
+  <section id="interferencia atmosférica">
+    <h2>Interferencia Atmosférica</h2>
+    <h3>Distorsión y Turbulencia</h3>
+    <p>
+      La atmósfera terrestre refracta y dispersa la luz estelar,
+      distorsionando las imágenes e impidiendo medir variaciones
+      mínimas de brillo en mundos lejanos.
+    </p>
+    <h3>Ventaja de la Observación Orbital</h3>
+    <p>
+      Observar desde el espacio garantiza imágenes de alta resolución
+      y permite escanear atmósferas exoplanetarias en longitudes de
+      onda inaccesibles desde la Tierra.
+    </p>
+    <h3>Bloqueo del Espectro</h3>
+    <p>
+      La atmósfera absorbe gran parte de la radiación infrarroja
+      y ultravioleta, donde se encuentran las huellas químicas
+      clave de los gases planetarios.
+    </p>
+    <figure>
+      <img src="imagenes/figura4.jpg" alt="Efecto de la interferencia atmosférica">
+    </figure>
+  </section>
+
+  <!-- ===== DETECCIÓN POR MÉTODO DE TRÁNSITO ============ -->
+  <section id="detección por método de tránsito y curvas de luz">
+    <h2>Detección por método de tránsito y curvas de luz</h2>
+    <h3>Tránsito Planetario</h3>
+    <p>
+      Ocurre cuando un exoplaneta cruza directamente frente a su
+      estrella anfitriona, bloqueando una pequeña fracción de su luz.
+    </p>
+    <h3>Análisis de la Curva de Luz</h3>
+    <p>
+      Mide la caída de brillo estelar. Su profundidad indica el
+      tamaño del planeta y la frecuencia su período orbital.
+    </p>
+    <h3>Cálculo de Distancia</h3>
+    <p>
+      Identificar el período orbital permite calcular la distancia
+      del planeta a su estrella, paso indispensable para determinar
+      su temperatura.
+    </p>
+    <figure>
+      <img src="imagenes/figura5.jpg" alt="Gráfica de curva de luz y tránsito planetario">
+    </figure>
+  </section>
+
+  <!-- ===== Fórmula que explica este fenomeno ============ -->
+  <section id="fórmula que explica este fenomeno">
+    <h2>Fórmula que explica este fenomeno</h2>
+    <h3>¿Que significa?</h3>
+    <p>
+      Cuanto más grande sea el planeta respecto a su estrella, más luz bloqueará cuando pase delante de ella.
+    </p>
+    <h3>¿Que nos permite calcular?</h3>
+    <p>
+      Estimar el tamaño de un exoplaneta observando cuanto disminuye el brillo de su estrella durante el tránsito.
+    </p>
+    <h3>Donde</h3>
+    <ul>
+      <li>ΔF=Cuanto disminuye la luz de la estrella</li>
+      <li>F = Luz normal de la estrella</li>
+      <li>Rp=  Radio del planeta</li>
+      <li>R*= Radio de la estrella</li>
+    </ul>
+    <figure>
+      <img src="imagenes/figura10.jpg" alt="formula del tamaño de un exoplaneta">
+    </figure>
+  </section>
+
+  <!-- ===== ZONA HABITABLE ============================== -->
+  <section id="zona habitable y espectroscopía de bioseñales">
+    <h2>Zona habitable y espectroscopía de bioseñales</h2>
+    <h3>Zona Habitable</h3>
+    <p>
+      Franja de distancia orbital donde la radiación de la estrella
+      permite mantener agua en estado líquido sobre la superficie.
+    </p>
+    <h3>Espectroscopía de Transmisión</h3>
+    <p>
+      Análisis del filtrado de la luz estelar a través de la atmósfera
+      del exoplaneta para identificar sus compuestos químicos.
+    </p>
+    <h3>Detección de Bioseñales</h3>
+    <p>
+      Identificación directa de moléculas clave como agua (H₂O),
+      dióxido de carbono (CO₂), metano (CH₄) y ozono (O₃).
+    </p>
+    <figure>
+      <img src="imagenes/figura6.jpg" alt="Espectroscopía de bioseñales en la zona habitable">
+    </figure>
+  </section>
+
+  <!-- ===== HUBBLE ====================================== -->
+  <section id="telescopio espacial hubble">
+    <h2>Edwin Hubble</h2>
+    <h3>Telescopio espacial hubble</h3>
+    <ul>
+      <li>
+        Lanzado en 1990 como el primer gran telescopio espacial
+        óptico libre de la interferencia atmosférica.
+      </li>
+      <li>
+        Realizó la primera medición directa de la composición química
+        de la atmósfera de un exoplaneta.
+      </li>
+      <li>
+        Detectó elementos como sodio y vapor de agua mediante
+        espectroscopía de transmisión.
+      </li>
+    </ul>
+    <figure>
+      <img src="imagenes/figura7.jpg" alt="Telescopio Espacial Hubble">
+    </figure>
+  </section>
+
+  <!-- ===== KEPLER ====================================== -->
+  <section id="telescopio espacial kepler">
+    <h2>Johannes Kepler</h2>
+    <h3>Telescopio espacial kepler</h3>
+    <ul>
+      <li>
+        Lanzado en 2009 para monitorear de forma continua el brillo
+        de más de 150,000 estrellas.
+      </li>
+      <li>
+        Descubrió miles de exoplanetas analizando las caídas
+        periódicas de luz (curvas de luz).
+      </li>
+      <li>
+        Confirmó la existencia de los primeros planetas de tamaño
+        terrestre en zonas habitables.
+      </li>
+    </ul>
+    <figure>
+      <img src="imagenes/figura8.jpg" alt="Telescopio Espacial Kepler">
+    </figure>
+  </section>
+
+  <!-- ===== JAMES WEBB ================================== -->
+  <section id="telescopio espacial james webb">
+    <h2>James Webb</h2>
+    <h3>Telescopio espacial james webb</h3>
+    <ul>
+      <li>
+        Lanzado en 2021 con un espejo segmentado de 6.5 metros
+        e instrumentos criogénicos.
+      </li>
+      <li>
+        Atraviesa el polvo cósmico captando radiación térmica
+        de planetas fríos y distantes.
+      </li>
+      <li>
+        Realiza espectroscopía de alta resolución en busca de
+        bioseñales (metano, CO y vapor de agua).
+      </li>
+    </ul>
+    <figure>
+      <img src="imagenes/figura9.jpg" alt="Telescopio Espacial James Webb">
+    </figure>
+  </section>
+
+  <!-- ===== TecnologíAS DE OBSERVACIÓN ESPACIAL ============ -->
+  <section id="TecnologíAS DE OBSERVACIÓN ESPACIAL">
+    <h2>Tecnologías de observación espacial</h2>
+    <figure>
+      <img src="imagenes/figura11.jpg" alt="formula del tamaño de un exoplaneta">
+    </figure>
+  </section>
+
+  <!-- ===== Resolución Angular ============ -->
+  <section id="Resolución Angular">
+    <h2>Resolución Angular</h2>
+    <p>La capacidad de un telescopio para distinguir detalles pequeños en objetos muy lejanos.</p>
+    <h3>¿Para qué sirve?</h3>
+    <p>
+      Nos permite conocer la capacidad de un telescopio para distinguir detalles pequeños en objetos lejanos.
+    </p>
+    <p>Espejo más grande = distingue detalles más pequeños.</p>
+    <h3>Donde</h3>
+    <ul>
+      <li>θ = Resolución angular.</li>
+      <li>λ = Longitud de onda de la luz.</li>
+      <li>D = Diámetro del espejo del telescopio.</li>
+      <li>1.22 = Constante de la fórmula.</li>
+    </ul>
+    <figure>
+      <img src="imagenes/figura12.jpg" alt="formula del tamaño de un exoplaneta">
+    </figure>
+  </section>
+
+  <!-- ===== Impacto en la ciencia ================================== -->
+  <section id="Impacto en la ciencia">
+    <h2>Impacto en la ciencia</h2>
+    <h3>Descubrimientos en el espacio</h3>
+    <ul>
+      <li>
+        Confirmación directa de más de 5,000 exoplanetas fuera de nuestro sistema solar.
+      </li>
+      <li>
+        Detección de moléculas clave (agua, metano, dióxido de carbono) en atmósferas lejanas.
+      </li>
+      <li>
+        Captura de luz visible e infrarroja libre de la distorsión de la atmósfera terrestre.
+      </li>
+    </ul>
+    <h3>Contribuciones en la ciencia y la tierra</h3>
+    <ul>
+      <li>
+        Reescritura de los modelos sobre formación y evolución de sistemas planetarios.
+      </li>
+      <li>
+        Definición de métodos concretos para identificar bioseñales y evaluar la habitabilidad.
+      </li>
+      <li>
+        Transferencia de tecnologías ópticas y sensores hacia la medicina diagnóstica y telecomunicaciones.
+      </li>
+    </ul>
+    <figure>
+      <img src="imagenes/figura13.jpg" alt="Telescopio Espacial James Webb">
+    </figure>
+  </section>
+
+  <!-- ===== reubicación humana ================================== -->
+  <section id="reubicación humana">
+    <h2>Reubicación humana</h2>
+    <h3>¿Cómo podríamos evaluar un exoplaneta como posible destino futuro para la humanidad?</h3>
+      <ol>
+        <li>Detectar el planeta : Utilizar telescopios espaciales como Kepler y James Webb.</li>
+        <li>Estudiar sus características:  Determinar su tamaño, temperatura, atmósfera y distancia a su estrella.</li>
+        <li>Analizar su habitabilidad:  Buscar indicios de agua y estudiar moléculas como H₂O, CO₂ y CH₄.</li>
+        <li>Evaluar los riesgos:  Analizar atmósfera, temperatura, radiación y gravedad para determinar si sería adecuado para humanos.</li>
+        <li>Planificar la reubicación:  Si las condiciones fueran decuadas, plantear tecnologías necesarias para transportar personas y establecer una comunidad.</li>
+      </ol>
+    <h3>Resultado esperado</h3>
+      <p>
+        Seleccionar un exoplaneta que presente características potencialmente habitables y estudiar la viabilidad de una futura visión humana.
+      </p>
+    <figure>
+      <img src="imagenes/figura14.jpg" alt="Telescopio Espacial James Webb">
+    </figure>
+  </section>
+
+  <!-- ===== STAND ======================================= -->
+  <section id="stand">
+    <h2>Nuestro stand durante la presentación del proyecto final</h2>
+    <p>Qué encuentra el visitante.</p>
+    <figure>
+      <img src="imagenes/stand.jpg" alt="Boceto del stand del grupo">
+      <figcaption>Figura 3. Propuesta de adecuación del stand.</figcaption>
+    </figure>
+  </section>
+
+  <!-- ===== SIMULACIÓN 3D =============================== -->
+  <section id="simulacion">
+    <h2>Simulación Interactiva del Telescopio</h2>
+    <p>
+      Explora la simulación espacial. Arrastra para rotar la vista, usa los controles inferiores para cambiar de objetivo enfocado, ajustar el zoom óptico o desplegar la retícula en pantalla.
+    </p>
+
+    <div class="contenedor-simulador">
+      <div id="pantalla-simulador">
+        <canvas id="lienzo"></canvas>
+        <div id="hud-visor" class="hud-oculto">
+          <div class="mira-centro"></div>
+          <div class="telemetria top-left">OBJ: TELESCOPIO ORBITAL</div>
+          <div class="telemetria top-right" id="telemetria-zoom">ZOOM: 1.0x</div>
+          <div class="telemetria bottom-left">ESPECTRO: OPTICO / VISIBLE</div>
+          <div class="telemetria bottom-right">ESTADO: MODO OBSERVACIÓN</div>
+        </div>
+      </div>
+
+      <div class="panel-controles-simulacion">
+        <div class="grupo-control">
+          <label for="control-zoom">Zoom Óptico:</label>
+          <input type="range" id="control-zoom" min="1" max="15" step="0.1" value="1">
+          <span id="valor-zoom">1.0x</span>
+        </div>
+
+        <div class="grupo-control">
+          <button id="btn-visor" class="btn-simulador">Activar Visor</button>
+          <button id="btn-objetivo" class="btn-simulador">Cambiar Objetivo</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== diagrama de flujo ============ -->
+  <section id="diagrama de flujo">
+    <h2>Diagrama de flujo</h2>
+    <figure>
+      <img src="imagenes/figura15.jpg" alt="formula del tamaño de un exoplaneta">
+    </figure>
+  </section>
+
+  <!-- ===== fundamento cientifico ============================== -->
+  <section id="fundamento cientifico">
+    <h2>Fundamento cientifico</h2>
+    <h3>Fenómeno o proceso a demostrar</h3>
+    <p>
+      La propuesta permite la evidencia de los principios de funcionamiento de la técnica de telescopios para la observación astrológica y la especificación de exoplanetas, combinado con el uso de simulaciones interactivas en tiempo real para permitir la representación de instrumentos espaciales y ópticos
+    </p>
+    <h3>¿Cómo ocurre y por qué sucede? Aspecto Astronómico y Tecnológico</h3>
+    <p>
+      Los telescopios espaciales recogen la luz de estrellas distantes, prestando atención a las variaciones que se producen en su brillo o en su trayectoria. Cuando un planeta extra-solar (es decir, un planeta que orbita una estrella lejana, distinta a la del sistema solar) pasa frente a su estrella (método del tránsito), bloquea una cierta atención de la luz que esta emite. Con el fin de recolectar este tipo de eventos mínimos, se hace necesaria la utilización de unos instrumentos con estructuras ópticas complejas (espejos, lentes, tubos de aislamiento y sensores de alta precisión) que deben estar orientadas de una forma extremadamente precisa en el espacio. Un aspecto de la Simulación Digital 3D de que se nos ofrece; la simulación es la proyección en el lienzo (Canvas) del modelo tridimensional del telescopio, lo que permite explorar cada uno de los elementos mecánicos que lo componen: tubo, soporte, lentes, ocular y buscador, así como observar de qué forma viaja la luz a través del sistema óptico, lo que permite llegar a observar las estrellas con la mayor precisión posible, sin interferencia de la atmósfera terrestre.
+    </p>
+    <h3>Origen de la propuesta y relación con el tema asignado</h3>
+    <p>
+      La propuesta surge para poder hacer accesible y entendible la tecnología de los telescopios espaciales y la detección de los exoplanetas. Dado que no es posible realizar acciones con un auténtico telescopio espacial en la Feria Científica, esta simulación 3D interactiva, si se quiere, sirve como recurso didáctico que permite al público y al jurado poder manipular, explorar y entender la estructura tecnológica de los instrumentos astronómicos que hacen posible la detección de nuevos mundos fuera del sistema solar.
+    </p>
+    <figure>
+      <img src="imagenes/figura16.jpg" alt="Espectroscopía de bioseñales en la zona habitable">
+    </figure>
+  </section>
+
+  <!-- ===== Conclusiones ============================== -->
+  <section id="Conclusiones">
+    <h2>Conclusiones</h2>
+      <ol>
+        <li>Los telescopios espaciales han permitido detectar y estudiar exoplanetas con mayor presición al evitar parte de las limitaciones de la atmósfera terrestre.</li>
+        <li>Hubble, Kepler y Webb utilizan tecnologías diferentes y complementarias: observación óptica y ultravioleta, fotometría de tránsito e infrarrojo.</li>
+        <li>El estudio de las atmósferas mediante espectroscopía permite cuscar moléculas como  H₂O, CO₂, CH₄ y O₃, contribuyendo a la investigación sobre la habitabilidad de otros mundos.</li>
+      </ol>
+  </section>
+
+  <!-- ===== REFERENCIAS Y PIE DE PÁGINA ================= -->
+  <footer id="referencias">
+    <h2>Referencias</h2>
+    <ol>
+      <li>
+        Agencia Espacial Europea. (2022).
+        El telescopio espacial James Webb y la caracterización
+        de atmósferas exoplanetarias. ESA en Español.
+        https://www.esa.int/Space_in_Member_States/Spain
+      </li>
+      <li>
+        Instituto de Astrofísica de Canarias. (2024).
+        Astronomía de exoplanetas: Detección por tránsito y búsqueda
+        de bioseñales. IAC.
+        https://www.iac.es/es/astrofisicas/astronomia-de-exoplanetas
+      </li>
+      <li>
+        National Aeronautics and Space Administration. (2021).
+        El Telescopio Espacial Kepler: Descubrimiento de mundos
+        en zonas habitables. NASA Ciencia.
+        https://science.nasa.gov/resource/el-telescopio-espacial-kepler/
+      </li>
+      <li>
+        National Aeronautics and Space Administration. (2023).
+        Telescopio Espacial Hubble: Tres décadas revolucionando
+        la observación astronómica y espectroscopía de luz visible.
+        NASA Ciencia.
+        https://ciencia.nasa.gov/misiones/hubble
+      </li>
+      <li>
+        National Aeronautics and Space Administration. (2024).
+        ¿Qué es un exoplaneta y cómo lo detectamos?.
+        NASA Space Place.
+        https://spaceplace.nasa.gov/all-about-exoplanets/sp/
+      </li>
+      <li>
+        Pallé, E. (2021).
+        Estudio de atmósferas exoplanetarias y la búsqueda de vida
+        en el universo.
+        Boletín de la Sociedad Española de Astronomía, (45), 12–25.
+        https://www.sea-astronomia.es/boletin/exoplanetas
+      </li>
+    </ol>
+
+    <p>
+      Proyecto interdisciplinar Explorando el Universo ·
+      Gimnasio Los Arrayanes
+      <br>
+      Bilingüe · Grado 1102 · Integrantes:
+      <br>
+      Gabriela Diaz.
+      <br>
+      Juan Andrés Gonzalez.
+      <br>
+      Juan José Gutierrez M.
+      <br>
+      Catalina Peláez.
+    </p>
+  </footer>
+
+  <!-- ===== SCRIPTS PARA LA SIMULACIÓN 3D ================= -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="/1102/grupo6/script.js"></script>
+
 </body>
+
+</html>
