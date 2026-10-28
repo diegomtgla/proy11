@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>La estructura de las galaxias</title>
-  <link rel="stylesheet" href="estilos.css">
+  <link rel="stylesheet" href="/1104/grupo1/estilos.css">
 </head>
 <body>
  
@@ -88,8 +88,8 @@
     <p>Algunas magnitudes ayudan a dimensionar lo que significa esa estructura. La Vía Láctea tiene entre 100 000 y 400 000 millones de estrellas repartidas en sus distintas capas. El disco tiene un grosor de apenas unos 1000 años luz, mucho menor que su diámetro, lo que explica por qué se ve como una lámina delgada y no como una esfera. El Sol se encuentra a unos 27 000 años luz del centro, en uno de los brazos secundarios, y completa una vuelta alrededor del núcleo cada 225 a 250 millones de años, un período conocido como año galáctico.</p>
  
     <figure>
-      <img src="imagenes/figura2.jpg" alt="Gráfica de la curva de rotación de la Vía Láctea, que muestra la velocidad de giro del disco a distintas distancias del centro">
-      <figcaption>Figura 2. Curva de rotación de la Vía Láctea: la velocidad de las estrellas se mantiene casi constante a distancias crecientes del centro, evidencia indirecta del halo de materia oscura. Elaboración propia del grupo, con datos de referencia astronómica.</figcaption>
+      <img src="imagenes/figura2.jpg" alt="Diagrama de una galaxia espiral vista desde arriba con sus partes rotuladas: núcleo galáctico, bulbo central, disco galáctico, brazos de la espiral, componente esférico y halo">
+      <figcaption>Figura 2. Diagrama de las partes de una galaxia espiral vista desde arriba: núcleo galáctico, bulbo central, disco galáctico, brazos de la espiral, componente esférico y halo. Elaboración propia del grupo, con datos de referencia astronómica.</figcaption>
     </figure>
   </section>
  
@@ -102,6 +102,7 @@
 
     <label for="control">Distancia al centro galáctico (miles de años luz)</label>
     <input type="range" id="control" min="1" max="100" step="1" value="1">
+    <p class="ayuda">Qué observar: dentro de los primeros 10 000 años luz (bulbo) la velocidad sube rápido; después se queda casi fija en 220 km/s. Esa parte plana de la curva es la pista del halo de materia oscura.</p>
 
     <p>Valor: <span id="valor">1</span></p>
 
@@ -120,6 +121,7 @@
     <div class="controles">
       <label for="control-sim">Apertura del brazo espiral (rad/unidad de radio)</label>
       <input type="range" id="control-sim" min="0.2" max="4" step="0.1" value="1.5">
+      <p class="ayuda">Qué observar: con valores bajos los brazos se ven abiertos y casi rectos; al subir el valor se enrollan cada vez más alrededor del núcleo.</p>
       <p>Valor: <span id="valor-sim">1.5</span></p>
     </div>
   </section>
@@ -162,8 +164,8 @@
   <footer id="referencias">
     <h2>Referencias</h2>
     <ol>
-      <li>NASA. (2023). Galaxies. NASA Science. https://science.nasa.gov/galaxies/. Consultado en 2026.</li>
-      <li>ESA/Hubble. (2022). Types of Galaxies. ESA Hubble Information Centre. https://esahubble.org/. Consultado en 2026.</li>
+      <li>NASA. (2023). Galaxies. NASA Science. <a href="https://science.nasa.gov/galaxies/" target="_blank" rel="noopener">https://science.nasa.gov/galaxies/</a>. Consultado en 2026.</li>
+      <li>ESA/Hubble. (s. f.). Spiral Galaxy. ESA Hubble Information Centre. <a href="https://esahubble.org/wordbank/spiral-galaxy/" target="_blank" rel="noopener">https://esahubble.org/wordbank/spiral-galaxy/</a>. Consultado en 2026.</li>
       <li>Instituto Colombiano de Astronomía. (2021). La Vía Láctea: estructura y escala. Consultado en 2026.</li>
     </ol>
  
@@ -174,7 +176,7 @@
   </footer>
  
   <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-  <script src="script.js"></script>
-  <script src="simulacion.js"></script>
+  <script src="/1104/grupo1/script.js"></script>
+  <script src="/1104/grupo1/simulacion.js"></script>
 </body>
 </html>

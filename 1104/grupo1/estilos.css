@@ -116,3 +116,42 @@ th {
   border-radius: 12px;
   background: #000308;
 }
+
+
+/* ---------- 8. CONTROLES DEL INSTRUMENTO ---------- */
+input[type="range"] {
+  display: block;
+  width: 100%;
+  margin: 10px 0;
+  accent-color: #ffc857;
+}
+
+.ayuda {
+  font-size: 14px;
+  color: #98a3bb;
+  margin: 4px 0 12px 0;
+}
+
+button {
+  background-color: #0d1326;
+  color: #ffc857;
+  border: 1px solid #1e2740;
+  border-radius: 12px;
+  padding: 12px 22px;
+  min-height: 44px;
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+button:hover,
+button:focus-visible {
+  border-color: #ffc857;
+}
+
+/* ---------- 9. ENLACES DE REFERENCIAS ---------- */
+#referencias a {
+  color: #9ecbff;
+  word-break: break-all;
+}
