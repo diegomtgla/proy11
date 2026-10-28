@@ -1,108 +1,564 @@
-/* ============================================================
-   ESTILOS DEL SITIO — CICLO 3
-   Lo que ya tenían del ciclo 2, mas lo necesario para las
-   figuras y las tablas del marco teorico.
-   ============================================================ */
 
-/* ---------- 1. BASE ---------- */
+/* ==========================================
+   ESTILO ESPACIAL - COLISIONES Y FUSIONES
+   ========================================== */
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 80px;
+}
+
 body {
-  background-color: #0b1026;
-  color: #f2f2f2;
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 16px;
-  line-height: 1.6;
+    margin: 0;
+    background: #050816;
+    color: #edf3ff;
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.7;
 }
 
-h1 {
-  font-size: 28px;
-  line-height: 1.2;
+a {
+    color: #83baff;
 }
 
-h2 {
-  font-size: 22px;
-  color: #ffc857;
-}
-
-h3 {
-  font-size: 18px;
+a:hover {
+    color: #ff83c6;
 }
 
 p {
-  font-size: 16px;
+    color: #c1cce0;
+    font-size: 16px;
+}
+
+h1, h2, h3 {
+    line-height: 1.25;
+}
+
+h2 {
+    color: #f8c96b;
+    font-size: 30px;
+    margin-top: 0;
+}
+
+h3 {
+    color: #a9ceff;
+    margin-top: 26px;
 }
 
 img {
-  width: 100%;
-  height: auto;
+    display: block;
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
 }
 
-section {
-  margin-bottom: 40px;
-}
-
-/* ---------- 2. MENU ---------- */
-nav a {
-  display: inline-block;
-  padding: 12px 16px;
-  color: #9ecbff;
-}
-
-/* ---------- 3. FIGURAS ----------
-   figure agrupa la imagen con su pie.
-   figcaption es el pie de la figura. */
 figure {
-  margin: 0 0 26px 0;
+    margin: 28px 0;
 }
 
 figcaption {
-  font-size: 14px;
-  color: #98a3bb;
-  margin-top: 8px;
+    margin-top: 10px;
+    color: #8fa2c0;
+    font-size: 13px;
 }
 
-/* ---------- 4. TABLAS ---------- */
-table {
-  width: 100%;
-  border-collapse: collapse;
-  font-size: 15px;
-  margin-bottom: 20px;
+section {
+    scroll-margin-top: 80px;
 }
 
-th, td {
-  border: 1px solid #1e2740;
-  padding: 10px;
-  text-align: left;
+/* PORTADA */
+
+#portada {
+    min-height: 420px;
+    padding: 100px 24px 80px;
+    text-align: center;
+
+    background:
+        radial-gradient(
+            ellipse at 25% 40%,
+            rgba(37, 135, 255, 0.18),
+            transparent 40%
+        ),
+        radial-gradient(
+            ellipse at 75% 60%,
+            rgba(255, 63, 159, 0.15),
+            transparent 40%
+        ),
+        #050816;
+
+    border-bottom: 1px solid #202b48;
 }
 
-th {
-  background-color: #0d1326;
-  color: #ffc857;
+#portada h1 {
+    margin: 12px 0;
+    color: white;
+    font-size: clamp(34px, 6vw, 64px);
+    letter-spacing: 3px;
 }
 
-/* ---------- 5. DATO DESTACADO ---------- */
+#portada > p:not(.etiqueta) {
+    max-width: 700px;
+    margin: 20px auto 30px;
+    font-size: 18px;
+}
+
+.etiqueta {
+    color: #77b8ff;
+    font-size: 11px;
+    font-weight: bold;
+    letter-spacing: 3px;
+}
+
+.boton {
+    display: inline-block;
+    padding: 12px 22px;
+    background: #1666cc;
+    border: 1px solid #66aaff;
+    border-radius: 6px;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.boton:hover {
+    background: #2784f2;
+    color: white;
+}
+
+/* MENÚ */
+
+nav {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 4px;
+
+    padding: 10px;
+    background: rgba(5, 8, 22, 0.95);
+    border-bottom: 1px solid #202b48;
+    backdrop-filter: blur(12px);
+}
+
+nav a {
+    display: inline-block;
+    padding: 8px 12px;
+    color: #b6c8e8;
+    font-size: 13px;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+nav a:hover {
+    background: #14213d;
+    color: #ff83c6;
+}
+
+/* CONTENIDO */
+
+main {
+    width: min(100% - 36px, 1000px);
+    margin: 0 auto;
+}
+
+.seccion {
+    padding: 60px 0;
+    margin-bottom: 10px;
+    border-bottom: 1px solid #202b48;
+}
+
+.seccion > p {
+    max-width: 850px;
+}
+
+li {
+    margin-bottom: 12px;
+    color: #c1cce0;
+}
+
+/* SIMULADOR */
+
+.simulador {
+    margin-top: 28px;
+    overflow: hidden;
+
+    background: #030713;
+    border: 1px solid #293a5d;
+    border-radius: 12px;
+
+    box-shadow: 0 0 35px rgba(36, 111, 255, 0.10);
+}
+
+.simulador-cabecera {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+
+    padding: 15px 18px;
+    background: #080f20;
+    border-bottom: 1px solid #24304a;
+
+    color: #9eb4d8;
+    font-size: 11px;
+    letter-spacing: 1px;
+}
+
+.punto {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    margin-right: 7px;
+    border-radius: 50%;
+    background: #6ab3ff;
+    box-shadow: 0 0 10px #2587ff;
+}
+
+.en-vivo {
+    color: #ff83c6;
+}
+
+#lienzo-sim {
+    display: block;
+    width: 100%;
+    height: 440px;
+    background: #000308;
+    touch-action: pan-y;
+}
+
+.datos-espaciales {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+
+    padding: 18px;
+    background: #080f20;
+    border-top: 1px solid #24304a;
+}
+
+.datos-espaciales > div {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.dato-label {
+    color: #8094b7;
+    font-size: 10px;
+    letter-spacing: 1px;
+}
+
+.datos-espaciales strong {
+    color: #dce8ff;
+    font-size: 15px;
+}
+
+#valor-sim {
+    color: #76b5ff;
+}
+
+#fase-sim {
+    color: #ff83c6;
+}
+
+.controles {
+    padding: 22px;
+    background: #080f20;
+    border-top: 1px solid #24304a;
+}
+
+.controles label {
+    display: block;
+    margin-bottom: 12px;
+    color: #dce8ff;
+    font-size: 14px;
+}
+
+#control-sim {
+    display: block;
+    width: 100%;
+    height: 30px;
+    margin: 0;
+    accent-color: #6eaaff;
+    cursor: pointer;
+}
+
+.escala {
+    display: flex;
+    justify-content: space-between;
+    gap: 8px;
+
+    margin-top: 5px;
+    color: #8293b0;
+    font-size: 11px;
+}
+
+#reiniciar-sim {
+    margin-top: 20px;
+    padding: 10px 15px;
+
+    background: #111e36;
+    color: #c5d9ff;
+    border: 1px solid #344b72;
+    border-radius: 5px;
+
+    cursor: pointer;
+    font-size: 13px;
+}
+
+#reiniciar-sim:hover {
+    background: #1b3156;
+    border-color: #72adff;
+}
+
+.nota-sim {
+    margin: 0;
+    padding: 14px 18px;
+    background: #050b18;
+    color: #8192ad;
+    font-size: 12px;
+}
+
+/* GALAXIAS */
+
+.tarjetas-galaxias {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+    margin-top: 20px;
+}
+
+.tarjeta-galaxia {
+    padding: 22px;
+    background: #0a1124;
+    border: 1px solid #263554;
+    border-radius: 10px;
+}
+
+.tarjeta-galaxia h3 {
+    margin: 10px 0;
+}
+
+.tarjeta-galaxia p {
+    margin-bottom: 0;
+    font-size: 14px;
+}
+
+.color-galaxia {
+    display: block;
+    width: 34px;
+    height: 6px;
+    border-radius: 10px;
+}
+
+.azul {
+    background: #2587ff;
+    box-shadow: 0 0 16px #2587ff;
+}
+
+.rosa {
+    background: #ff3f9f;
+    box-shadow: 0 0 16px #ff3f9f;
+}
+
+/* DATO DESTACADO */
+
 .tarjeta {
-  background-color: #0d1326;
-  border: 1px solid #1e2740;
-  border-radius: 12px;
-  padding: 18px;
-  margin-bottom: 16px;
+    margin: 26px 0;
+    padding: 24px;
+    background: #0a1124;
+    border: 1px solid #293a5d;
+    border-radius: 10px;
 }
 
 .dato {
-  font-size: 36px;
-  font-weight: bold;
-  color: #ffc857;
-  margin: 0;
+    margin: 0;
+    color: #7dbaff;
+    font-size: 34px;
+    font-weight: bold;
+    letter-spacing: 2px;
 }
 
-/* ---------- 6. PANTALLA ANCHA ---------- */
-@media (min-width: 700px) {
-  body {
-    max-width: 700px;
-    margin: 0 auto;
-    padding: 32px;
-  }
-  h1 { font-size: 44px; }
-  h2 { font-size: 30px; }
+/* PROCESOS */
+
+.lista-procesos li {
+    padding-left: 8px;
+}
+
+.lista-procesos strong {
+    color: #f8c96b;
+}
+
+/* TABLAS */
+
+.tabla-contenedor {
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 24px 0;
+    font-size: 14px;
+}
+
+th, td {
+    padding: 14px;
+    text-align: left;
+    border: 1px solid #263554;
+}
+
+th {
+    background: #111b33;
+    color: #f8c96b;
+}
+
+td {
+    color: #c1cce0;
+}
+
+tr:nth-child(even) td {
+    background: #080f20;
+}
+
+/* PIE DE PÁGINA */
+
+footer {
+    padding: 55px 24px 30px;
+    background: #030611;
+    border-top: 1px solid #202b48;
+}
+
+footer > * {
+    width: min(100%, 1000px);
+    margin-left: auto;
+    margin-right: auto;
+}
+
+footer h2 {
+    margin-bottom: 25px;
+}
+
+footer li {
+    overflow-wrap: anywhere;
+}
+
+.creditos {
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 1px solid #202b48;
+    font-size: 13px;
+}
+
+.copyright {
+    color: #7486a3;
+    font-size: 12px;
+}
+
+/* ANIMACIÓN SUAVE */
+
+.revelar {
+    animation: aparecer 0.8s ease-out both;
+}
+
+@keyframes aparecer {
+    from {
+        opacity: 0;
+        transform: translateY(12px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* CELULARES */
+
+@media (max-width: 600px) {
+    #portada {
+        min-height: 360px;
+        padding: 75px 20px 55px;
+    }
+
+    #portada h1 {
+        letter-spacing: 1px;
+    }
+
+    nav {
+        position: relative;
+    }
+
+    nav a {
+        padding: 7px 9px;
+        font-size: 12px;
+    }
+
+    main {
+        width: calc(100% - 30px);
+    }
+
+    .seccion {
+        padding: 42px 0;
+    }
+
+    h2 {
+        font-size: 25px;
+    }
+
+    #lienzo-sim {
+        height: 320px;
+    }
+
+    .simulador-cabecera {
+        font-size: 9px;
+    }
+
+    .datos-espaciales {
+        gap: 8px;
+        padding: 14px 10px;
+    }
+
+    .datos-espaciales strong {
+        font-size: 12px;
+    }
+
+    .dato-label {
+        font-size: 9px;
+    }
+
+    .controles {
+        padding: 16px;
+    }
+
+    .escala {
+        font-size: 9px;
+    }
+
+    .tarjetas-galaxias {
+        grid-template-columns: 1fr;
+    }
+
+    th, td {
+        padding: 9px;
+        font-size: 12px;
+    }
+}
+
+/* ACCESIBILIDAD */
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    .revelar {
+        animation: none;
+    }
 }
