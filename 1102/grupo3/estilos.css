@@ -1,108 +1,1368 @@
-/* ============================================================
-   ESTILOS DEL SITIO — CICLO 3
-   Lo que ya tenían del ciclo 2, mas lo necesario para las
-   figuras y las tablas del marco teorico.
-   ============================================================ */
 
-/* ---------- 1. BASE ---------- */
+/* =====================================================
+   EXPLORANDO EL UNIVERSO — ESTILOS GENERALES
+   ===================================================== */
+
+:root {
+  --fondo: #070b1a;
+  --fondo-secundario: #0b1226;
+  --tarjeta: #101a32;
+  --tarjeta-hover: #14213d;
+  --dorado: #ffc857;
+  --dorado-claro: #ffe5a3;
+  --azul: #91c9ff;
+  --texto: #f3f5fc;
+  --texto-suave: #a9b5ce;
+  --borde: rgba(160, 185, 230, 0.15);
+  --radio: 18px;
+  --ancho-maximo: 1120px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 90px;
+}
+
 body {
-  background-color: #0b1026;
-  color: #f2f2f2;
-  font-family: Arial, sans-serif;
   margin: 0;
-  padding: 16px;
-  line-height: 1.6;
-}
-
-h1 {
-  font-size: 28px;
-  line-height: 1.2;
-}
-
-h2 {
-  font-size: 22px;
-  color: #ffc857;
-}
-
-h3 {
-  font-size: 18px;
-}
-
-p {
+  padding: 0;
+  background:
+    radial-gradient(ellipse at 15% 5%,
+      rgba(48, 64, 125, 0.20), transparent 35%),
+    var(--fondo);
+  color: var(--texto);
+  font-family: Arial, Helvetica, sans-serif;
   font-size: 16px;
+  line-height: 1.75;
+  overflow-wrap: break-word;
 }
 
 img {
-  width: 100%;
+  display: block;
+  max-width: 100%;
   height: auto;
 }
 
-section {
-  margin-bottom: 40px;
+a {
+  color: inherit;
+  text-decoration: none;
 }
 
-/* ---------- 2. MENU ---------- */
-nav a {
-  display: inline-block;
-  padding: 12px 16px;
-  color: #9ecbff;
+p {
+  margin-top: 0;
 }
 
-/* ---------- 3. FIGURAS ----------
-   figure agrupa la imagen con su pie.
-   figcaption es el pie de la figura. */
-figure {
-  margin: 0 0 26px 0;
+h1, h2, h3 {
+  margin-top: 0;
+  line-height: 1.2;
 }
 
-figcaption {
-  font-size: 14px;
-  color: #98a3bb;
-  margin-top: 8px;
+::selection {
+  background: var(--dorado);
+  color: var(--fondo);
 }
 
-/* ---------- 4. TABLAS ---------- */
-table {
+
+/* ==================== NAVEGACIÓN ==================== */
+
+.navbar {
   width: 100%;
-  border-collapse: collapse;
+  min-height: 76px;
+  padding: 16px max(5%, calc((100% - var(--ancho-maximo)) / 2));
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  background: rgba(7, 11, 26, 0.94);
+  border-bottom: 1px solid var(--borde);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  backdrop-filter: blur(16px);
+}
+
+.logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+}
+
+.logo-icon {
+  color: var(--dorado);
+  font-size: 25px;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.nav-links a {
+  padding: 8px 10px;
+  color: var(--texto-suave);
+  font-size: 12px;
+  border-radius: 8px;
+  transition: color .25s, background .25s;
+}
+
+.nav-links a:hover {
+  color: var(--dorado);
+  background: rgba(255, 200, 87, .08);
+}
+
+
+/* ==================== PORTADA ==================== */
+
+.hero {
+  position: relative;
+  isolation: isolate;
+  min-height: 620px;
+  max-width: 1600px;
+  margin: 0 auto;
+  padding: 100px max(6%, calc((100% - var(--ancho-maximo)) / 2));
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  background:
+    radial-gradient(ellipse at 78% 50%,
+      rgba(50, 79, 155, .25), transparent 42%),
+    linear-gradient(125deg, #0b1126, #0b1530 55%, #101b38);
+  border-bottom: 1px solid var(--borde);
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  pointer-events: none;
+  background-image:
+    radial-gradient(circle, #fff 1px, transparent 1.5px),
+    radial-gradient(circle, #91c9ff 1px, transparent 1.5px);
+  background-size: 95px 95px, 143px 143px;
+  background-position: 10px 20px, 45px 65px;
+  opacity: .25;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 650px;
+}
+
+.etiqueta {
+  display: inline-block;
+  padding: 8px 14px;
+  margin-bottom: 26px;
+  color: var(--dorado-claro);
+  background: rgba(255, 200, 87, .08);
+  border: 1px solid rgba(255, 200, 87, .28);
+  border-radius: 100px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+}
+
+.hero h1 {
+  margin-bottom: 24px;
+  font-size: clamp(42px, 6vw, 76px);
+  font-weight: 800;
+  letter-spacing: -2px;
+  line-height: 1.08;
+}
+
+.hero h1 span {
+  color: var(--dorado);
+}
+
+.hero-description {
+  max-width: 540px;
+  margin-bottom: 30px;
+  color: #c0cbe0;
+  font-size: 17px;
+  line-height: 1.9;
+}
+
+.boton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  min-height: 52px;
+  padding: 13px 22px;
+  color: #15192a;
+  background: var(--dorado);
+  border: 1px solid var(--dorado);
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 800;
+  transition: transform .25s, background .25s, box-shadow .25s;
+}
+
+.boton:hover {
+  background: var(--dorado-claro);
+  transform: translateY(-3px);
+  box-shadow: 0 10px 28px rgba(255, 200, 87, .17);
+}
+
+.boton span {
+  font-size: 20px;
+}
+
+.hero-info {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 34px;
+  margin-top: 62px;
+  padding-top: 24px;
+  border-top: 1px solid var(--borde);
+}
+
+.hero-info div {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.hero-info strong {
+  color: var(--dorado);
+  font-size: 22px;
+}
+
+.hero-info span {
+  color: var(--texto-suave);
+  font-size: 12px;
+}
+
+
+/* Decoración espacial de la portada */
+
+.hero-decoration {
+  position: absolute;
+  width: 390px;
+  height: 390px;
+  top: 50%;
+  right: 8%;
+  transform: translateY(-50%);
+  pointer-events: none;
+}
+
+.orbit {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  border: 1px solid rgba(145, 201, 255, .25);
+  border-radius: 50%;
+  transform: translate(-50%, -50%) rotate(-25deg);
+}
+
+.orbit-one {
+  width: 330px;
+  height: 140px;
+}
+
+.orbit-two {
+  width: 390px;
+  height: 205px;
+  transform: translate(-50%, -50%) rotate(40deg);
+}
+
+.planet {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 125px;
+  height: 125px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 30% 25%,
+    #91c9ff, #527dbb 20%, #293e78 48%, #111a3b 75%);
+  box-shadow: inset -18px -12px 30px rgba(0, 0, 0, .55),
+              0 0 50px rgba(82, 125, 187, .2);
+  transform: translate(-50%, -50%);
+}
+
+.planet-moon {
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  top: 26%;
+  right: 12%;
+  border-radius: 50%;
+  background: var(--dorado);
+  box-shadow: 0 0 25px rgba(255, 200, 87, .3);
+}
+
+.star {
+  position: absolute;
+  color: var(--dorado);
+  font-size: 25px;
+}
+
+.star-one { top: 15%; left: 22%; }
+.star-two { right: 5%; bottom: 25%; color: var(--azul); font-size: 32px; }
+.star-three { left: 15%; bottom: 15%; font-size: 15px; }
+
+
+/* ==================== SECCIONES ==================== */
+
+main {
+  width: 100%;
+}
+
+.seccion {
+  max-width: var(--ancho-maximo);
+  margin: 0 auto;
+  padding: 95px 30px;
+}
+
+.seccion-alterna {
+  max-width: none;
+  padding-right: max(30px, calc((100% - var(--ancho-maximo)) / 2));
+  padding-left: max(30px, calc((100% - var(--ancho-maximo)) / 2));
+  background: linear-gradient(135deg,
+    rgba(20, 33, 61, .55), rgba(9, 15, 32, .7));
+  border-top: 1px solid var(--borde);
+  border-bottom: 1px solid var(--borde);
+}
+
+.section-heading {
+  max-width: 760px;
+  margin-bottom: 42px;
+}
+
+.numero-seccion {
+  display: block;
+  margin-bottom: 15px;
+  color: var(--dorado);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 2px;
+}
+
+.section-heading h2,
+.conclusion h2 {
+  margin-bottom: 16px;
+  font-size: clamp(29px, 4vw, 43px);
+  letter-spacing: -1px;
+}
+
+.subtitulo {
+  max-width: 650px;
+  margin-bottom: 0;
+  color: var(--texto-suave);
+  font-size: 16px;
+}
+
+
+/* ==================== INTRODUCCIÓN ==================== */
+
+.intro-grid {
+  display: grid;
+  grid-template-columns: 1.15fr .85fr;
+  align-items: center;
+  gap: 60px;
+}
+
+.intro-text p {
+  margin-bottom: 20px;
+  color: #c1cbe0;
+  font-size: 16px;
+  line-height: 1.95;
+}
+
+.intro-text strong {
+  color: var(--dorado-claro);
+}
+
+.concept-card {
+  padding: 30px;
+  background: radial-gradient(circle at 100% 0%,
+    rgba(255, 200, 87, .09), transparent 50%), var(--tarjeta);
+  border: 1px solid var(--borde);
+  border-radius: var(--radio);
+  box-shadow: 0 15px 50px rgba(0, 0, 0, .12);
+}
+
+.concept-icon {
+  display: grid;
+  place-items: center;
+  width: 56px;
+  height: 56px;
+  margin-bottom: 22px;
+  color: var(--dorado);
+  background: rgba(255, 200, 87, .1);
+  border: 1px solid rgba(255, 200, 87, .18);
+  border-radius: 15px;
+  font-size: 32px;
+}
+
+.concept-label,
+.mini-etiqueta {
+  display: block;
+  color: var(--dorado);
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+}
+
+.concept-card h3 {
+  margin-top: 12px;
+  margin-bottom: 14px;
+  font-size: 24px;
+}
+
+.concept-card p {
+  color: var(--texto-suave);
+  font-size: 14px;
+}
+
+.concept-footer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 24px;
+  padding-top: 20px;
+  border-top: 1px solid var(--borde);
+}
+
+.concept-footer span {
+  padding: 6px 10px;
+  color: var(--azul);
+  background: rgba(145, 201, 255, .08);
+  border-radius: 6px;
+  font-size: 11px;
+}
+
+
+/* ==================== OBJETIVOS ==================== */
+
+.objetivos-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.objetivo-card {
+  min-width: 0;
+  padding: 28px 24px;
+  background: var(--tarjeta);
+  border: 1px solid var(--borde);
+  border-radius: var(--radio);
+  transition: transform .25s, border-color .25s, background .25s;
+}
+
+.objetivo-card:hover {
+  transform: translateY(-5px);
+  background: var(--tarjeta-hover);
+  border-color: rgba(255, 200, 87, .35);
+}
+
+.icono-card {
+  display: grid;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  margin-bottom: 22px;
+  color: var(--dorado);
+  background: rgba(255, 200, 87, .09);
+  border-radius: 13px;
+  font-size: 27px;
+}
+
+.objetivo-card .mini-etiqueta {
+  min-height: 30px;
+  line-height: 1.6;
+}
+
+.objetivo-card h3 {
+  margin-top: 8px;
+  margin-bottom: 14px;
+  font-size: 20px;
+}
+
+.objetivo-card p {
+  margin-bottom: 0;
+  color: var(--texto-suave);
+  font-size: 14px;
+  line-height: 1.9;
+}
+
+
+/* ==================== TARJETAS DE EXOPLANETAS ==================== */
+
+.nota-cientifica {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  margin-bottom: 32px;
+  padding: 18px 22px;
+  background: rgba(145, 201, 255, .055);
+  border: 1px solid rgba(145, 201, 255, .2);
+  border-radius: 12px;
+}
+
+.nota-icono {
+  color: var(--azul);
+  font-size: 22px;
+  line-height: 1.4;
+}
+
+.nota-cientifica p {
+  margin-bottom: 0;
+  color: #c1cbe0;
+  font-size: 13px;
+  line-height: 1.8;
+}
+
+.nota-cientifica strong {
+  color: var(--azul);
+}
+
+.planeta-card {
+  display: grid;
+  grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr);
+  align-items: stretch;
+  margin-bottom: 28px;
+  background: linear-gradient(120deg, var(--tarjeta), #0b1226);
+  border: 1px solid var(--borde);
+  border-radius: var(--radio);
+  overflow: hidden;
+  transition: border-color .3s, transform .3s;
+}
+
+.planeta-card:hover {
+  border-color: rgba(255, 200, 87, .35);
+  transform: translateY(-3px);
+}
+
+.planeta-imagen {
+  position: relative;
+  min-width: 0;
+  min-height: 300px;
+  overflow: hidden;
+  background: #111a35;
+}
+
+.planeta-imagen img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform .6s;
+}
+
+.planeta-card:hover .planeta-imagen img {
+  transform: scale(1.05);
+}
+
+.planeta-numero {
+  position: absolute;
+  z-index: 2;
+  top: 18px;
+  left: 18px;
+  display: grid;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  color: var(--dorado);
+  background: rgba(7, 11, 26, .82);
+  border: 1px solid rgba(255, 200, 87, .35);
+  border-radius: 12px;
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.planeta-contenido {
+  min-width: 0;
+  padding: 32px 34px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.planeta-contenido h3 {
+  margin-top: 10px;
+  margin-bottom: 18px;
+  font-size: clamp(24px, 3vw, 31px);
+}
+
+.planeta-contenido > p {
+  margin-bottom: 24px;
+  color: #b8c4dc;
+  font-size: 14px;
+  line-height: 1.9;
+}
+
+.dato-planeta {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  width: 100%;
+  margin-top: auto;
+  padding: 15px;
+  background: rgba(255, 200, 87, .055);
+  border: 1px solid rgba(255, 200, 87, .13);
+  border-radius: 10px;
+}
+
+.dato-simbolo {
+  color: var(--dorado);
+  font-size: 25px;
+}
+
+.dato-planeta div {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.dato-planeta strong {
+  color: var(--dorado-claro);
+  font-size: 13px;
+}
+
+.dato-planeta div span {
+  color: var(--texto-suave);
+  font-size: 11px;
+  line-height: 1.5;
+}
+
+.planeta-contenido figure {
+  width: 100%;
+  margin: 20px 0 0;
+  padding-top: 16px;
+  border-top: 1px solid var(--borde);
+}
+
+.planeta-contenido figcaption {
+  color: #8997b4;
+  font-size: 11px;
+  line-height: 1.7;
+}
+
+
+/* =====================================================
+   SIMULACIÓN 3D — PANEL, CANVAS Y CONTROLES
+   ===================================================== */
+
+.simulacion-seccion {
+  max-width: none;
+  padding-right: max(24px, calc((100% - 1040px) / 2));
+  padding-left: max(24px, calc((100% - 1040px) / 2));
+  background:
+    radial-gradient(ellipse at 50% 45%,
+      rgba(54, 71, 142, .12), transparent 65%),
+    #090e20;
+  border-top: 1px solid var(--borde);
+  border-bottom: 1px solid var(--borde);
+}
+
+.simulacion-panel {
+  overflow: hidden;
+  background: linear-gradient(145deg, #101a32, #080d1d);
+  border: 1px solid rgba(145, 201, 255, .2);
+  border-radius: 20px;
+  box-shadow: 0 25px 70px rgba(0, 0, 0, .24);
+}
+
+.simulacion-cabecera {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  padding: 24px 28px;
+  border-bottom: 1px solid var(--borde);
+}
+
+.simulacion-cabecera h3 {
+  margin: 10px 0 0;
+  font-size: 22px;
+}
+
+.estado-simulacion {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: #a5e6c1;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 1.3px;
+}
+
+.estado-punto {
+  width: 8px;
+  height: 8px;
+  background: #62d99b;
+  border-radius: 50%;
+  box-shadow: 0 0 12px rgba(98, 217, 155, .6);
+}
+
+.etiqueta-3d {
+  flex-shrink: 0;
+  padding: 7px 11px;
+  color: var(--azul);
+  background: rgba(145, 201, 255, .08);
+  border: 1px solid rgba(145, 201, 255, .18);
+  border-radius: 7px;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 1px;
+}
+
+.canvas-contenedor {
+  position: relative;
+  width: 100%;
+  height: clamp(300px, 48vw, 500px);
+  overflow: hidden;
+  background: #050518;
+}
+
+#lienzo {
+  display: block;
+  width: 100%;
+  height: 100%;
+  outline: none;
+  touch-action: pan-y;
+}
+
+.leyenda-espacial {
+  position: absolute;
+  left: 18px;
+  bottom: 18px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  padding: 10px 13px;
+  color: #d5def0;
+  background: rgba(5, 8, 24, .8);
+  border: 1px solid rgba(160, 185, 230, .17);
+  border-radius: 9px;
+  font-size: 11px;
+  backdrop-filter: blur(8px);
+  pointer-events: none;
+}
+
+.leyenda-espacial span {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.leyenda-espacial i {
+  display: inline-block;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+}
+
+.leyenda-sol {
+  background: #ffd84d;
+  box-shadow: 0 0 8px #ffbd35;
+}
+
+.leyenda-planeta {
+  background: #5c8cff;
+}
+
+.leyenda-atmosfera {
+  background: #72d9ff;
+  box-shadow: 0 0 7px #72d9ff;
+}
+
+.controles {
+  padding: 25px 28px 22px;
+  background: rgba(8, 14, 31, .72);
+  border-top: 1px solid var(--borde);
+}
+
+.control-titulo {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 17px;
+}
+
+.control-titulo label {
+  color: var(--texto);
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.control-valor {
+  color: var(--dorado);
+  font-size: 24px;
+  font-weight: 800;
+  font-variant-numeric: tabular-nums;
+}
+
+.control-valor small {
+  color: var(--texto-suave);
+  font-size: 10px;
+  font-weight: 400;
+}
+
+#control {
+  display: block;
+  width: 100%;
+  height: 24px;
+  margin: 0;
+  padding: 0;
+  appearance: none;
+  -webkit-appearance: none;
+  background: transparent;
+  cursor: pointer;
+  touch-action: pan-y;
+}
+
+#control::-webkit-slider-runnable-track {
+  height: 6px;
+  background: linear-gradient(90deg, #6c8cff, var(--dorado));
+  border-radius: 20px;
+}
+
+#control::-moz-range-track {
+  height: 6px;
+  background: linear-gradient(90deg, #6c8cff, var(--dorado));
+  border-radius: 20px;
+}
+
+#control::-webkit-slider-thumb {
+  width: 20px;
+  height: 20px;
+  margin-top: -7px;
+  appearance: none;
+  -webkit-appearance: none;
+  background: var(--dorado);
+  border: 3px solid #fff1c9;
+  border-radius: 50%;
+  box-shadow: 0 0 12px rgba(255, 200, 87, .35);
+}
+
+#control::-moz-range-thumb {
+  width: 15px;
+  height: 15px;
+  background: var(--dorado);
+  border: 3px solid #fff1c9;
+  border-radius: 50%;
+  box-shadow: 0 0 12px rgba(255, 200, 87, .35);
+}
+
+#control:focus-visible {
+  outline: 2px solid var(--azul);
+  outline-offset: 7px;
+  border-radius: 10px;
+}
+
+.rango-etiquetas {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 7px;
+  color: #8997b4;
+  font-size: 11px;
+}
+
+.ayuda-control {
+  margin: 16px 0 0;
+  color: var(--texto-suave);
+  font-size: 12px;
+  line-height: 1.8;
+}
+
+.simulacion-nota {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 18px 28px;
+  background: rgba(145, 201, 255, .045);
+  border-top: 1px solid var(--borde);
+}
+
+.simulacion-nota > span {
+  color: var(--azul);
+  font-size: 18px;
+}
+
+.simulacion-nota p {
+  margin: 0;
+  color: var(--texto-suave);
+  font-size: 12px;
+  line-height: 1.85;
+}
+
+.simulacion-nota strong {
+  color: var(--azul);
+}
+
+
+/* ==================== CONCLUSIÓN ==================== */
+
+.conclusion {
+  position: relative;
+  overflow: hidden;
+  margin: 35px auto 0;
+  padding: 80px 25px;
+  text-align: center;
+  background:
+    radial-gradient(ellipse at 50% 100%,
+      rgba(61, 83, 148, .28), transparent 65%),
+    #0b1226;
+  border-top: 1px solid var(--borde);
+  border-bottom: 1px solid var(--borde);
+}
+
+.conclusion-icono {
+  margin-bottom: 20px;
+  color: var(--dorado);
+  font-size: 40px;
+}
+
+.conclusion h2 {
+  max-width: 700px;
+  margin: 0 auto 16px;
+}
+
+.conclusion p {
+  max-width: 720px;
+  margin: 0 auto 30px;
+  color: #bdc8df;
   font-size: 15px;
+  line-height: 2;
+}
+
+.boton-secundario {
+  color: var(--dorado);
+  background: transparent;
+  border-color: rgba(255, 200, 87, .4);
+}
+
+.boton-secundario:hover {
+  color: var(--fondo);
+  background: var(--dorado);
+}
+
+
+/* ==================== REFERENCIAS ==================== */
+
+.referencias {
+  padding-bottom: 80px;
+}
+
+.lista-referencias {
+  display: grid;
+  gap: 12px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  counter-reset: fuentes;
+}
+
+.lista-referencias li {
+  position: relative;
+  min-width: 0;
+  counter-increment: fuentes;
+  padding: 20px 22px 20px 62px;
+  background: var(--tarjeta);
+  border: 1px solid var(--borde);
+  border-radius: 12px;
+}
+
+.lista-referencias li::before {
+  content: "0" counter(fuentes);
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  color: var(--dorado);
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.lista-referencias li:hover {
+  border-color: rgba(255, 200, 87, .3);
+}
+
+.lista-referencias a {
+  display: block;
+  margin-bottom: 5px;
+  color: var(--azul);
+  font-size: 14px;
+  font-weight: 700;
+  overflow-wrap: anywhere;
+}
+
+.lista-referencias a:hover {
+  color: var(--dorado);
+  text-decoration: underline;
+}
+
+.lista-referencias li span {
+  color: var(--texto-suave);
+  font-size: 12px;
+}
+
+.nota-fuentes {
+  margin-top: 24px;
+  color: #8997b4;
+  font-size: 12px;
+  line-height: 1.8;
+}
+
+
+/* ==================== PIE DE PÁGINA ==================== */
+
+.footer {
+  padding: 38px 24px;
+  text-align: center;
+  background: #050814;
+  border-top: 1px solid var(--borde);
+}
+
+.footer-logo {
+  justify-content: center;
   margin-bottom: 20px;
 }
 
-th, td {
-  border: 1px solid #1e2740;
-  padding: 10px;
-  text-align: left;
+.footer p {
+  margin-bottom: 8px;
+  color: var(--texto-suave);
+  font-size: 12px;
 }
 
-th {
-  background-color: #0d1326;
-  color: #ffc857;
+.footer .integrantes {
+  color: #7e8ba8;
 }
 
-/* ---------- 5. DATO DESTACADO ---------- */
-.tarjeta {
-  background-color: #0d1326;
-  border: 1px solid #1e2740;
-  border-radius: 12px;
-  padding: 18px;
-  margin-bottom: 16px;
+.footer-final {
+  display: inline-block;
+  margin-top: 20px;
+  color: var(--dorado);
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 2px;
 }
 
-.dato {
-  font-size: 36px;
-  font-weight: bold;
-  color: #ffc857;
-  margin: 0;
-}
 
-/* ---------- 6. PANTALLA ANCHA ---------- */
-@media (min-width: 700px) {
-  body {
-    max-width: 700px;
-    margin: 0 auto;
-    padding: 32px;
+/* ==================== TABLET ==================== */
+
+@media (max-width: 900px) {
+  .navbar {
+    padding-right: 24px;
+    padding-left: 24px;
   }
-  h1 { font-size: 44px; }
-  h2 { font-size: 30px; }
+
+  .logo {
+    font-size: 11px;
+    letter-spacing: 1px;
+  }
+
+  .nav-links {
+    gap: 2px;
+  }
+
+  .nav-links a {
+    padding: 8px;
+    font-size: 11px;
+  }
+
+  .hero {
+    min-height: 570px;
+    padding-right: 5%;
+    padding-left: 5%;
+  }
+
+  .hero-decoration {
+    right: -100px;
+    opacity: .55;
+  }
+
+  .intro-grid {
+    gap: 32px;
+  }
+
+  .objetivos-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .planeta-contenido {
+    padding: 26px 24px;
+  }
+
+  .planeta-imagen {
+    min-height: 340px;
+  }
+
+  .simulacion-seccion {
+    padding-right: 24px;
+    padding-left: 24px;
+  }
+}
+
+
+/* ==================== CELULARES ==================== */
+
+@media (max-width: 600px) {
+  html {
+    scroll-padding-top: 20px;
+  }
+
+  .navbar {
+    position: relative;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 17px 20px;
+  }
+
+  .logo {
+    font-size: 12px;
+  }
+
+  .nav-links {
+    width: 100%;
+    justify-content: flex-start;
+    gap: 5px;
+  }
+
+  .nav-links a {
+    padding: 7px 8px;
+    font-size: 11px;
+  }
+
+  .hero {
+    min-height: 0;
+    padding: 75px 24px 45px;
+  }
+
+  .hero-decoration {
+    width: 260px;
+    height: 260px;
+    top: 100px;
+    right: -125px;
+    opacity: .3;
+    transform: none;
+  }
+
+  .orbit-one {
+    width: 240px;
+    height: 100px;
+  }
+
+  .orbit-two {
+    width: 280px;
+    height: 145px;
+  }
+
+  .planet {
+    width: 85px;
+    height: 85px;
+  }
+
+  .planet-moon {
+    width: 17px;
+    height: 17px;
+  }
+
+  .hero h1 {
+    font-size: clamp(39px, 11vw, 55px);
+    letter-spacing: -1.5px;
+  }
+
+  .etiqueta {
+    font-size: 9px;
+    letter-spacing: 1px;
+  }
+
+  .hero-description {
+    font-size: 15px;
+  }
+
+  .hero-info {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 18px;
+    margin-top: 42px;
+  }
+
+  .hero-info div {
+    flex-direction: row;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .hero-info strong {
+    min-width: 28px;
+    font-size: 18px;
+  }
+
+  .seccion {
+    padding: 65px 20px;
+  }
+
+  .seccion-alterna {
+    padding-right: 20px;
+    padding-left: 20px;
+  }
+
+  .section-heading {
+    margin-bottom: 30px;
+  }
+
+  .section-heading h2,
+  .conclusion h2 {
+    font-size: 30px;
+  }
+
+  .subtitulo {
+    font-size: 14px;
+  }
+
+  .intro-grid {
+    grid-template-columns: 1fr;
+    gap: 25px;
+  }
+
+  .intro-text p {
+    font-size: 14px;
+  }
+
+  .concept-card {
+    padding: 24px;
+  }
+
+  .objetivos-grid {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .objetivo-card {
+    padding: 24px;
+  }
+
+  .nota-cientifica {
+    padding: 15px;
+  }
+
+  .planeta-card {
+    grid-template-columns: 1fr;
+    margin-bottom: 22px;
+  }
+
+  .planeta-imagen {
+    min-height: 0;
+    aspect-ratio: 16 / 10;
+  }
+
+  .planeta-contenido {
+    padding: 24px 20px;
+  }
+
+  .planeta-contenido h3 {
+    font-size: 26px;
+  }
+
+  .planeta-contenido > p {
+    font-size: 14px;
+  }
+
+  .simulacion-seccion {
+    padding: 60px 14px;
+  }
+
+  .simulacion-cabecera {
+    align-items: flex-start;
+    padding: 20px 16px;
+    gap: 10px;
+  }
+
+  .simulacion-cabecera h3 {
+    font-size: 19px;
+  }
+
+  .etiqueta-3d {
+    padding: 6px 7px;
+    font-size: 9px;
+  }
+
+  .canvas-contenedor {
+    height: 340px;
+  }
+
+  .leyenda-espacial {
+    left: 10px;
+    bottom: 10px;
+    gap: 9px;
+    padding: 8px 9px;
+    font-size: 9px;
+  }
+
+  .leyenda-espacial span {
+    gap: 5px;
+  }
+
+  .controles {
+    padding: 22px 18px;
+  }
+
+  .simulacion-nota {
+    padding: 16px 18px;
+  }
+
+  .conclusion {
+    padding: 65px 22px;
+  }
+
+  .conclusion p {
+    font-size: 14px;
+  }
+
+  .lista-referencias li {
+    padding: 18px 14px 18px 50px;
+  }
+
+  .lista-referencias li::before {
+    top: 18px;
+    left: 15px;
+  }
+
+  .lista-referencias a {
+    font-size: 13px;
+  }
+
+  .footer {
+    padding: 32px 20px;
+  }
+}
+
+
+/* ==================== ACCESIBILIDAD ==================== */
+
+a:focus-visible {
+  outline: 2px solid var(--dorado);
+  outline-offset: 4px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    transition-duration: .01ms !important;
+    animation-duration: .01ms !important;
+  }
 }
