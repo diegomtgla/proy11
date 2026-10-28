@@ -1,0 +1,8 @@
+Copia aquí las imágenes exportadas de tu presentación.
+Nombres que reconoce la galería:
+- portada-presentacion.jpg
+- comparacion-exoplanetas.jpg
+- caracteristicas-fisicoquimicas.jpg
+- conclusiones.jpg
+
+Si usas .png o .webp, cambia también la extensión en index.html.

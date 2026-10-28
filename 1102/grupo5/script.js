@@ -1,8 +1,7 @@
-// EXO/VIDA · Simulación 3D inspirada en el código original del proyecto.
-// Three.js se carga desde CDN; por eso esta sección requiere conexión a internet.
 import * as THREE from 'https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js';
 
 const canvas = document.getElementById('lienzo');
+const simulationWrap = document.querySelector('.sim-canvas-wrap');
 const selector = document.getElementById('planetSelector');
 if (canvas && selector) {
   const scene = new THREE.Scene();
@@ -11,7 +10,15 @@ if (canvas && selector) {
   const camera = new THREE.PerspectiveCamera(45, 1, 0.1, 100);
   camera.position.set(0, 0, 5.4);
 
-  const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: false });
+  let renderer;
+  try {
+    renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: false });
+  } catch (error) {
+    if (simulationWrap) simulationWrap.insertAdjacentHTML('beforeend',
+      '<p class="sim-error">No se pudo iniciar el modelo 3D. Prueba con Chrome o Edge actualizado y activa la aceleración gráfica.</p>');
+    console.error('No se pudo crear el renderizador 3D:', error);
+    throw error;
+  }
   renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
   renderer.outputColorSpace = THREE.SRGBColorSpace;
   renderer.setClearColor(0x080b18, 1);
@@ -152,19 +159,32 @@ if (canvas && selector) {
   let userRotX = -0.12;
   let userRotY = 0.25;
 
+  canvas.style.touchAction = 'none';
+  canvas.style.cursor = 'grab';
   canvas.addEventListener('pointerdown', e => {
-    dragging = true; lastX = e.clientX; lastY = e.clientY;
-    canvas.setPointerCapture?.(e.pointerId);
+    dragging = true;
+    lastX = e.clientX;
+    lastY = e.clientY;
+    canvas.style.cursor = 'grabbing';
+    try { canvas.setPointerCapture(e.pointerId); } catch (_) {}
+    e.preventDefault();
   });
   canvas.addEventListener('pointermove', e => {
     if (!dragging) return;
-    userRotY += (e.clientX - lastX) * 0.008;
-    userRotX += (e.clientY - lastY) * 0.008;
-    userRotX = Math.max(-1.2, Math.min(1.2, userRotX));
-    lastX = e.clientX; lastY = e.clientY;
+    const dx = e.clientX - lastX;
+    const dy = e.clientY - lastY;
+    userRotY += dx * 0.009;
+    userRotX = Math.max(-1.35, Math.min(1.35, userRotX + dy * 0.009));
+    lastX = e.clientX;
+    lastY = e.clientY;
   });
-  canvas.addEventListener('pointerup', () => dragging = false);
-  canvas.addEventListener('pointercancel', () => dragging = false);
+  const stopDragging = () => {
+    dragging = false;
+    canvas.style.cursor = 'grab';
+  };
+  canvas.addEventListener('pointerup', stopDragging);
+  canvas.addEventListener('pointercancel', stopDragging);
+  canvas.addEventListener('lostpointercapture', stopDragging);
   canvas.addEventListener('wheel', e => {
     e.preventDefault();
     camera.position.z = Math.max(3.2, Math.min(8, camera.position.z + e.deltaY * 0.004));

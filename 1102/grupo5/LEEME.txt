@@ -1,0 +1,40 @@
+EXOPLANETAS MÁS PROMETEDORES PARA LA VIDA — Sitio web del proyecto
+
+ARCHIVOS
+- index.html: estructura, texto y secciones.
+- estilo.css: apariencia adaptable a computador y celular.
+- script.js: simulación 3D interactiva con Three.js.
+- imagenes/: carpeta para las diapositivas o imágenes de la presentación.
+
+CÓMO ABRIR
+1. Descomprime EXOPLANETAS_WEB.zip en una carpeta.
+2. Abre la carpeta en Visual Studio Code.
+3. Instala la extensión Live Server si no la tienes.
+4. Haz clic derecho en index.html y elige “Open with Live Server”.
+5. Necesitas internet para cargar Three.js desde su CDN y las fuentes web.
+
+SIMULACIÓN 3D
+- Escoge uno de los cuatro exoplanetas del menú.
+- Mantén presionado y arrastra sobre el planeta para girarlo.
+- Usa la rueda del ratón para acercar o alejar.
+- Usa Pausar/Reanudar, Reiniciar vista y el control de velocidad.
+- En celular/tableta también puedes arrastrar con el dedo.
+- Si no aparece el modelo, abre la página con Live Server y comprueba que el navegador permita aceleración gráfica/WebGL.
+
+CÓMO AGREGAR LAS IMÁGENES DE TU PRESENTACIÓN
+1. Abre la carpeta “imagenes”.
+2. Copia ahí las imágenes de tus diapositivas.
+3. Para que aparezcan automáticamente en la galería, usa estos nombres exactos:
+   - portada-presentacion.jpg
+   - comparacion-exoplanetas.jpg
+   - caracteristicas-fisicoquimicas.jpg
+   - conclusiones.jpg
+4. Si tus archivos son PNG o WEBP, puedes conservar esa extensión, pero cambia también el nombre en el src correspondiente de index.html.
+5. Para agregar más imágenes, duplica uno de los bloques <figure> de la sección con id="galeria" y cambia src, alt y figcaption.
+
+OBJETIVOS INCLUIDOS
+General: Identificar exoplanetas candidatos para conocer cuáles tienen características que podrían permitir condiciones adecuadas para la vida.
+Específico 1: Categorizar los exoplanetas candidatos más prometedores mediante sus propiedades y cuáles podrían albergar vida.
+Específico 2: Analizar las diferentes características fisicoquímicas de los exoplanetas candidatos para identificar sus principales similitudes y diferencias.
+
+Nota: el aspecto de los planetas de la simulación es artístico y no constituye una imagen real ni confirma que exista vida.

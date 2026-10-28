@@ -44,3 +44,20 @@
 .sim-caption span{color:var(--pink);font-size:1.1rem}
 @media(max-width:850px){.simulator{grid-template-columns:1fr}.sim-canvas-wrap{border-right:0;border-bottom:1px solid var(--line);min-height:360px}#lienzo{height:360px}.sim-controls{padding:25px}}
 @media(max-width:480px){.sim-canvas-wrap{min-height:300px}#lienzo{height:300px}.sim-topline{left:13px;right:13px;top:13px;font-size:.54rem}.sim-controls{padding:20px}.sim-facts{grid-template-columns:1fr}.sim-actions{display:grid;grid-template-columns:1fr 1fr}.sim-button{padding:10px 7px;font-size:.64rem}}
+
+/* --- Integrantes y objetivos --- */
+.team{border:1px solid #65f4e244;background:#080d1caa;padding:12px 15px;margin-bottom:22px;max-width:620px}
+.team span,.objective-list article span{font:.62rem 'DM Mono',monospace;letter-spacing:1.3px;color:var(--cyan)}
+.team p{font-size:.78rem;color:#dce3f4;margin-top:4px}
+.objectives{padding-top:55px}
+.objective-list{display:grid;gap:12px}
+.objective-list article{padding:18px 20px;background:#11172b;border:1px solid var(--line);border-left:3px solid var(--cyan)}
+.objective-list article p{font-size:.86rem;color:#d3daea;margin-top:6px}
+.gallery-section{padding-top:65px}
+.presentation-gallery{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;margin-top:35px}
+.presentation-gallery figure{min-width:0;background:#11172b;border:1px solid var(--line);padding:10px}
+.presentation-gallery img{display:block;width:100%;aspect-ratio:16/9;object-fit:cover;background:linear-gradient(135deg,#18203b,#33274c);color:#aab4cc}
+.presentation-gallery figcaption{font-size:.76rem;color:#c2cbe0;padding:10px 4px 3px}
+@media(max-width:600px){.presentation-gallery{grid-template-columns:1fr}.team p{font-size:.7rem}}
+
+.sim-error{position:absolute;z-index:5;left:20px;right:20px;bottom:45px;padding:12px;background:#321b2b;color:#fff;border:1px solid #ff7396;font-size:.78rem}
