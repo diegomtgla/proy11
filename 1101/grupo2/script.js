@@ -1003,3 +1003,26 @@ function animar() {
 // ============================================================
 
 animar();
+// ---------- SONIDO AMBIENTAL ----------
+let audio = null;
+function iniciarSonido() {
+audio = new AudioContext();
+const onda = audio.createOscillator();
+const volumen = audio.createGain();
+onda.type = "sine";
+onda.frequency.value = 110; // el tono de su ambiente
+volumen.gain.value = 0.12; // nunca pasen de 0.15
+onda.connect(volumen);
+volumen.connect(audio.destination);
+onda.start();
+}
+// ---------- EL BOTÓN DE ENTRADA ----------
+const botonEntrar = document.getElementById("entrar");
+botonEntrar.addEventListener("click", function () {
+iniciarSonido();
+if (typeof DeviceOrientationEvent !== "undefined" &&
+typeof DeviceOrientationEvent.requestPermission === "function") {
+DeviceOrientationEvent.requestPermission();
+}
+botonEntrar.style.display = "none";
+});
