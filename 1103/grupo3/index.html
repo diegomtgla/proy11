@@ -1,144 +1,932 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Fusión nuclear en las estrellas: Procesos de
-fusión y liberación de energía.</title>
-  <link rel="stylesheet" href="estilos.css">
-</head>
-<body>
-
-  <!-- ===== PORTADA =====================================
-       RESPONSABLE: entrada
-       Cambien el titulo y la frase de entrada.
-  ==================================================== -->
-  <header id="portada">
-    <h1>Fusión nuclear en las estrellas: Procesos de
-fusión y liberación de energía.</h1>
+  <title>Fusión nuclear en las estrellas</title>
   
-    <p>“En el corazón de las estrellas, la fusión nuclear transforma materia en energía y libera un poder capaz de iluminar el universo.”.</p>
+  <!-- Tailwind CSS para diseño fluido y estilizado -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Google Fonts para tipografía astronómica -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;800&family=Rajdhani:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    /* Estilos personalizados y paleta espacial */
+    body {
+      font-family: 'Rajdhani', sans-serif;
+      background-color: #03030c;
+      color: #e2e8f0;
+      scroll-behavior: smooth;
+    }
+    
+    h1, h2, h3, .font-orbitron {
+      font-family: 'Orbitron', sans-serif;
+    }
+
+    .glow-text {
+      text-shadow: 0 0 12px rgba(59, 130, 246, 0.6);
+    }
+
+    .glow-orange {
+      text-shadow: 0 0 15px rgba(249, 115, 22, 0.7);
+    }
+
+    /* Degradados cosmicos */
+    .bg-space-card {
+      background: rgba(15, 23, 42, 0.75);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(56, 189, 248, 0.15);
+    }
+
+    .bg-glass {
+      background: rgba(10, 15, 30, 0.65);
+      backdrop-filter: blur(8px);
+    }
+
+    /* Estilos del canvas e interactividad */
+    #visor {
+      position: relative;
+      width: 100%;
+      height: 420px;
+      border-radius: 1rem;
+      overflow: hidden;
+      box-shadow: 0 0 25px rgba(59, 130, 246, 0.2);
+    }
+
+    @media (min-width: 768px) {
+      #visor {
+        height: 480px;
+      }
+    }
+
+    #lienzo {
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+
+    /* Botones de etapa interactivos */
+    .etapa-btn {
+      transition: all 0.3s ease;
+    }
+
+    .etapa-btn.activa {
+      background: linear-gradient(135deg, #2563eb, #7c3aed);
+      border-color: #60a5fa;
+      color: #ffffff;
+      box-shadow: 0 0 15px rgba(37, 99, 235, 0.5);
+      transform: translateY(-2px);
+    }
+
+    /* Fórmulas matemáticas */
+    .formula-box {
+      font-family: 'Orbitron', monospace;
+      background: rgba(30, 41, 59, 0.7);
+      border-left: 4px solid #f97316;
+    }
+  </style>
+</head>
+
+<body class="selection:bg-blue-500 selection:text-white">
+
+  <!-- PORTADA -->
+  <header id="portada" class="relative min-h-screen flex items-center justify-center text-center px-4 overflow-hidden border-b border-blue-900/30">
+    <!-- Fondo decorativo estelar -->
+    <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-blue-950/40 via-slate-950 to-black pointer-events-none"></div>
+    <div class="absolute w-96 h-96 bg-blue-600/10 rounded-full blur-3xl -top-10 -left-10 pointer-events-none"></div>
+    <div class="absolute w-96 h-96 bg-orange-600/10 rounded-full blur-3xl -bottom-10 -right-10 pointer-events-none"></div>
+
+    <div class="relative z-10 max-w-4xl mx-auto space-y-6">
+      <span class="inline-block px-4 py-1.5 rounded-full text-xs font-semibold tracking-widest text-cyan-400 bg-cyan-950/60 border border-cyan-500/30 uppercase font-orbitron">
+        PROYECTO INTERDISCIPLINAR · GRADO 1103
+      </span>
+
+      <h1 class="text-4xl md:text-6xl lg:text-7xl font-extrabold text-white tracking-tight leading-tight">
+        FUSIÓN NUCLEAR <br>
+        <span class="bg-gradient-to-r from-amber-400 via-orange-500 to-red-500 bg-clip-text text-transparent glow-orange">
+          EN LAS ESTRELLAS
+        </span>
+      </h1>
+
+      <p class="text-lg md:text-xl text-slate-300 max-w-2xl mx-auto font-medium leading-relaxed">
+        En el corazón de las estrellas, la fusión nuclear transforma
+        la materia en energía y libera el poder que ilumina el universo.
+      </p>
+
+      <div class="pt-4">
+        <a href="#introduccion" class="inline-flex items-center gap-2 px-8 py-4 rounded-full font-bold text-lg text-white bg-gradient-to-r from-blue-600 to-violet-600 hover:from-blue-500 hover:to-violet-500 shadow-lg shadow-blue-600/30 transition-all hover:scale-105">
+          Explorar el universo ✦
+        </a>
+      </div>
+    </div>
   </header>
 
-  <!-- ===== MENU ======================================== -->
-  <nav>
-    <a href="#introduccion">Introducción</a>
-    <a href="#objetivos">Objetivos</a>
-    <a href="#marco-teorico">Marco teórico</a>
-    <a href="#stand">Stand</a>
-    <a href="#referencias">Referencias</a>
+  <!-- MENÚ DE NAVEGACIÓN -->
+  <nav class="sticky top-0 z-50 bg-slate-950/80 backdrop-blur-md border-b border-slate-800 text-sm md:text-base font-orbitron">
+    <div class="max-w-6xl mx-auto px-4">
+      <div class="flex items-center justify-between h-16 overflow-x-auto whitespace-nowrap scrollbar-none gap-6 text-slate-300">
+        <a href="#introduccion" class="hover:text-cyan-400 transition-colors">01. Introducción</a>
+        <a href="#objetivos" class="hover:text-cyan-400 transition-colors">02. Objetivos</a>
+        <a href="#marco-teorico" class="hover:text-cyan-400 transition-colors">03. Marco Teórico</a>
+        <a href="#simulacion" class="hover:text-amber-400 text-amber-300 font-semibold transition-colors">04. Simulación 3D</a>
+        <a href="#stand" class="hover:text-cyan-400 transition-colors">05. Nuestro Stand</a>
+        <a href="#referencias" class="hover:text-cyan-400 transition-colors">06. Referencias</a>
+      </div>
+    </div>
   </nav>
 
-  <!-- ===== INTRODUCCION ================================
-       RESPONSABLE: entrada
-       Tres parrafos, uno por pregunta:
-         1. Que es el fenomeno
-         2. Por que importa
-         3. Que va a encontrar el visitante aqui
-  ==================================================== -->
-  <section id="introduccion">
-    <h2>Introducción</h2>
-    <p>Primer párrafo: qué es el fenómeno. La fusión nuclear es el proceso natural por el cual los núcleos atómicos ligeros se unen bajo temperaturas y presiones extremas para formar elementos más pesados, liberando la inmensa cantidad de energía que hace brillar a las Estrellas</p>
-    <p>Segundo párrafo: por qué vale la pena entenderlo.La fusión nuclear en las estrellas es el proceso que genera la luz y el calor del universo, y estudiarla vale la pena porque es la clave para desbloquear energía limpia e ilimitada en la Tierra.</p>
-    <p>Tercer párrafo: qué va a encontrar el visitante en este sitio. Una pagina interactiva que explica el tema de manera facil y sencilla, para que todos entiendan que es la fusion nuclear y por que es importante</p>
-  </section>
+  <main class="max-w-5xl mx-auto px-4 py-12 space-y-24">
 
-  <!-- ===== OBJETIVOS ===================================
-       RESPONSABLE: entrada
-       Todos empiezan con verbo en infinitivo.
-  ==================================================== -->
-  <section id="objetivos">
-    <h2>Objetivos</h2>
+    <!-- INTRODUCCIÓN -->
+    <section id="introduccion" class="scroll-mt-24 space-y-6">
+      <div class="flex items-center gap-3">
+        <span class="text-xs font-bold tracking-widest text-cyan-400 font-orbitron uppercase">01 · DESCUBRIENDO EL UNIVERSO</span>
+        <div class="h-px bg-cyan-500/30 flex-1"></div>
+      </div>
+      
+      <h2 class="text-3xl md:text-4xl font-bold text-white glow-text">Introducción</h2>
 
-    <h3>Objetivo general</h3>
-    <p>Estudiar el proceso de fusión nuclear, comprendiendo sus principios físicos, las condiciones necesarias para que ocurra y sus posibles aplicaciones como fuente de energía limpia y sostenible.</p>
+      <div class="grid md:grid-cols-3 gap-6 text-slate-300 text-lg leading-relaxed">
+        <div class="bg-space-card p-6 rounded-2xl">
+          <p>
+            La fusión nuclear es un proceso natural en el que dos núcleos
+            atómicos ligeros se unen para formar uno más pesado. Durante
+            este proceso se libera una gran cantidad de energía, gracias
+            a la cual las estrellas producen su luz y calor.
+          </p>
+        </div>
 
-    <h3>Objetivos específicos</h3>
-    <ul>
-      <li>Describir ...</li>
-      <li>Explicar ...</li>
-      <li>Relacionar el sitio con el experimento del stand.</li>
-    </ul>
-  </section>
+        <div class="bg-space-card p-6 rounded-2xl">
+          <p>
+            Este fenómeno es fundamental para comprender cómo funciona
+            el universo. Además, su estudio representa una oportunidad
+            para desarrollar nuevas fuentes de energía en la Tierra,
+            potencialmente limpias y con bajas emisiones de carbono.
+          </p>
+        </div>
 
-  <!-- ===== MARCO TEORICO ===============================
-       RESPONSABLE: contenido
-       Minimo tres subsecciones con h3.
-       Minimo dos figuras numeradas con su pie.
-  ==================================================== -->
-  <section id="marco-teorico">
-    <h2>Marco teórico</h2>
+        <div class="bg-space-card p-6 rounded-2xl">
+          <p>
+            En esta página encontrarás información sobre cómo ocurre
+            la fusión nuclear, cuáles son las condiciones necesarias
+            para que suceda y por qué es tan importante. También conocerás
+            nuestra simulación interactiva 3D.
+          </p>
+        </div>
+      </div>
+    </section>
 
-    <h3>1. Primer concepto</h3>
-    <p>Explicación del concepto base del subtema.</p>
+    <!-- OBJETIVOS -->
+    <section id="objetivos" class="scroll-mt-24 space-y-8">
+      <div class="flex items-center gap-3">
+        <span class="text-xs font-bold tracking-widest text-cyan-400 font-orbitron uppercase">02 · LO QUE QUEREMOS LOGRAR</span>
+        <div class="h-px bg-cyan-500/30 flex-1"></div>
+      </div>
 
-    <figure>
-      <img src="imagenes/figura1.jpg" alt="Descripcion de lo que muestra la figura">
-      <figcaption>Figura 1. Qué muestra la figura y quién la elaboró.</figcaption>
-    </figure>
+      <h2 class="text-3xl md:text-4xl font-bold text-white">Objetivos</h2>
 
-    <h3>2. Segundo concepto</h3>
-    <p>El proceso o el mecanismo, paso a paso.</p>
+      <!-- Objetivo Principal -->
+      <div class="bg-gradient-to-r from-blue-900/40 via-indigo-900/20 to-transparent p-8 rounded-2xl border border-blue-500/30">
+        <h3 class="text-xl font-bold text-cyan-300 font-orbitron mb-2">Objetivo General</h3>
+        <p class="text-xl text-slate-200">
+          Estudiar el proceso de fusión nuclear, comprendiendo sus
+          principios físicos, las condiciones necesarias para que
+          ocurra y sus posibles aplicaciones como fuente de energía
+          limpia y sostenible.
+        </p>
+      </div>
 
-    <div class="tarjeta">
-      <p class="dato">CIFRA</p>
-      <p>Qué significa esa cifra, en una frase.</p>
+      <h3 class="text-2xl font-semibold text-slate-200 pt-4">Objetivos Específicos</h3>
+
+      <!-- Tarjetas de Objetivos Específicos -->
+      <div class="grid md:grid-cols-3 gap-6">
+
+        <article class="bg-space-card p-6 rounded-2xl space-y-4 hover:border-blue-500/50 transition-all">
+          <div class="w-12 h-12 rounded-xl bg-amber-500/10 flex items-center justify-center text-3xl">
+            ☀️
+          </div>
+          <h3 class="text-xl font-bold text-white font-orbitron">Describir</h3>
+          <p class="text-slate-300">
+            Describir la función de la fusión nuclear en las estrellas
+            y su importancia en la producción de energía en el universo.
+          </p>
+        </article>
+
+        <article class="bg-space-card p-6 rounded-2xl space-y-4 hover:border-purple-500/50 transition-all">
+          <div class="w-12 h-12 rounded-xl bg-purple-500/10 flex items-center justify-center text-3xl">
+            ⚛️
+          </div>
+          <h3 class="text-xl font-bold text-white font-orbitron">Explicar</h3>
+          <p class="text-slate-300">
+            Explicar los principios fundamentales de la fusión nuclear
+            y las condiciones necesarias para que se produzca.
+          </p>
+        </article>
+
+        <article class="bg-space-card p-6 rounded-2xl space-y-4 hover:border-cyan-500/50 transition-all">
+          <div class="w-12 h-12 rounded-xl bg-cyan-500/10 flex items-center justify-center text-3xl">
+            💡
+          </div>
+          <h3 class="text-xl font-bold text-white font-orbitron">Analizar</h3>
+          <p class="text-slate-300">
+            Analizar el impacto y las futuras aplicaciones de la fusión nuclear
+            como fuente de energía limpia en la Tierra.
+          </p>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- MARCO TEÓRICO -->
+    <section id="marco-teorico" class="scroll-mt-24 space-y-8">
+      <div class="flex items-center gap-3">
+        <span class="text-xs font-bold tracking-widest text-cyan-400 font-orbitron uppercase">03 · LA CIENCIA DETRÁS DE LAS ESTRELLAS</span>
+        <div class="h-px bg-cyan-500/30 flex-1"></div>
+      </div>
+
+      <h2 class="text-3xl md:text-4xl font-bold text-white">Marco Teórico</h2>
+
+      <div class="space-y-8 text-lg text-slate-300">
+        
+        <!-- Bloque 1 -->
+        <div class="bg-space-card p-8 rounded-2xl space-y-4">
+          <h3 class="text-2xl font-bold text-cyan-300 font-orbitron">1. ¿Qué es la fusión nuclear?</h3>
+          <p>
+            La fusión nuclear es una reacción en la que dos núcleos
+            atómicos ligeros se combinan para formar un núcleo más pesado.
+            Una pequeña parte de la masa se transforma en energía,
+            de acuerdo con la famosa ecuación de Albert Einstein:
+          </p>
+
+          <div class="formula-box p-4 rounded-xl text-2xl text-center text-amber-400 font-bold my-4">
+            E = mc²
+          </div>
+
+          <p>
+            En las estrellas, este proceso ocurre gracias a las
+            temperaturas y presiones extremadamente elevadas que
+            permiten que los núcleos atómicos venzan su repulsión eléctrica natural
+            y se acerquen lo suficiente para fusionarse.
+          </p>
+        </div>
+
+        <!-- Bloque 2 -->
+        <div class="bg-space-card p-8 rounded-2xl space-y-4">
+          <h3 class="text-2xl font-bold text-cyan-300 font-orbitron">2. ¿Cómo ocurre el proceso?</h3>
+          <p>
+            En el interior de las estrellas, los núcleos de hidrógeno
+            se fusionan mediante diferentes reacciones nucleares.
+            En el Sol, por ejemplo, predomina la cadena protón-protón,
+            que transforma hidrógeno en helio y libera energía.
+          </p>
+
+          <p>
+            Una reacción de fusión representativa que se estudia para su uso en la Tierra es la del deuterio y el tritio:
+          </p>
+
+          <div class="formula-box p-4 rounded-xl text-xl text-center text-amber-400 font-bold my-4 overflow-x-auto">
+            ²H + ³H → ⁴He + n + 17,6 MeV
+          </div>
+
+          <p>
+            Esta reacción produce un núcleo de helio, un neutrón libre y una cantidad importante de energía térmica y radiante.
+          </p>
+        </div>
+
+        <!-- Dato curioso -->
+        <div class="bg-gradient-to-r from-amber-500/20 to-orange-500/10 border border-amber-500/40 p-6 rounded-2xl flex items-start gap-4">
+          <span class="text-4xl">✨</span>
+          <div>
+            <h4 class="text-xl font-bold text-amber-300 font-orbitron mb-1">¿Sabías que...?</h4>
+            <p class="text-slate-200">
+              ¡El Sol convierte aproximadamente 600 millones de toneladas de hidrógeno en helio cada segundo en su núcleo, transformando 4 millones de toneladas de materia directamente en pura energía!
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SIMULACIÓN 3D INTERACTIVA -->
+    <section id="simulacion" class="scroll-mt-24 space-y-8">
+      <div class="flex items-center gap-3">
+        <span class="text-xs font-bold tracking-widest text-amber-400 font-orbitron uppercase">04 · EXPERIENCIA INTERACTIVA</span>
+        <div class="h-px bg-amber-500/30 flex-1"></div>
+      </div>
+
+      <div class="flex flex-col md:flex-row md:items-end justify-between gap-4">
+        <div>
+          <h2 class="text-3xl md:text-4xl font-bold text-white glow-orange">Simulación: Fusión Nuclear</h2>
+          <p class="text-slate-300 text-lg">Observa en 3D cómo los núcleos se aproximan, se fusionan y liberan energía estelar.</p>
+        </div>
+      </div>
+
+      <!-- SIMULACIÓN CONTENEDOR PRINCIPAL -->
+      <div class="bg-slate-950 p-6 rounded-3xl border border-slate-800 space-y-6 shadow-2xl">
+
+        <!-- Visor WebGL 3D -->
+        <div id="visor">
+          <canvas id="lienzo"></canvas>
+          
+          <!-- Clock Overlay -->
+          <div class="absolute top-4 right-4 bg-slate-900/80 backdrop-blur-md px-4 py-2 rounded-full border border-slate-700 text-cyan-400 font-orbitron text-sm font-semibold flex items-center gap-2">
+            <span class="w-2.5 h-2.5 rounded-full bg-cyan-400 animate-pulse"></span>
+            Tiempo: <span id="tiempo" class="text-white">0.0</span> s
+          </div>
+        </div>
+
+        <!-- Selector de Etapas -->
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-3">
+          <button class="etapa etapa-btn activa px-4 py-3 rounded-xl bg-slate-900 border border-slate-700 text-slate-300 font-orbitron text-xs md:text-sm font-semibold hover:border-blue-500 text-left" data-etapa="0">
+            1. Aproximación
+          </button>
+          <button class="etapa etapa-btn px-4 py-3 rounded-xl bg-slate-900 border border-slate-700 text-slate-300 font-orbitron text-xs md:text-sm font-semibold hover:border-blue-500 text-left" data-etapa="1">
+            2. Fusión
+          </button>
+          <button class="etapa etapa-btn px-4 py-3 rounded-xl bg-slate-900 border border-slate-700 text-slate-300 font-orbitron text-xs md:text-sm font-semibold hover:border-blue-500 text-left" data-etapa="2">
+            3. Liberación Energía
+          </button>
+          <button class="etapa etapa-btn px-4 py-3 rounded-xl bg-slate-900 border border-slate-700 text-slate-300 font-orbitron text-xs md:text-sm font-semibold hover:border-blue-500 text-left" data-etapa="3">
+            4. Formación Estrella
+          </button>
+        </div>
+
+        <!-- Mensaje de Información de Etapa -->
+        <div class="bg-space-card p-6 rounded-2xl border border-blue-500/20 space-y-2">
+          <h3 id="mensajeTitulo" class="text-xl font-bold text-cyan-300 font-orbitron">
+            Aproximación de los núcleos
+          </h3>
+          <p id="mensajeTexto" class="text-slate-300 text-base md:text-lg leading-relaxed">
+            Los núcleos de hidrógeno comienzan a acercarse. En el interior de las estrellas, las altas temperaturas y presiones favorecen las condiciones necesarias para la fusión.
+          </p>
+        </div>
+
+        <!-- Controles Principales -->
+        <div class="flex flex-wrap gap-4 items-center justify-center pt-2">
+          <button id="iniciar" class="px-8 py-3.5 rounded-full font-orbitron font-bold text-white bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 shadow-lg shadow-blue-600/30 transition-all hover:scale-105 active:scale-95 flex items-center gap-2">
+            ▶ Iniciar simulación
+          </button>
+          <button id="reiniciar" class="px-6 py-3.5 rounded-full font-orbitron font-semibold text-slate-300 bg-slate-900 border border-slate-700 hover:bg-slate-800 hover:text-white transition-all flex items-center gap-2">
+            ↻ Reiniciar
+          </button>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- STAND DEL PROYECTO -->
+    <section id="stand" class="scroll-mt-24 space-y-8">
+      <div class="flex items-center gap-3">
+        <span class="text-xs font-bold tracking-widest text-cyan-400 font-orbitron uppercase">05 · NUESTRO PROYECTO EN ACCIÓN</span>
+        <div class="h-px bg-cyan-500/30 flex-1"></div>
+      </div>
+
+      <h2 class="text-3xl md:text-4xl font-bold text-white">Nuestro Stand</h2>
+
+      <div class="space-y-6 text-slate-300 text-lg">
+        <p>
+          Durante la presentación del proyecto final, elaboramos
+          una representación visual del interior de una estrella
+          para explicar de una manera creativa e interactiva cómo
+          ocurre la fusión nuclear.
+        </p>
+
+        <p>
+          Esta maqueta fue realizada por Isabella Reyes y busca
+          complementar los conocimientos científicos presentados
+          en nuestra página web.
+        </p>
+      </div>
+
+      <!-- Tabla Comparativa -->
+      <div class="overflow-x-auto rounded-2xl border border-slate-800 bg-space-card">
+        <table class="w-full text-left text-slate-300">
+          <thead class="bg-slate-900/80 text-cyan-300 font-orbitron text-sm border-b border-slate-800">
+            <tr>
+              <th class="p-4 md:p-6">Experimento Físico / Maqueta</th>
+              <th class="p-4 md:p-6">Página Web Interactiva</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-slate-800 text-base">
+            <tr class="hover:bg-slate-900/40">
+              <td class="p-4 md:p-6">Representa visualmente el interior de una estrella.</td>
+              <td class="p-4 md:p-6">Explica científicamente cómo funciona la fusión nuclear.</td>
+            </tr>
+            <tr class="hover:bg-slate-900/40">
+              <td class="p-4 md:p-6">Permite observar una representación del fenómeno.</td>
+              <td class="p-4 md:p-6">Presenta conceptos, explicaciones e ilustraciones 3D.</td>
+            </tr>
+            <tr class="hover:bg-slate-900/40">
+              <td class="p-4 md:p-6">Facilita la comprensión mediante una experiencia visual táctil.</td>
+              <td class="p-4 md:p-6">Complementa el aprendizaje con información organizada y simulación interactiva.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- REFERENCIAS Y PIE DE PÁGINA -->
+  <footer id="referencias" class="bg-slate-950 border-t border-slate-900 mt-24 py-16 text-slate-400">
+    <div class="max-w-5xl mx-auto px-4 space-y-12">
+      
+      <div class="space-y-6">
+        <div class="flex items-center gap-3">
+          <span class="text-xs font-bold tracking-widest text-cyan-400 font-orbitron uppercase">06 · FUENTES DE INFORMACIÓN</span>
+          <div class="h-px bg-slate-800 flex-1"></div>
+        </div>
+        <h2 class="text-2xl font-bold text-white font-orbitron">Referencias</h2>
+
+        <ol class="space-y-3 list-decimal list-inside text-slate-300">
+          <li class="hover:text-cyan-400 transition-colors">
+            Organismo Internacional de Energía Atómica. 
+            <a href="https://www.iaea.org/es/newscenter/news/que-es-la-fusion-nuclear" target="_blank" rel="noopener noreferrer" class="text-cyan-400 underline ml-1">
+              ¿Qué es la fusión nuclear?
+            </a>
+          </li>
+          <li class="hover:text-cyan-400 transition-colors">
+            Observatorio de París. 
+            <a href="https://media4.obspm.fr/public/VAU/temperatura/evolucion/vida/fucion-nuclear/OBSERVER_4.html" target="_blank" rel="noopener noreferrer" class="text-cyan-400 underline ml-1">
+              Fusión nuclear.
+            </a>
+          </li>
+          <li class="hover:text-cyan-400 transition-colors">
+            Georgia State University. 
+            <a href="http://hyperphysics.phy-astr.gsu.edu/hbasees/Astro/procyc.html" target="_blank" rel="noopener noreferrer" class="text-cyan-400 underline ml-1">
+              Ciclo protón-protón.
+            </a>
+          </li>
+        </ol>
+      </div>
+
+      <div class="pt-8 border-t border-slate-900 text-center space-y-3 text-slate-400">
+        <p class="text-lg text-slate-200 font-semibold font-orbitron">
+          Proyecto Interdisciplinar: <span class="text-cyan-400">Explorando el Universo</span>
+        </p>
+        <p>Gimnasio Los Arrayanes Bilingüe · Grado 1103</p>
+        <p class="text-slate-300 max-w-xl mx-auto">
+          Integrantes: <strong>María José Durán Rodríguez, Sara Valentina Merino Torres, Isabella Reyes Rico y Antonia Velandia Quiroga.</strong>
+        </p>
+        <p class="text-amber-400 font-orbitron text-sm pt-4">✦ Explorando los secretos del universo ✦</p>
+      </div>
+
     </div>
-
-    <h3>3. Datos y cifras</h3>
-    <p>Las magnitudes que hacen concreto el fenómeno.</p>
-
-    <figure>
-      <img src="imagenes/figura2.jpg" alt="Descripcion de lo que muestra la figura">
-      <figcaption>Figura 2. Qué muestra la figura y quién la elaboró.</figcaption>
-    </figure>
-  </section>
-
-  <!-- ===== STAND =======================================
-       RESPONSABLE: stand y fuentes
-  ==================================================== -->
-  <section id="stand">
-    <h2>Nuestro stand durante la presentación del proyecto final</h2>
-    <p>Qué encuentra el visitante.</p>
-
-    <table>
-      <tr>
-        <th>El experimento físico muestra</th>
-        <th>El sitio web muestra</th>
-      </tr>
-      <tr>
-        <td>—</td>
-        <td>—</td>
-      </tr>
-      <tr>
-        <td>—</td>
-        <td>—</td>
-      </tr>
-    </table>
-
-    <figure>
-      <img src="imagenes/stand.jpg" alt="Boceto del stand del grupo">
-      <figcaption>Figura 3. Propuesta de adecuación del stand.</figcaption>
-    </figure>
-  </section>
-
-  <!-- ===== REFERENCIAS =================================
-       RESPONSABLE: stand y fuentes
-       Autor. (Ano). Titulo. Sitio. Enlace. Fecha de consulta.
-  ==================================================== -->
-  <footer id="referencias">
-    <h2>Referencias</h2>
-    <ol>
-      <li>Primera fuente.https://www.iaea.org/es/newscenter/news/que-es-la-fusion-nuclear</li>
-      <li>Segunda fuente.</li>
-      <li>Tercera fuente.</li>
-    </ol>
-
-    <p>
-      Proyecto interdisciplinar Explorando el Universo · Gimnasio Los Arrayanes
-      Bilingüe · Grado 11 · Integrantes: nombres del grupo.
-    </p>
   </footer>
 
+  <!-- Carga de Three.js desde CDN -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+
+  <!-- Código JavaScript corregido de la simulación 3D -->
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      "use strict";
+
+      const canvas = document.getElementById("lienzo");
+      const visor = document.getElementById("visor");
+      const tiempoTexto = document.getElementById("tiempo");
+      const titulo = document.getElementById("mensajeTitulo");
+      const mensaje = document.getElementById("mensajeTexto");
+      const botonIniciar = document.getElementById("iniciar");
+      const botonReiniciar = document.getElementById("reiniciar");
+      const botonesEtapa = document.querySelectorAll(".etapa");
+
+      if (!canvas || !visor || !window.THREE) {
+        console.error("Error: falta el canvas, el visor o la librería Three.js.");
+        if (mensaje) mensaje.textContent = "Error al cargar la librería 3D.";
+        return;
+      }
+
+      const THREE = window.THREE;
+
+      // 1. ESCENA 3D Y CÁMARA
+      const escena = new THREE.Scene();
+      escena.background = new THREE.Color(0x03030c);
+
+      const camara = new THREE.PerspectiveCamera(45, 1, 0.1, 100);
+      camara.position.set(0, 0, 12);
+
+      let renderizador;
+
+      try {
+        renderizador = new THREE.WebGLRenderer({
+          canvas: canvas,
+          antialias: true,
+          alpha: false
+        });
+      } catch (error) {
+        console.error("No se pudo iniciar WebGL:", error);
+        mensaje.textContent = "Tu navegador no soporta simulación 3D (WebGL).";
+        return;
+      }
+
+      renderizador.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
+      renderizador.outputEncoding = THREE.sRGBEncoding;
+
+      // 2. ILUMINACIÓN
+      const luz = new THREE.PointLight(0xffffff, 2.2, 30);
+      luz.position.set(0, 0, 8);
+      escena.add(luz);
+
+      escena.add(new THREE.AmbientLight(0xffffff, 0.6));
+
+      // 3. FONDO DE ESTRELLAS
+      const posiciones = [];
+      for (let i = 0; i < 800; i++) {
+        posiciones.push(
+          (Math.random() - 0.5) * 40,
+          (Math.random() - 0.5) * 30,
+          (Math.random() - 0.5) * 20
+        );
+      }
+
+      const geometriaEstrellas = new THREE.BufferGeometry();
+      geometriaEstrellas.setAttribute(
+        "position",
+        new THREE.Float32BufferAttribute(posiciones, 3)
+      );
+
+      const materialEstrellas = new THREE.PointsMaterial({
+        color: 0xffffff,
+        size: 0.04
+      });
+
+      const estrellas = new THREE.Points(geometriaEstrellas, materialEstrellas);
+      escena.add(estrellas);
+
+      // 4. CREAR NÚCLEOS DE HIDRÓGENO
+      function crearNucleo(color, x) {
+        const grupo = new THREE.Group();
+
+        const esfera = new THREE.Mesh(
+          new THREE.SphereGeometry(0.55, 32, 32),
+          new THREE.MeshStandardMaterial({
+            color: color,
+            emissive: color,
+            emissiveIntensity: 0.6,
+            roughness: 0.2,
+            metalness: 0.1
+          })
+        );
+        grupo.add(esfera);
+
+        for (let i = 0; i < 12; i++) {
+          const particula = new THREE.Mesh(
+            new THREE.SphereGeometry(0.08, 12, 12),
+            new THREE.MeshBasicMaterial({ color: 0xffffff })
+          );
+
+          const angulo = (i / 12) * Math.PI * 2;
+          particula.position.set(
+            Math.cos(angulo) * 0.45,
+            Math.sin(angulo) * 0.45,
+            0.2
+          );
+          grupo.add(particula);
+        }
+
+        grupo.position.x = x;
+        escena.add(grupo);
+        return grupo;
+      }
+
+      const nucleo1 = crearNucleo(0x299cff, -3);
+      const nucleo2 = crearNucleo(0xff58a6, 3);
+
+      // 5. ESTRELLA RESULTANTE
+      const estrella = new THREE.Group();
+
+      const esferaEstrella = new THREE.Mesh(
+        new THREE.SphereGeometry(1.35, 48, 48),
+        new THREE.MeshBasicMaterial({ color: 0xffb52e })
+      );
+      estrella.add(esferaEstrella);
+
+      const corona = new THREE.Mesh(
+        new THREE.SphereGeometry(1.7, 48, 48),
+        new THREE.MeshBasicMaterial({
+          color: 0xff8b28,
+          transparent: true,
+          opacity: 0.25,
+          side: THREE.BackSide
+        })
+      );
+      estrella.add(corona);
+      estrella.visible = false;
+      escena.add(estrella);
+
+      // 6. ONDAS Y PARTÍCULAS DE ENERGÍA
+      const ondas = [];
+      function crearOnda() {
+        const onda = new THREE.Mesh(
+          new THREE.RingGeometry(0.9, 1.1, 64),
+          new THREE.MeshBasicMaterial({
+            color: 0xffd45c,
+            transparent: true,
+            opacity: 0.9,
+            side: THREE.DoubleSide
+          })
+        );
+        onda.position.z = 0.2;
+        escena.add(onda);
+        ondas.push(onda);
+      }
+
+      const particulas = [];
+      function crearParticulas() {
+        for (let i = 0; i < 50; i++) {
+          const particula = new THREE.Mesh(
+            new THREE.SphereGeometry(0.05, 8, 8),
+            new THREE.MeshBasicMaterial({
+              color: 0xffd45c,
+              transparent: true,
+              opacity: 1
+            })
+          );
+
+          const angulo = Math.random() * Math.PI * 2;
+          const velocidad = 1.2 + Math.random() * 2.2;
+
+          particula.position.set(0, 0, 0.3);
+          particula.userData.vx = Math.cos(angulo) * velocidad;
+          particula.userData.vy = Math.sin(angulo) * velocidad;
+          particula.userData.vida = 1;
+
+          escena.add(particula);
+          particulas.push(particula);
+        }
+      }
+
+      // 7. TEXTOS INFORMATIVOS
+      const textos = [
+        {
+          titulo: "1. Aproximación de los núcleos",
+          texto: "Los núcleos de hidrógeno comienzan a acercarse. En el interior de las estrellas, las altas temperaturas y presiones favorecen las condiciones necesarias para la fusión."
+        },
+        {
+          titulo: "2. Fusión nuclear",
+          texto: "Los núcleos se aproximan lo suficiente para que se produzcan reacciones nucleares. En el Sol, varios pasos permiten transformar hidrógeno en helio."
+        },
+        {
+          titulo: "3. Liberación de energía",
+          texto: "Durante la fusión se libera energía. Una pequeña parte de la masa inicial se transforma en energía, de acuerdo con la famosa ecuación E = mc²."
+        },
+        {
+          titulo: "4. Formación de la estrella",
+          texto: "La energía producida en el núcleo estelar se transporta hacia el exterior y contribuye a que la estrella emita luz y calor durante millones de años."
+        }
+      ];
+
+      let iniciado = false;
+      let tiempo = 0;
+      let etapaActual = 0;
+      let ultimaOnda = 0;
+      let acumuladorParticulas = 0;
+
+      const reloj = new THREE.Clock();
+
+      // 8. CONTROL DE ETAPAS
+      function cambiarEtapa(numero) {
+        etapaActual = numero;
+        titulo.textContent = textos[numero].titulo;
+        mensaje.textContent = textos[numero].texto;
+
+        botonesEtapa.forEach((boton, indice) => {
+          boton.classList.toggle("activa", indice === numero);
+        });
+      }
+
+      function actualizarEtapa() {
+        let numero = 0;
+        if (tiempo >= 9) numero = 3;
+        else if (tiempo >= 6) numero = 2;
+        else if (tiempo >= 3) numero = 1;
+
+        if (numero !== etapaActual) {
+          cambiarEtapa(numero);
+        }
+      }
+
+      function limpiarEfectos() {
+        ondas.forEach(onda => {
+          escena.remove(onda);
+          onda.geometry.dispose();
+          onda.material.dispose();
+        });
+        ondas.length = 0;
+
+        particulas.forEach(particula => {
+          escena.remove(particula);
+          particula.geometry.dispose();
+          particula.material.dispose();
+        });
+        particulas.length = 0;
+      }
+
+      function mostrarEstadoTiempo() {
+        nucleo1.scale.setScalar(1);
+        nucleo2.scale.setScalar(1);
+        nucleo1.visible = true;
+        nucleo2.visible = true;
+        estrella.visible = false;
+
+        if (tiempo < 3) {
+          const avance = tiempo / 3;
+          nucleo1.position.x = -3 + avance * 1.5;
+          nucleo2.position.x = 3 - avance * 1.5;
+        } else if (tiempo < 6) {
+          const avance = (tiempo - 3) / 3;
+          nucleo1.position.x = -1.5 + avance * 1.5;
+          nucleo2.position.x = 1.5 - avance * 1.5;
+          nucleo1.scale.setScalar(1 - avance * 0.35);
+          nucleo2.scale.setScalar(1 - avance * 0.35);
+        } else if (tiempo < 9) {
+          nucleo1.visible = false;
+          nucleo2.visible = false;
+        } else {
+          nucleo1.visible = false;
+          nucleo2.visible = false;
+          estrella.visible = true;
+          const escala = Math.min(1, (tiempo - 9) / 2);
+          estrella.scale.setScalar(Math.max(0.01, escala));
+        }
+      }
+
+      // 9. EVENTOS DE BOTONES
+      function reiniciar() {
+        iniciado = false;
+        tiempo = 0;
+        ultimaOnda = 0;
+        acumuladorParticulas = 0;
+
+        nucleo1.position.set(-3, 0, 0);
+        nucleo2.position.set(3, 0, 0);
+        nucleo1.scale.setScalar(1);
+        nucleo2.scale.setScalar(1);
+        nucleo1.visible = true;
+        nucleo2.visible = true;
+
+        estrella.visible = false;
+        estrella.scale.setScalar(0.01);
+
+        limpiarEfectos();
+        tiempoTexto.textContent = "0.0";
+        cambiarEtapa(0);
+        botonIniciar.textContent = "▶ Iniciar simulación";
+      }
+
+      function iniciar() {
+        if (tiempo >= 12) {
+          reiniciar();
+        }
+
+        iniciado = !iniciado;
+        botonIniciar.textContent = iniciado ? "⏸ Pausar simulación" : "▶ Continuar simulación";
+      }
+
+      botonIniciar.addEventListener("click", iniciar);
+      botonReiniciar.addEventListener("click", reiniciar);
+
+      botonesEtapa.forEach((boton, indice) => {
+        boton.addEventListener("click", () => {
+          iniciado = false;
+          tiempo = indice * 3;
+          botonIniciar.textContent = "▶ Continuar simulación";
+
+          limpiarEfectos();
+          acumuladorParticulas = 0;
+          ultimaOnda = tiempo;
+
+          cambiarEtapa(indice);
+          mostrarEstadoTiempo();
+          tiempoTexto.textContent = tiempo.toFixed(1);
+        });
+      });
+
+      // 10. BUCLE DE ANIMACIÓN
+      function animar() {
+        requestAnimationFrame(animar);
+        const delta = Math.min(reloj.getDelta(), 0.05);
+
+        estrellas.rotation.z += delta * 0.01;
+
+        if (iniciado) {
+          tiempo += delta;
+
+          if (tiempo >= 12) {
+            tiempo = 12;
+            iniciado = false;
+            botonIniciar.textContent = "▶ Repetir simulación";
+          }
+
+          tiempoTexto.textContent = tiempo.toFixed(1);
+
+          if (tiempo < 3) {
+            const avance = tiempo / 3;
+            nucleo1.position.x = -3 + avance * 1.5;
+            nucleo2.position.x = 3 - avance * 1.5;
+            nucleo1.rotation.y += delta;
+            nucleo2.rotation.y -= delta;
+          } else if (tiempo < 6) {
+            const avance = (tiempo - 3) / 3;
+            nucleo1.position.x = -1.5 + avance * 1.5;
+            nucleo2.position.x = 1.5 - avance * 1.5;
+            nucleo1.scale.setScalar(1 - avance * 0.35);
+            nucleo2.scale.setScalar(1 - avance * 0.35);
+
+            if (tiempo >= 5.8) {
+              nucleo1.visible = false;
+              nucleo2.visible = false;
+            }
+          } else if (tiempo < 9) {
+            nucleo1.visible = false;
+            nucleo2.visible = false;
+            acumuladorParticulas += delta;
+
+            if (tiempo - ultimaOnda > 0.65) {
+              crearOnda();
+              ultimaOnda = tiempo;
+            }
+
+            if (acumuladorParticulas > 0.8) {
+              crearParticulas();
+              acumuladorParticulas = 0;
+            }
+          } else {
+            nucleo1.visible = false;
+            nucleo2.visible = false;
+            estrella.visible = true;
+
+            const escala = Math.min(1, (tiempo - 9) / 2);
+            estrella.scale.setScalar(Math.max(0.01, escala));
+            estrella.rotation.y += delta * 0.3;
+          }
+
+          actualizarEtapa();
+        }
+
+        // Animación de Ondas
+        for (let i = ondas.length - 1; i >= 0; i--) {
+          const onda = ondas[i];
+          onda.scale.multiplyScalar(1 + delta * 1.5);
+          onda.material.opacity -= delta * 0.7;
+
+          if (onda.material.opacity <= 0.03) {
+            escena.remove(onda);
+            onda.geometry.dispose();
+            onda.material.dispose();
+            ondas.splice(i, 1);
+          }
+        }
+
+        // Animación de Partículas
+        for (let i = particulas.length - 1; i >= 0; i--) {
+          const particula = particulas[i];
+          particula.position.x += particula.userData.vx * delta;
+          particula.position.y += particula.userData.vy * delta;
+          particula.userData.vida -= delta * 0.45;
+          particula.material.opacity = Math.max(0, particula.userData.vida);
+
+          if (particula.userData.vida <= 0) {
+            escena.remove(particula);
+            particula.geometry.dispose();
+            particula.material.dispose();
+            particulas.splice(i, 1);
+          }
+        }
+
+        if (estrella.visible) {
+          corona.rotation.z += delta * 0.2;
+        }
+
+        renderizador.render(escena, camara);
+      }
+
+      // 11. REDIMENSIONAR CANVAS DE FORMA RESPONSIVA
+      function ajustarTamano() {
+        const ancho = visor.clientWidth;
+        const alto = visor.clientHeight || 450;
+
+        if (!ancho || !alto) return;
+
+        renderizador.setSize(ancho, alto, false);
+        camara.aspect = ancho / alto;
+        camara.updateProjectionMatrix();
+      }
+
+      window.addEventListener("resize", ajustarTamano);
+
+      // Iniciar simulación y renderizado
+      ajustarTamano();
+      reiniciar();
+      animar();
+    });
+  </script>
+
 </body>
+
 </html>

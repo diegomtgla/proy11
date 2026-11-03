@@ -4,7 +4,17 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>CLASIFICACIÓN DE ESTRELLAS</title>
-  <link rel="stylesheet" href="estilos.css">
+  <link rel="stylesheet" href="/1103/grupo2/estilos.css">
+
+  <!-- Import Map necesario para Three.js y OrbitControls -->
+  <script type="importmap">
+    {
+      "imports": {
+        "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
+        "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/"
+      }
+    }
+  </script>
 </head>
 <body>
 
@@ -22,6 +32,7 @@
     <a href="#introduccion">Introducción</a>
     <a href="#objetivos">Objetivos</a>
     <a href="#marco-teorico">Marco teórico</a>
+    <a href="#simulacion">Simulación 3D</a>
     <a href="#stand">Stand</a>
     <a href="#referencias">Referencias</a>
   </nav>
@@ -80,7 +91,7 @@ Fusión:
 Hidrógeno → Helio + Energía</p>
 
     <figure>
-      <img src="imagenes/figura1.jpg" alt="Descripcion de lo que muestra la figura">
+      <img src="imagenes/figura1.png" alt="Descripcion de lo que muestra la figura">
       <figcaption>Figura 1. Qué muestra la figura y quién la elaboró.</figcaption>
     </figure>
 
@@ -116,9 +127,60 @@ Fotometría: permite medir y estudiar su brillo.
 Observación en diferentes longitudes de onda: permite obtener información que no puede verse únicamente con luz visible.</p>
 
     <figure>
-      <img src="imagenes/figura2.jpg" alt="Descripcion de lo que muestra la figura">
+      <img src="imagenes/figura3.png" alt="Descripcion de lo que muestra la figura">
       <figcaption>Figura 2. Qué muestra la figura y quién la elaboró.</figcaption>
     </figure>
+  </section>
+
+  <!-- ===== SIMULACIÓN 3D ===============================
+       RESPONSABLE: simulación
+  ==================================================== -->
+  <section id="simulacion">
+    <h2>Simulación 3D · Diagrama H-R</h2>
+    <p>Explora cómo se relacionan el color, la temperatura y la luminosidad de las estrellas en tiempo real.</p>
+    
+    <div class="layout-simulacion">
+      <div class="panel-simulacion">
+        <div id="stage">
+          <div class="overlay">Vista 3D · Arrastra para girar · Rueda para acercar</div>
+        </div>
+      </div>
+      <aside class="panel-simulacion side-simulacion">
+        <h2>Explora una estrella</h2>
+        <label for="kind">Tipo de estrella</label>
+        <select id="kind">
+          <option value="main">Secuencia principal (como el Sol)</option>
+          <option value="white">Enana blanca</option>
+          <option value="giant">Gigante roja</option>
+          <option value="super">Supergigante azul</option>
+          <option value="redsuper">Supergigante roja</option>
+        </select>
+
+        <label for="temp">Temperatura superficial: <b id="tempVal">5.800 K</b></label>
+        <input id="temp" type="range" min="3000" max="30000" step="100" value="5800">
+
+        <label for="lum">Luminosidad relativa al Sol: <b id="lumVal">1 L☉</b></label>
+        <input id="lum" type="range" min="-4" max="6" step=".1" value="0">
+
+        <button id="reset">Restablecer estrella seleccionada</button>
+
+        <div class="info-simulacion">
+          <strong id="starName">Estrella de secuencia principal</strong>
+          <p id="description">Estas estrellas transforman hidrógeno en helio en su núcleo. El Sol pertenece a este grupo.</p>
+          <div class="metric"><span>Color aproximado</span><b id="colorName">Amarillo</b></div>
+          <div class="metric"><span>Temperatura</span><b id="tempMetric">5.800 K</b></div>
+          <div class="metric"><span>Luminosidad</span><b id="lumMetric">1 L☉</b></div>
+        </div>
+        <div class="legend">
+          <span><i class="dot" style="background:#8bbcff"></i>Azul</span>
+          <span><i class="dot" style="background:#fff4d1"></i>Blanco</span>
+          <span><i class="dot" style="background:#ffe06a"></i>Amarillo</span>
+          <span><i class="dot" style="background:#ff9b58"></i>Naranja</span>
+          <span><i class="dot" style="background:#ff554d"></i>Rojo</span>
+        </div>
+      </aside>
+    </div>
+    <p class="foot"><b>Cómo leer el diagrama:</b> el eje horizontal representa la temperatura (disminuye de izquierda a derecha) y el vertical la luminosidad. El tamaño de la esfera es ilustrativo y cambia para ayudar a comparar los tipos estelares.</p>
   </section>
 
   <!-- ===== STAND =======================================
@@ -144,7 +206,7 @@ Observación en diferentes longitudes de onda: permite obtener información que 
     </table>
 
     <figure>
-      <img src="imagenes/stand.jpg" alt="Boceto del stand del grupo">
+      <img src="imagenes/figura2.jpeg" alt="Boceto del stand del grupo">
       <figcaption>Figura 3. Propuesta de adecuación del stand.</figcaption>
     </figure>
   </section>
@@ -156,9 +218,23 @@ Observación en diferentes longitudes de onda: permite obtener información que 
   <footer id="referencias">
     <h2>Referencias</h2>
     <ol>
-      <li>Primera fuente.</li>
-      <li>Segunda fuente.</li>
-      <li>Tercera fuente.</li>
+      <li>CESAR. (s. f.). El diagrama de Hertzsprung-Russell. COSMOS. https://cesar.esa.int/
+
+Encyclopaedia Britannica. (s. f.). Hertzsprung-Russell diagram. https://www.britannica.com/science/hertzsprung-russell-diagram
+
+Encyclopaedia Britannica. (s. f.). Star. https://www.britannica.com/science/star-astronomy
+
+European Space Agency (ESA). (2018). Gaia’s Hertzsprung-Russell diagram. ESA. ESA – Gaia’s Hertzsprung-Russell diagram
+
+ESA/CESAR. La vida de las estrellas y el diagrama Hertzsprung-Russell. European Space Agency. ESA/CESAR – La vida de las estrellas
+
+Google. (2026). Gemini (Versión de septiembre de 2026) [Modelo de inteligencia artificial utilizado para la generación de la imagen del stand]. https://gemini.google.com
+
+NASA. (s. f.). Stars. NASA Science. https://science.nasa.gov/universe/stars/
+
+NASA Ciencia. (2023). Estrellas y su evolución. https://ciencia.nasa.gov/universo/estrellas/
+
+
     </ol>
 
     <p>
@@ -167,5 +243,159 @@ Observación en diferentes longitudes de onda: permite obtener información que 
     </p>
   </footer>
 
+  <!-- Lógica 3D de la Simulación -->
+  <script type="module">
+    import * as THREE from 'three';
+    import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+
+    const stage = document.getElementById('stage');
+    const scene = new THREE.Scene();
+    scene.background = new THREE.Color(0x050816);
+    scene.fog = new THREE.Fog(0x050816, 17, 34);
+
+    const camera = new THREE.PerspectiveCamera(48, stage.clientWidth / stage.clientHeight, 0.1, 100);
+    camera.position.set(0, 5.8, 13.5);
+    const renderer = new THREE.WebGLRenderer({ antialias: true });
+    renderer.setPixelRatio(Math.min(devicePixelRatio, 2));
+    renderer.setSize(stage.clientWidth, stage.clientHeight);
+    renderer.outputColorSpace = THREE.SRGBColorSpace;
+    stage.appendChild(renderer.domElement);
+
+    const controls = new OrbitControls(camera, renderer.domElement);
+    controls.enableDamping = true;
+    controls.target.set(0, 2.5, 0);
+    controls.minDistance = 7;
+    controls.maxDistance = 23;
+
+    scene.add(new THREE.AmbientLight(0x9aaddd, 1.2));
+    const key = new THREE.PointLight(0xffffff, 75, 40);
+    key.position.set(2, 8, 7);
+    scene.add(key);
+
+    function makeStars() {
+      const geo = new THREE.BufferGeometry();
+      const pts = [];
+      for (let i = 0; i < 650; i++) pts.push((Math.random() - 0.5) * 34, Math.random() * 19 - 3, (Math.random() - 0.5) * 24 - 5);
+      geo.setAttribute('position', new THREE.Float32BufferAttribute(pts, 3));
+      const mat = new THREE.PointsMaterial({ color: 0xc8d8ff, size: 0.045, transparent: true, opacity: 0.8 });
+      scene.add(new THREE.Points(geo, mat));
+    }
+    makeStars();
+
+    const grid = new THREE.GridHelper(12, 12, 0x41527e, 0x1d2b50);
+    grid.position.set(0, 0, 0);
+    scene.add(grid);
+
+    function line(a, b, color = 0x9aaddd) {
+      const g = new THREE.BufferGeometry().setFromPoints([new THREE.Vector3(...a), new THREE.Vector3(...b)]);
+      scene.add(new THREE.Line(g, new THREE.LineBasicMaterial({ color })));
+    }
+    line([-5.6, 0.05, 0], [5.6, 0.05, 0]);
+    line([-5.6, 0.05, 0], [-5.6, 6.8, 0]);
+    line([-5.6, 0.05, 0], [-5.6, 0.05, -4.2], 0x50618c);
+    line([5.6, 0.05, 0], [5.6, 0.05, -4.2], 0x50618c);
+
+    function addLabel(text, x, y, z, color = '#dce6ff', size = 0.36) {
+      const canvas = document.createElement('canvas'), ctx = canvas.getContext('2d');
+      canvas.width = 512; canvas.height = 96;
+      ctx.font = 'bold 30px Arial'; ctx.fillStyle = color; ctx.textAlign = 'center';
+      ctx.fillText(text, 256, 58);
+      const tex = new THREE.CanvasTexture(canvas);
+      const sprite = new THREE.Sprite(new THREE.SpriteMaterial({ map: tex, transparent: true, depthWrite: false }));
+      sprite.position.set(x, y, z); sprite.scale.set(size * 3.5, size * 0.66, 1);
+      scene.add(sprite);
+    }
+    addLabel('CALIENTE · AZUL', -3.7, -0.55, 0.2, '#9fc9ff', 0.34);
+    addLabel('FRÍA · ROJA', 3.7, -0.55, 0.2, '#ffad91', 0.34);
+    addLabel('LUMINOSIDAD', -6.0, 3.3, 0.1, '#dce6ff', 0.32);
+    addLabel('TEMPERATURA', 0, -1.15, 0.2, '#dce6ff', 0.32);
+
+    const regionMat = (color, opacity) => new THREE.MeshBasicMaterial({ color, transparent: true, opacity, side: THREE.DoubleSide });
+    function region(x, y, w, h, color) {
+      const m = new THREE.Mesh(new THREE.PlaneGeometry(w, h), regionMat(color, 0.13));
+      m.position.set(x, y, -0.16);
+      scene.add(m);
+    }
+    region(-2.0, 3.2, 1.8, 6.0, 0x5b8fff);
+    region(3.5, 1.25, 2.4, 2.0, 0xff8a58);
+    region(3.2, 4.7, 2.5, 2.0, 0xff563e);
+    region(-3.5, 5.2, 2.3, 2.2, 0x639fff);
+
+    const starMat = new THREE.MeshStandardMaterial({ color: 0xffe08a, emissive: 0x553311, emissiveIntensity: 1.2, roughness: 0.28, metalness: 0 });
+    const star = new THREE.Mesh(new THREE.SphereGeometry(1, 64, 48), starMat);
+    scene.add(star);
+    const glow = new THREE.Mesh(new THREE.SphereGeometry(1.22, 48, 32), new THREE.MeshBasicMaterial({ color: 0xffdf9a, transparent: true, opacity: 0.12, side: THREE.BackSide }));
+    scene.add(glow);
+
+    const presets = {
+      main: { name: 'Estrella de secuencia principal', temp: 5800, logL: 0, desc: 'Estas estrellas transforman hidrógeno en helio en su núcleo. El Sol pertenece a este grupo.' },
+      white: { name: 'Enana blanca', temp: 12000, logL: -2.5, desc: 'Es el núcleo compacto que queda de una estrella similar al Sol al final de su evolución. Tiene alta temperatura, pero baja luminosidad.' },
+      giant: { name: 'Gigante roja', temp: 3800, logL: 2.3, desc: 'Tiene una superficie relativamente fría y un radio muy grande. Por su tamaño puede emitir mucha luz.' },
+      super: { name: 'Supergigante azul', temp: 22000, logL: 5.2, desc: 'Es muy caliente, extremadamente luminosa y de gran tamaño. Se ubica en la zona superior izquierda del diagrama.' },
+      redsuper: { name: 'Supergigante roja', temp: 3500, logL: 5.0, desc: 'Es una estrella enorme, con superficie relativamente fría y luminosidad muy alta. Se ubica en la parte superior derecha.' }
+    };
+    const kind = document.getElementById('kind'), temp = document.getElementById('temp'), lum = document.getElementById('lum');
+    const tempVal = document.getElementById('tempVal'), lumVal = document.getElementById('lumVal');
+    const starName = document.getElementById('starName'), description = document.getElementById('description');
+    const colorName = document.getElementById('colorName'), tempMetric = document.getElementById('tempMetric'), lumMetric = document.getElementById('lumMetric');
+
+    function colorFor(t) {
+      if (t >= 15000) return { hex: 0x8bbcff, name: 'Azul' };
+      if (t >= 9000) return { hex: 0xc9dcff, name: 'Blanco azulado' };
+      if (t >= 7000) return { hex: 0xfff4e5, name: 'Blanco' };
+      if (t >= 5200) return { hex: 0xffe06a, name: 'Amarillo' };
+      if (t >= 3900) return { hex: 0xffa45f, name: 'Naranja' };
+      return { hex: 0xff5b50, name: 'Rojo' };
+    }
+    function xFromTemp(t) {
+      return 5.1 - (Math.log10(t) - Math.log10(3000)) / (Math.log10(30000) - Math.log10(3000)) * 10.2;
+    }
+    function yFromLogL(l) { return Math.max(0.35, Math.min(6.25, (l + 4) / 10 * 6)); }
+
+    function update() {
+      const t = Number(temp.value), l = Number(lum.value), c = colorFor(t);
+      const x = xFromTemp(t), y = yFromLogL(l);
+      const size = 0.35 + (l + 4) / 10 * 1.35;
+      star.position.set(x, y, 0.65);
+      star.scale.setScalar(size);
+      glow.position.copy(star.position);
+      glow.scale.setScalar(size);
+      star.material.color.setHex(c.hex);
+      star.material.emissive.setHex(c.hex);
+      glow.material.color.setHex(c.hex);
+      starName.textContent = presets[kind.value].name;
+      description.textContent = presets[kind.value].desc;
+      colorName.textContent = c.name;
+      tempMetric.textContent = t.toLocaleString('es-CO') + ' K';
+      lumMetric.textContent = Math.pow(10, l).toFixed(2) + ' L☉';
+      tempVal.textContent = t.toLocaleString('es-CO') + ' K';
+      lumVal.textContent = Math.pow(10, l).toFixed(2) + ' L☉';
+    }
+    function choosePreset() {
+      const p = presets[kind.value];
+      temp.value = p.temp; lum.value = p.logL; update();
+    }
+    kind.addEventListener('change', choosePreset);
+    temp.addEventListener('input', update);
+    lum.addEventListener('input', update);
+    document.getElementById('reset').addEventListener('click', choosePreset);
+    choosePreset();
+
+    const animate = () => {
+      requestAnimationFrame(animate);
+      star.rotation.y += 0.003;
+      glow.rotation.y -= 0.001;
+      controls.update();
+      renderer.render(scene, camera);
+    };
+    animate();
+
+    window.addEventListener('resize', () => {
+      const w = stage.clientWidth, h = stage.clientHeight;
+      camera.aspect = w / h;
+      camera.updateProjectionMatrix();
+      renderer.setSize(w, h);
+    });
+  </script>
 </body>
 </html>

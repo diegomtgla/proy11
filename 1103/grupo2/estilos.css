@@ -1,7 +1,5 @@
 /* ============================================================
    ESTILOS DEL SITIO — CICLO 3
-   Lo que ya tenían del ciclo 2, mas lo necesario para las
-   figuras y las tablas del marco teorico.
    ============================================================ */
 
 /* ---------- 1. BASE ---------- */
@@ -46,11 +44,14 @@ nav a {
   display: inline-block;
   padding: 12px 16px;
   color: #9ecbff;
+  text-decoration: none;
 }
 
-/* ---------- 3. FIGURAS ----------
-   figure agrupa la imagen con su pie.
-   figcaption es el pie de la figura. */
+nav a:hover {
+  text-decoration: underline;
+}
+
+/* ---------- 3. FIGURAS ---------- */
 figure {
   margin: 0 0 26px 0;
 }
@@ -96,13 +97,162 @@ th {
   margin: 0;
 }
 
-/* ---------- 6. PANTALLA ANCHA ---------- */
+/* ---------- 6. ESTILOS DE LA SIMULACIÓN 3D ---------- */
+.layout-simulacion {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-top: 16px;
+}
+
+.panel-simulacion {
+  background: #0c1430;
+  border: 1px solid #26345e;
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+#stage {
+  height: 420px;
+  position: relative;
+  width: 100%;
+}
+
+#stage canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.overlay {
+  position: absolute;
+  left: 14px;
+  top: 12px;
+  pointer-events: none;
+  color: #c8d4f2;
+  font-size: 0.82rem;
+  text-shadow: 0 1px 5px #000;
+}
+
+.side-simulacion {
+  padding: 17px;
+}
+
+.side-simulacion h2 {
+  font-size: 1.05rem;
+  margin: 0 0 12px;
+}
+
+.side-simulacion label {
+  display: block;
+  font-size: 0.9rem;
+  color: #cbd6f0;
+  margin: 14px 0 6px;
+}
+
+.side-simulacion select,
+.side-simulacion input[type=range],
+.side-simulacion button {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.side-simulacion select,
+.side-simulacion button {
+  border: 1px solid #43568b;
+  background: #111d40;
+  color: #f4f6ff;
+  border-radius: 9px;
+  padding: 10px;
+  font: inherit;
+}
+
+.side-simulacion input[type=range] {
+  accent-color: #8cb5ff;
+}
+
+.side-simulacion button {
+  cursor: pointer;
+  margin-top: 12px;
+}
+
+.side-simulacion button:hover {
+  background: #1a2b59;
+}
+
+.info-simulacion {
+  margin-top: 16px;
+  padding: 13px;
+  background: #111d40;
+  border-radius: 11px;
+}
+
+.info-simulacion strong {
+  display: block;
+  font-size: 1.05rem;
+  margin-bottom: 5px;
+}
+
+.info-simulacion p {
+  color: #bdc9e5;
+  line-height: 1.45;
+  margin: 5px 0;
+  font-size: 0.9rem;
+}
+
+.legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 13px;
+  margin-top: 13px;
+  color: #bdc9e5;
+  font-size: 0.82rem;
+}
+
+.dot {
+  display: inline-block;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  margin-right: 5px;
+}
+
+.foot {
+  color: #95a4c7;
+  font-size: 0.82rem;
+  line-height: 1.5;
+  margin: 13px 2px 0;
+}
+
+.metric {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  font-size: 0.88rem;
+  padding: 6px 0;
+  border-bottom: 1px solid #29365c;
+}
+
+.metric span:first-child {
+  color: #aebbd8;
+}
+
+/* ---------- 7. PANTALLA ANCHA ---------- */
 @media (min-width: 700px) {
   body {
-    max-width: 700px;
+    max-width: 850px;
     margin: 0 auto;
     padding: 32px;
   }
   h1 { font-size: 44px; }
   h2 { font-size: 30px; }
+
+  .layout-simulacion {
+    display: grid;
+    grid-template-columns: minmax(0, 1.7fr) minmax(240px, 1fr);
+  }
+
+  #stage {
+    height: 520px;
+  }
 }

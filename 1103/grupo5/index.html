@@ -3,139 +3,199 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>estrellas binarias y no binarias</title>
-  <link rel="stylesheet" href="estilos.css">
+  <meta name="theme-color" content="#070b24">
+  <meta name="description" content="Proyecto escolar interactivo sobre estrellas variables y binarias.">
+  <title>Estrellas variables y binarias | Explorando el universo</title>
+  <link rel="stylesheet" href="/1103/grupo5/estilos.css">
+
+  <script src="/1103/grupo5/script.js" defer></script>
 </head>
 <body>
-
-  <!-- ===== PORTADA =====================================
-       RESPONSABLE: entrada
-       Cambien el titulo y la frase de entrada.
-  ==================================================== -->
-  <header id="portada">
-    <h1>estrellas binarias y no binarias</h1>
-    <p>conocimiento sobre el espacio, todos lo que tienes que saber de las estrellas.</p>
+  <div class="stars-bg" aria-hidden="true"></div>
+  <header class="hero" id="inicio">
+    <nav class="nav wrap" aria-label="Navegación principal">
+      <a class="brand" href="#inicio"><span class="brand-mark">✦</span> EXPLORANDO EL UNIVERSO</a>
+      <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú" aria-expanded="false">☰</button>
+      <div class="nav-links" id="navLinks">
+        <a href="#introduccion">Introducción</a>
+        <a href="#objetivos">Objetivos</a>
+        <a href="#teoria">Marco teórico</a>
+        <a href="#simulacion">Simulación 3D</a>
+        <a href="#stand">Stand</a>
+        <a href="#referencias">Referencias</a>
+      </div>
+    </nav>
+    <div class="hero-content wrap">
+      <div class="hero-copy">
+        <p class="eyebrow"><span class="eyebrow-dot"></span> PROYECTO INTERDISCIPLINAR · GRADO 11</p>
+        <h1>Estrellas <span>variables</span><br>y binarias</h1>
+        <p class="hero-lead">Un viaje interactivo para descubrir por qué cambia el brillo de las estrellas y cómo se mueven cuando forman un sistema binario.</p>
+        <div class="hero-actions">
+          <a class="button button-primary" href="#simulacion">Explorar simulación <span>↗</span></a>
+          <a class="button button-ghost" href="#teoria">Conocer la teoría</a>
+        </div>
+        <div class="hero-facts">
+          <div><strong>2</strong><span>tipos de fenómenos</span></div>
+          <div><strong>3D</strong><span>modelo interactivo</span></div>
+          <div><strong>1</strong><span>universo por explorar</span></div>
+        </div>
+      </div>
+      <div class="hero-art" aria-label="Ilustración de dos estrellas orbitando">
+        <div class="orbit orbit-one"></div><div class="orbit orbit-two"></div>
+        <div class="planet planet-large"></div><div class="planet planet-small"></div>
+        <div class="spark spark-a">✦</div><div class="spark spark-b">✧</div><div class="spark spark-c">·</div>
+        <div class="art-caption"><span class="live-dot"></span> SISTEMAS ESTELARES</div>
+      </div>
+    </div>
+    <div class="hero-bottom wrap"><span>OBSERVAR · COMPRENDER · EXPLORAR</span><a href="#introduccion">Desliza para descubrir ↓</a></div>
   </header>
 
-  <!-- ===== MENU ======================================== -->
-  <nav>
-    <a href="#introduccion">Introducción</a>
-    <a href="#objetivos">Objetivos</a>
-    <a href="#marco-teorico">Marco teórico</a>
-    <a href="#stand">Stand</a>
-    <a href="#referencias">Referencias</a>
-  </nav>
+  <main>
+    <section class="section wrap" id="introduccion">
+      <div class="section-heading">
+        <p class="eyebrow">01 / PUNTO DE PARTIDA</p>
+        <h2>Una estrella no siempre <span>brilla igual</span></h2>
+        <p class="section-intro">El universo está en constante cambio. Al observar una estrella durante un tiempo, su brillo aparente puede variar por procesos que ocurren dentro de ella o por la presencia de otra estrella cercana.</p>
+      </div>
+      <div class="intro-grid">
+        <article class="info-card card-glow">
+          <div class="icon-orb purple">✧</div><h3>¿Qué son las estrellas variables?</h3>
+          <p>Son estrellas cuyo brillo observado cambia con el tiempo. La variación puede deberse a cambios físicos propios de la estrella —como pulsaciones— o a factores externos, como un eclipse causado por una compañera.</p>
+        </article>
+        <article class="info-card card-glow">
+          <div class="icon-orb blue">◎</div><h3>¿Qué es un sistema binario?</h3>
+          <p>Es un sistema de dos estrellas vinculadas por la gravedad. Ambas orbitan alrededor de un centro de masa común; no significa necesariamente que una gire alrededor de una estrella inmóvil.</p>
+        </article>
+        <article class="info-card card-glow">
+          <div class="icon-orb gold">⌁</div><h3>¿Por qué estudiarlas?</h3>
+          <p>Sus movimientos y cambios de luz permiten investigar propiedades estelares. En los sistemas binarios, las órbitas ayudan a estimar masas; las curvas de luz permiten reconocer eclipses y patrones periódicos.</p>
+        </article>
+      </div>
+    </section>
 
-  <!-- ===== INTRODUCCION ================================
-       RESPONSABLE: entrada
-       Tres parrafos, uno por pregunta:
-         1. Que es el fenomeno
-         2. Por que importa
-         3. Que va a encontrar el visitante aqui
-  ==================================================== -->
-  <section id="introduccion">
-    <h2>Introducción</h2>
-    <p>Las estrellas binarias son sistemas formados por dos estrellas que están unidas por la gravedad y orbitan alrededor de un centro común. En cambio, las estrellas no binarias son estrellas que no forman parte de un sistema de dos estrellas orbitando entre sí, por lo que pueden encontrarse solas o formando parte de sistemas con más estrellas. Las estrellas binarias son importantes para los astrónomos porque permiten estudiar propiedades como la masa, el tamaño y la evolución de las estrellas.</p>
-    <p>Este tema es importante porque estudiar las estrellas binarias y no binarias nos ayuda a comprender mejor cómo nacen, evolucionan y mueren las estrellas. Además, las estrellas binarias permiten a los astrónomos calcular características como su masa y tamaño, y conocerlas ayuda a entender mejor cómo funciona el universo y cómo se forman los diferentes sistemas estelares.</p>
-    <p>Podemos encontrar cosas muy interesantes sobre este tema, como que algunas estrellas binarias pueden intercambiar materia entre ellas debido a su cercanía. También existen sistemas donde una estrella puede terminar convirtiéndose en una supernova o incluso formar un agujero negro. Además, estudiar las estrellas no binarias nos permite conocer cómo funcionan las estrellas que están aisladas y comparar su evolución con la de las estrellas que forman sistemas.</p>
-  </section>
+    <section class="section section-dark" id="objetivos">
+      <div class="wrap">
+        <div class="section-heading">
+          <p class="eyebrow">02 / PROPÓSITO</p>
+          <h2>¿Qué queremos <span>comprender?</span></h2>
+          <p class="section-intro">La investigación reúne los conceptos de estrellas variables y binarias con una representación visual que ayuda a explicar sus cambios.</p>
+        </div>
+        <div class="objectives">
+          <article class="objective-main"><span class="number">OBJETIVO GENERAL</span><h3>Estudiar las estrellas binarias y variables</h3><p>Comprender sus características, los fenómenos que producen cambios de brillo y su importancia para el estudio y conocimiento del universo.</p></article>
+          <div class="objective-list">
+            <article><span>01</span><div><h3>Describir</h3><p>Las características y el funcionamiento de las estrellas binarias y variables, identificando los fenómenos que ocurren y los cambios que presentan.</p></div></article>
+            <article><span>02</span><div><h3>Explicar</h3><p>Sus principios fundamentales, condiciones de formación, tipos e importancia para comprender la evolución estelar.</p></div></article>
+            <article><span>03</span><div><h3>Relacionar</h3><p>Los conceptos científicos con el modelo físico del stand y con la simulación interactiva de este sitio web.</p></div></article>
+          </div>
+        </div>
+      </div>
+    </section>
 
-  <!-- ===== OBJETIVOS ===================================
-       RESPONSABLE: entrada
-       Todos empiezan con verbo en infinitivo.
-  ==================================================== -->
-  <section id="objetivos">
-    <h2>Objetivos</h2>
+    <section class="section wrap" id="teoria">
+      <div class="section-heading">
+        <p class="eyebrow">03 / MARCO TEÓRICO</p>
+        <h2>Dos ideas clave, <span>muchas posibilidades</span></h2>
+        <p class="section-intro">La presentación del proyecto destaca la clasificación de las variables, la fotometría y el estudio del movimiento orbital de los sistemas binarios.</p>
+      </div>
+      <div class="theory-layout">
+        <article class="theory-card">
+          <span class="pill">CONCEPTO 01</span><h3>Estrellas variables</h3>
+          <p>Una estrella variable es aquella cuyo brillo aparente cambia a lo largo del tiempo. Los astrónomos siguen estos cambios mediante observaciones repetidas y los representan en una <strong>curva de luz</strong>.</p>
+          <div class="type-row"><span class="type-dot intrinsic"></span><div><h4>Variables intrínsecas</h4><p>El cambio se origina en la propia estrella. Puede expandirse y contraerse, o cambiar su emisión de energía. Las cefeidas y las RR Lyrae son ejemplos importantes de estrellas pulsantes.</p></div></div>
+          <div class="type-row"><span class="type-dot extrinsic"></span><div><h4>Variables extrínsecas</h4><p>El brillo cambia por la geometría del sistema o por factores externos. En una binaria eclipsante, una estrella pasa delante de la otra desde nuestro punto de vista y la luz total disminuye temporalmente.</p></div></div>
+        </article>
+        <article class="theory-card">
+          <span class="pill pill-blue">CONCEPTO 02</span><h3>Estrellas binarias</h3>
+          <p>Son dos estrellas unidas gravitacionalmente que orbitan alrededor de un centro de masa común. Su movimiento depende de las masas de ambas estrellas y de la separación entre ellas.</p>
+          <ul class="check-list">
+            <li>Las dos estrellas se mueven; no hay una que necesariamente permanezca fija.</li>
+            <li>Se estudian mediante el movimiento orbital y el análisis de la luz.</li>
+            <li>En sistemas cercanos puede haber transferencia de materia entre las estrellas.</li>
+            <li>La evolución de una compañera puede influir en la otra.</li>
+          </ul>
+          <p class="small-note">Aclaración: “no binaria” no es una clasificación astronómica única equivalente a “estrella variable”. Una estrella puede ser aparentemente aislada, pertenecer a un sistema múltiple o ser variable, y son características distintas.</p>
+        </article>
+      </div>
 
-    <h3>Objetivo general</h3>
-    <p>Estudiar las estrellas binarias y variables, comprendiendo sus caracteristicas, los fenomenos que producen sus cambios de brillo y su importancia paravel esrudio y conocimiento del universo.</p>
+      <div class="science-grid">
+        <article class="science-card"><div class="science-icon">◷</div><h3>Fotometría</h3><p>Es la medición de la luz que recibimos de un objeto celeste. Al comparar mediciones a lo largo del tiempo, se detectan variaciones de brillo.</p></article>
+        <article class="science-card"><div class="science-icon">⌁</div><h3>Curva de luz</h3><p>Es una gráfica del brillo —o de la magnitud— frente al tiempo. Los mínimos repetidos pueden revelar eclipses; las oscilaciones regulares pueden indicar pulsaciones.</p></article>
+        <article class="science-card"><div class="science-icon">↗</div><h3>Cefeidas y RR Lyrae</h3><p>Son estrellas variables pulsantes. Sus periodos de variación se relacionan con propiedades de la estrella y ayudan a estimar distancias astronómicas mediante relaciones calibradas.</p></article>
+      </div>
+      <aside class="fact-banner"><div class="fact-star">✦</div><div><p class="eyebrow">IDEA PARA RECORDAR</p><h3>El brillo cuenta una historia</h3><p>Una curva de luz no solo muestra que una estrella cambia: su forma, periodicidad y profundidad pueden dar pistas sobre el mecanismo que produce la variación.</p></div></aside>
+    </section>
 
-    <h3>Objetivos específicos</h3>
-    <ul>
-      <li>Describir las caeracteras y el funcionamiento de las estrellas binarias y variables, identificando los fenomenos que ocurren entre ellas y los cambios que presentan. </li>
-      <li>Explicar los principios fundamentales de las estrellas binarias y variables,las condiciones que permiten su formacion, sus tipos y su importancia para comprender la evolucion de las estrellas y el universo.</li>
-      <li>Relacionar el sitio con el experimento del stand.</li>
-    </ul>
-  </section>
+    <section class="section simulation-section" id="simulacion">
+      <div class="wrap">
+        <div class="section-heading">
+          <p class="eyebrow">04 / LABORATORIO INTERACTIVO</p>
+          <h2>Explora el sistema <span>en 3D</span></h2>
+          <p class="section-intro">Cambia el fenómeno, ajusta la velocidad y observa cómo se modifica la representación. Arrastra para girar la cámara y usa la rueda del ratón para acercarte.</p>
+        </div>
+        <div class="simulator">
+          <div class="sim-topbar"><div><span class="live-dot"></span><span>SIMULACIÓN EN TIEMPO REAL</span></div><span class="sim-tag">MODELO ILUSTRATIVO · NO A ESCALA</span></div>
+          <div class="sim-layout">
+            <div class="scene-wrap">
+              <div id="scene3d" role="img" aria-label="Simulación tridimensional de estrellas variables y binarias"><div class="scene-loading" id="sceneLoading">Preparando el universo…</div></div>
+              <div class="scene-hud"><span id="sceneModeLabel">Binaria eclipsante</span><span id="phaseLabel">Fase orbital: 0°</span></div>
+              <div class="scene-tools"><button id="resetView" class="mini-button" type="button" title="Restablecer vista">⟲ Vista</button><button id="pauseButton" class="mini-button" type="button">Ⅱ Pausar</button></div>
+            </div>
+            <aside class="sim-controls">
+              <p class="eyebrow">CONTROLES</p><h3>Elige un fenómeno</h3>
+              <label for="modeSelect">Tipo de simulación</label>
+              <select id="modeSelect">
+                <option value="eclipsing">Binaria eclipsante</option>
+                <option value="pulsating">Variable pulsante</option>
+                <option value="binary">Binaria orbital (sin eclipse)</option>
+              </select>
+              <div class="control-block"><div class="label-line"><label for="speedRange">Velocidad de animación</label><output id="speedOutput">1.0×</output></div><input id="speedRange" type="range" min="0.2" max="2.5" value="1" step="0.1"></div>
+              <div class="control-block"><div class="label-line"><label for="orbitRange">Separación orbital</label><output id="orbitOutput">3.2</output></div><input id="orbitRange" type="range" min="2.2" max="4.5" value="3.2" step="0.1"></div>
+              <div class="legend"><span><i class="legend-dot star-a"></i>Estrella A</span><span><i class="legend-dot star-b"></i>Estrella B</span><span><i class="legend-dot orbit-dot"></i>Órbita</span></div>
+              <div class="sim-explanation"><h4 id="explanationTitle">¿Qué estás viendo?</h4><p id="explanationText">Dos estrellas orbitan un centro común. Cuando una pasa delante de la otra, la luz total observada disminuye.</p></div>
+            </aside>
+          </div>
+          <div class="light-curve-panel">
+            <div class="curve-heading"><div><p class="eyebrow">OBSERVACIÓN</p><h3>Curva de luz simulada</h3></div><span id="brightnessLabel">Brillo relativo: 100%</span></div>
+            <div class="chart-wrap"><canvas id="lightCurve" aria-label="Gráfica simulada del brillo relativo a lo largo del tiempo"></canvas></div>
+            <p class="chart-note">Curva conceptual generada por este modelo educativo; no corresponde a datos de una estrella real.</p>
+          </div>
+        </div>
+        <div class="learning-points">
+          <article><span>01</span><div><h3>Observa el movimiento</h3><p>Las estrellas de una binaria se desplazan alrededor del centro de masa del sistema.</p></div></article>
+          <article><span>02</span><div><h3>Busca los mínimos</h3><p>En una binaria eclipsante, el brillo baja cuando una estrella oculta parte de la luz de la otra.</p></div></article>
+          <article><span>03</span><div><h3>Compara los patrones</h3><p>Una estrella pulsante cambia de tamaño y brillo; su curva de luz tiene un patrón distinto al de los eclipses.</p></div></article>
+        </div>
+      </div>
+    </section>
 
-  <!-- ===== MARCO TEORICO ===============================
-       RESPONSABLE: contenido
-       Minimo tres subsecciones con h3.
-       Minimo dos figuras numeradas con su pie.
-  ==================================================== -->
-  <section id="marco-teorico">
-    <h2>Marco teórico</h2>
+    <section class="section wrap" id="stand">
+      <div class="section-heading">
+        <p class="eyebrow">05 / EXPERIENCIA PRESENCIAL</p>
+        <h2>Nuestro <span>stand científico</span></h2>
+        <p class="section-intro">El modelo físico complementa esta página: permite explicar de forma tangible el movimiento orbital, mientras la simulación ayuda a visualizar los cambios de brillo.</p>
+      </div>
+      <div class="stand-grid">
+        <article class="stand-card"><span class="stand-number">01</span><h3>Modelo físico</h3><p>Según la propuesta del proyecto, se pueden utilizar bolas de poliestireno de distintos tamaños, pintura, palitos de madera, alambre, una base y material para fijar las piezas. Las bolas representan las estrellas y sus posiciones ayudan a explicar la órbita.</p><div class="material-tags"><span>Bolas de poliestireno</span><span>Pintura</span><span>Base y eje</span><span>Alambre</span></div></article>
+        <article class="stand-card stand-card-accent"><span class="stand-number">02</span><h3>¿Qué muestra cada recurso?</h3><div class="compare-row"><strong>Experimento físico</strong><p>Representa la posición relativa y el movimiento de las estrellas alrededor de un centro común.</p></div><div class="compare-row"><strong>Sitio web 3D</strong><p>Permite cambiar entre una binaria eclipsante, una binaria orbital y una estrella pulsante, además de comparar sus curvas de luz conceptuales.</p></div></article>
+      </div>
+      <div class="conclusion"><div class="conclusion-symbol">✦</div><div><p class="eyebrow">CONCLUSIÓN</p><h3>Observar para comprender</h3><p>Las estrellas variables y binarias son herramientas valiosas para investigar el universo. El estudio de sus cambios de brillo y movimientos permite inferir propiedades que no podemos medir directamente. La simulación y el modelo del stand simplifican estos procesos para hacerlos visibles y comparables. La posibilidad de vida en un planeta depende de muchos factores —como su atmósfera, el agua líquida y la actividad de su estrella—, por lo que no basta con que orbite una estrella variable o binaria para concluir si es habitable.</p></div></div>
+    </section>
+  </main>
 
-    <h3>1. Primer concepto</h3>
-    <p>Explicación del concepto base del subtema.</p>
-
-    <figure>
-      <img src="imagenes/figura1.jpg" alt="Descripcion de lo que muestra la figura">
-      <figcaption>Figura 1. Qué muestra la figura y quién la elaboró.</figcaption>
-    </figure>
-
-    <h3>2. Segundo concepto</h3>
-    <p>El proceso o el mecanismo, paso a paso.</p>
-
-    <div class="tarjeta">
-      <p class="dato">CIFRA</p>
-      <p>Qué significa esa cifra, en una frase.</p>
+  <footer class="footer" id="referencias">
+    <div class="wrap footer-grid">
+      <div><a class="brand" href="#inicio"><span class="brand-mark">✦</span> EXPLORANDO EL UNIVERSO</a><p class="footer-note">Proyecto interdisciplinar · Gimnasio Los Arrayanes Bilingüe · Grado 11</p><p class="credits">Integrantes: Martin Chivata, Juan Mendoza, Samuel Perdomo e Isabella Tovar.</p></div>
+      <div class="references"><p class="eyebrow">FUENTES CONSULTADAS EN EL PROYECTO</p>
+        <ol>
+          <li>Sociedad Española de Astronomía. (s. f.). <em>Estrella binaria</em>. <a href="https://www.sea-astronomia.es/glosario/estrella-binaria" target="_blank" rel="noopener noreferrer">Consultar fuente ↗</a></li>
+          <li>Kazmierczak, J. y Mattson, B. (2012). <em>Multiple Star Systems</em>. NASA Science. <a href="https://science.nasa.gov/universe/stars/multiple-star-systems/" target="_blank" rel="noopener noreferrer">Consultar fuente ↗</a></li>
+          <li>Soszyński, I. (s. f.). <em>OGLE Atlas of Variable Star Light Curves — RR Lyrae stars</em>. <a href="https://ogle.astrouw.edu.pl/atlas/RR_Lyr.html" target="_blank" rel="noopener noreferrer">Consultar fuente ↗</a></li>
+          <li><em>Las estrellas variables cefeidas</em>. (s. f.). Observatoire de Paris. <a href="https://media4.obspm.fr/public/VAU/tiempo/distancia/calibracion-primaria/cefeidas/APPRENDRE.html" target="_blank" rel="noopener noreferrer">Consultar fuente ↗</a></li>
+        </ol>
+        <p class="source-note">El contenido teórico se organizó a partir de la presentación PDF del proyecto y su bibliografía. La simulación es una representación didáctica, no un modelo astrofísico de precisión.</p>
+      </div>
     </div>
-
-    <h3>3. Datos y cifras</h3>
-    <p>Las magnitudes que hacen concreto el fenómeno.</p>
-
-    <figure>
-      <img src="imagenes/figura2.jpg" alt="Descripcion de lo que muestra la figura">
-      <figcaption>Figura 2. Qué muestra la figura y quién la elaboró.</figcaption>
-    </figure>
-  </section>
-
-  <!-- ===== STAND =======================================
-       RESPONSABLE: stand y fuentes
-  ==================================================== -->
-  <section id="stand">
-    <h2>Nuestro stand durante la presentación del proyecto final</h2>
-    <p>Qué encuentra el visitante.</p>
-
-    <table>
-      <tr>
-        <th>El experimento físico muestra</th>
-        <th>El sitio web muestra</th>
-      </tr>
-      <tr>
-        <td>—</td>
-        <td>—</td>
-      </tr>
-      <tr>
-        <td>—</td>
-        <td>—</td>
-      </tr>
-    </table>
-
-    <figure>
-      <img src="imagenes/stand.jpg" alt="Boceto del stand del grupo">
-      <figcaption>Figura 3. Propuesta de adecuación del stand.</figcaption>
-    </figure>
-  </section>
-
-  <!-- ===== REFERENCIAS =================================
-       RESPONSABLE: stand y fuentes
-       Autor. (Ano). Titulo. Sitio. Enlace. Fecha de consulta.
-  ==================================================== -->
-  <footer id="referencias">
-    <h2>Referencias</h2>
-    <ol>
-      <li>Primera fuente.</li>
-      <li>Segunda fuente.</li>
-      <li>Tercera fuente.</li>
-    </ol>
-
-    <p>
-      Proyecto interdisciplinar Explorando el Universo · Gimnasio Los Arrayanes
-      Bilingüe · Grado 11 · Integrantes: Martin Chivata, Juan Mendoza,Samuel Perdomo e Isabella Tovar.
-    </p>
+    <div class="footer-bottom"><div class="wrap"><span>ESTRELLAS VARIABLES Y BINARIAS</span><a href="#inicio">Volver al inicio ↑</a></div></div>
   </footer>
-
 </body>
 </html>
