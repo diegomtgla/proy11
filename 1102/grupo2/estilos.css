@@ -128,3 +128,29 @@ footer a { color: #9ecbff; }
   #lienzo { height: 420px; }
   .controles { grid-template-columns: 1fr; }
 }
+
+
+/* Acceso a la segunda simulación interactiva */
+.laboratorio-acceso {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 22px;
+  flex-wrap: wrap;
+  margin: 22px 0;
+  padding: 24px;
+  border: 1px solid #334267;
+  border-radius: 16px;
+  background: linear-gradient(120deg, #0d1326, #142344);
+}
+.laboratorio-acceso h3 { margin: 8px 0; color: #f2f5ff; }
+.laboratorio-acceso p:not(.mini-titulo) { margin-bottom: 0; color: #c0cbe0; }
+.boton-laboratorio {
+  display: inline-block;
+  text-decoration: none;
+  text-align: center;
+  background: linear-gradient(120deg, #176a9b, #254b91);
+  border: 1px solid #68bfff;
+  box-shadow: 0 0 22px rgba(64,164,255,.18);
+}
+.boton-laboratorio:hover { background: #2866ae; transform: translateY(-2px); }
