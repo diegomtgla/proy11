@@ -26,6 +26,7 @@
       <a href="#introduccion">Introducción</a>
       <a href="#objetivos">Objetivos</a>
       <a href="#marco-teorico">Exoplanetas</a>
+      <a href="#simulacion">Simulación</a>
       <a href="#referencias">Referencias</a>
     </div>
   </nav>
@@ -237,7 +238,7 @@
 
         <div class="planeta-imagen">
           <img
-            src="imagenes/proxima-centauri-b.jpg"
+            src="/1102/grupo3/imagenes/proxima-centauri-b.jpg"
             alt="Ilustración artística de Próxima Centauri b"
             loading="lazy"
           >
@@ -283,7 +284,7 @@
 
         <div class="planeta-imagen">
           <img
-            src="imagenes/trappist-1e.jpg"
+            src="/1102/grupo3/imagenes/TRAPPIST-1e.jpg"
             alt="Ilustración artística de TRAPPIST-1e"
             loading="lazy"
           >
@@ -330,7 +331,7 @@
 
         <div class="planeta-imagen">
           <img
-            src="imagenes/kepler-452b.jpg"
+            src="/1102/grupo3/imagenes/Kepler-452b.jpg"
             alt="Ilustración artística de Kepler-452b"
             loading="lazy"
           >
@@ -377,7 +378,7 @@
 
         <div class="planeta-imagen">
           <img
-            src="imagenes/lhs-1140b.jpg"
+            src="/1102/grupo3/imagenes/lhs-1140b.jpg"
             alt="Ilustración artística de LHS 1140b"
             loading="lazy"
           >
@@ -423,7 +424,7 @@
 
         <div class="planeta-imagen">
           <img
-            src="imagenes/hd-20794-d.jpg"
+            src="/1102/grupo3/imagenes/hd-20794-d.jpg"
             alt="Ilustración artística de HD 20794 d"
             loading="lazy"
           >
@@ -468,10 +469,77 @@
     </section>
 
 
+    <!-- ==================== SIMULACIÓN 3D ==================== -->
+    <section id="simulacion" class="seccion simulacion-seccion">
+
+      <div class="section-heading">
+        <span class="numero-seccion">04 / SIMULACIÓN</span>
+        <h2>Un planeta orbitando su estrella</h2>
+        <p class="subtitulo">
+          Cambia el tamaño del planeta y observa cómo se mueve
+          alrededor de su estrella.
+        </p>
+      </div>
+
+      <div class="simulacion-panel">
+
+        <div class="simulacion-cabecera">
+          <div>
+            <span class="estado-simulacion">
+              <span class="estado-punto"></span>
+              SIMULACIÓN EN VIVO
+            </span>
+            <h3>Estrella, planeta y atmósfera</h3>
+          </div>
+          <span class="etiqueta-3d">3D</span>
+        </div>
+
+        <div class="canvas-contenedor">
+          <canvas id="lienzo" aria-label="Simulación 3D de un planeta orbitando una estrella"></canvas>
+
+          <div class="leyenda-espacial" aria-hidden="true">
+            <span><i class="leyenda-sol"></i> Estrella</span>
+            <span><i class="leyenda-planeta"></i> Planeta</span>
+            <span><i class="leyenda-atmosfera"></i> Atmósfera</span>
+          </div>
+        </div>
+
+        <div class="controles">
+          <div class="control-titulo">
+            <label for="control">Tamaño del planeta</label>
+            <span class="control-valor"><span id="valor">8</span> <small>/ 20</small></span>
+          </div>
+
+          <input id="control" type="range" min="1" max="20" step="1" value="8">
+
+          <div class="rango-etiquetas">
+            <span>Pequeño</span>
+            <span>Grande</span>
+          </div>
+
+          <p class="ayuda-control">
+            Mueve el deslizador para hacer el planeta más pequeño o más grande.
+          </p>
+        </div>
+
+        <div class="simulacion-nota">
+          <span>ⓘ</span>
+          <p>
+            <strong>Modelo simplificado:</strong> los tamaños y las distancias
+            no están a escala real. La simulación sirve para visualizar la idea
+            de un planeta que orbita su estrella y conserva una atmósfera.
+          </p>
+        </div>
+
+      </div>
+
+    </section>
+
+
     <!-- ==================== CONCLUSIÓN ==================== -->
     <section class="conclusion">
 
-      <span class="numero-seccion">04 / REFLEXIÓN FINAL</span>
+      <span class="numero-seccion">05 / REFLEXIÓN FINAL</span>
 
       <div class="conclusion-icono">✧</div>
 
@@ -497,7 +565,7 @@
     <section id="referencias" class="seccion referencias">
 
       <div class="section-heading">
-        <span class="numero-seccion">05 / FUENTES</span>
+        <span class="numero-seccion">06 / FUENTES</span>
         <h2>Referencias científicas</h2>
         <p class="subtitulo">
           Recursos para profundizar en el estudio
@@ -597,5 +665,8 @@
     </span>
 
   </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/three@0.149.0/build/three.min.js"></script>
+  <script src="/1102/grupo3/script.js"></script>
 </body>
 </html>
