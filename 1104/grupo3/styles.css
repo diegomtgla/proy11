@@ -1,0 +1,214 @@
+/* Estilos generales del sitio */
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background: #11182b;
+  color: #e8ecf5;
+  font-family: Arial, sans-serif;
+  line-height: 1.65;
+}
+
+#portada {
+  padding: 64px 8%;
+  text-align: center;
+  background: linear-gradient(135deg, #171f3b, #303d68);
+}
+
+#portada h1 {
+  margin: 0 0 16px;
+  font-size: clamp(2rem, 5vw, 3.2rem);
+}
+
+#portada p {
+  max-width: 900px;
+  margin: auto;
+  font-size: 1.08rem;
+}
+
+nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px 24px;
+  padding: 16px;
+  background: #0a1020;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+nav a {
+  color: #dce6ff;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+nav a:hover {
+  color: #ffc857;
+}
+
+section, footer {
+  width: min(1000px, 90%);
+  margin: 36px auto;
+  padding: 28px;
+  background: #202a45;
+  border-radius: 14px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
+}
+
+h2 {
+  color: #ffc857;
+  margin-top: 0;
+}
+
+h3 {
+  color: #a9c5ff;
+  margin-top: 28px;
+}
+
+p {
+  text-align: justify;
+}
+
+figure {
+  margin: 28px auto;
+  text-align: center;
+}
+
+figure img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+
+figcaption {
+  margin-top: 8px;
+  color: #c4cde0;
+  font-size: 0.9rem;
+}
+
+.tarjeta {
+  display: inline-block;
+  vertical-align: top;
+  width: calc(50% - 14px);
+  min-width: 220px;
+  margin: 7px;
+  padding: 16px;
+  background: #303d60;
+  border-radius: 10px;
+}
+
+.dato {
+  color: #ffc857;
+  font-size: 1.25rem;
+  font-weight: bold;
+  margin: 0 0 8px;
+  text-align: left;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 24px 0;
+}
+
+th, td {
+  border: 1px solid #65749a;
+  padding: 12px;
+  text-align: left;
+}
+
+th {
+  background: #303d60;
+  color: #ffc857;
+}
+
+footer {
+  margin-bottom: 36px;
+}
+
+footer li {
+  margin-bottom: 12px;
+  overflow-wrap: anywhere;
+}
+
+/* Simulación 3D: estilos aislados para no alterar el resto del sitio */
+.seccion-simulacion .simulacion-contenedor {
+  padding: 18px;
+  margin-top: 22px;
+  background: #171f36;
+  border: 1px solid #465477;
+  border-radius: 14px;
+}
+
+#lienzo {
+  width: 100%;
+  height: 420px;
+  display: block;
+  background-color: #0a0e18;
+  border-radius: 12px;
+}
+
+.seccion-simulacion .controles {
+  margin-top: 16px;
+}
+
+.seccion-simulacion label {
+  display: block;
+  font-size: 14px;
+  margin-bottom: 8px;
+}
+
+.seccion-simulacion input[type="range"] {
+  width: 100%;
+  height: 34px;
+  cursor: pointer;
+}
+
+.seccion-simulacion #valor {
+  color: #ffc857;
+  font-weight: bold;
+}
+
+.nota-simulacion {
+  margin-top: 16px;
+  color: #c4cde0;
+  font-size: 0.9rem;
+}
+
+@media (max-width: 650px) {
+  section, footer {
+    width: 94%;
+    padding: 20px;
+  }
+
+  nav {
+    position: static;
+    gap: 10px 16px;
+  }
+
+  #lienzo {
+    height: 320px;
+  }
+
+  .tarjeta {
+    width: 100%;
+    margin: 7px 0;
+  }
+
+  table {
+    font-size: 0.88rem;
+  }
+
+  th, td {
+    padding: 8px;
+  }
+}
