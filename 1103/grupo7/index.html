@@ -1,140 +1,429 @@
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SUBTEMA DEL GRUPO</title>
-  <link rel="stylesheet" href="estilos.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tecnología de observación estelar</title>
+    <link rel="stylesheet" href="/1103/grupo7/estilos.css">
 </head>
+
 <body>
 
-  <!-- ===== PORTADA =====================================
-       RESPONSABLE: entrada
-       Cambien el titulo y la frase de entrada.
-  ==================================================== -->
-  <header id="portada">
-    <h1>Tecnología de observación estelar: Telescopios terrestres y espaciales, y técnicas de
-observación astronómica.</h1>
-    <p>"De la Tierra a las estrellas: la tecnología que nos permite mirar a través del tiempo y el espacio.</p>
-  </header>
+    <!-- NAVEGACIÓN -->
+    <nav class="navbar">
+        <a href="#portada" class="logo">✦ ASTROLAB</a>
 
-  <!-- ===== MENU ======================================== -->
-  <nav>
-    <a href="#introduccion">Introducción</a>
-    <a href="#objetivos">Objetivos</a>
-    <a href="#marco-teorico">Marco teórico</a>
-    <a href="#stand">Stand</a>
-    <a href="#referencias">Referencias</a>
-  </nav>
+        <div class="nav-links">
+            <a href="#introduccion">Introducción</a>
+            <a href="#objetivos">Objetivos</a>
+            <a href="#marco-teorico">Marco teórico</a>
+            <a href="#stand">Stand</a>
+            <a href="#simulacion">Simulación</a>
+            <a href="#referencias">Referencias</a>
+        </div>
+    </nav>
 
-  <!-- ===== INTRODUCCION ================================
-       RESPONSABLE: entrada
-       Tres parrafos, uno por pregunta:
-         1. Que es el fenomeno
-         2. Por que importa
-         3. Que va a encontrar el visitante aqui
-  ==================================================== -->
-  <section id="introduccion">
-    <h2>Introducción</h2>
-    <p>Cuando observamos el cielo en una noche despejada, podemos ver estrellas, planetas y otros objetos que se encuentran a millones de kilómetros de nosotros. Pero, ¿cómo logramos observarlos con tanto detalle? Gracias a la tecnología astronómica, los telescopios terrestres y espaciales nos permiten captar la luz proveniente del universo y estudiar objetos que nuestros ojos no pueden distinguir. Además, existen diferentes técnicas de observación que nos ayudan a conocer mejor el espacio y todo lo que contiene.</p>
-   
-  </section>
+    <!-- PORTADA -->
+    <header id="portada" class="hero">
+        <div class="hero-content">
+            <span class="etiqueta">EXPLORANDO EL UNIVERSO</span>
 
-  <!-- ===== OBJETIVOS ===================================
-       RESPONSABLE: entrada
-       Todos empiezan con verbo en infinitivo.
-  ==================================================== -->
-  <section id="objetivos">
-    <h2>Objetivos</h2>
+            <h1>Tecnología de<br>
+                <span>observación estelar</span>
+            </h1>
 
-    <h3>Objetivo general</h3>
-    <p>Anñlizar las tecnologias de observación estelar a traves de un estudio comparativo de telescopios terrestres, espaciales y metodos astrofisicos para establecer su sontribución a los avances y hallazgos en la astrofisica moderna.</p>
+            <p>
+                ¿Y si pudieras observar los secretos más profundos
+                del universo sin salir de la Tierra? Desde los
+                telescopios terrestres hasta los observatorios
+                espaciales, descubre cómo la tecnología nos permite
+                explorar estrellas, galaxias y fenómenos que desafían
+                nuestra imaginación.
+            </p>
 
-    <h3>Objetivos específicos</h3>
-    <ul>
-      <li>Diferenciar las capacidades operativas, ventajas, desventajas y limitaciones de los telescopios terrestres y espaciales en el analisis de  los cuerpos terrestres.</li>
-      <li>Explicar los principios de funcionamiento de la fotometría, espectroscopia e intraferometría, precisando la información astrofísica que aporta cada tecnica a nuevos descubrimientosli>
-    </ul>
-  </section>
+            <a href="#introduccion" class="btn-principal">
+                Comenzar exploración →
+            </a>
+        </div>
+    </header>
 
-  <!-- ===== MARCO TEORICO ===============================
-       RESPONSABLE: contenido
-       Minimo tres subsecciones con h3.
-       Minimo dos figuras numeradas con su pie.
-  ==================================================== -->
-  <section id="marco-teorico">
-    <h2>Marco teórico</h2>
+    <!-- INTRODUCCIÓN -->
+    <section id="introduccion" class="seccion">
+        <span class="etiqueta">01 / INTRODUCCIÓN</span>
+        <h2>Una ventana al universo</h2>
 
-    <h3>1. Primer concepto</h3>
-    <p>Explicación del concepto base del subtema.</p>
+        <p class="texto-intro">
+            La observación estelar es una de las principales formas
+            que tiene el ser humano de explorar y comprender el
+            universo. Gracias a la tecnología, hoy contamos con
+            instrumentos como los telescopios terrestres y espaciales,
+            que nos permiten observar estrellas, planetas, galaxias
+            y otros cuerpos celestes, incluso aquellos que se
+            encuentran a millones de años luz de distancia.
+        </p>
 
-    <figure>
-      <img src="imagenes/figura1.jpg" alt="Descripcion de lo que muestra la figura">
-      <figcaption>Figura 1. Qué muestra la figura y quién la elaboró.</figcaption>
-    </figure>
+        <p class="texto-intro">
+            La importancia de estas tecnologías radica en que nos
+            ayudan a descubrir cómo funciona el universo, estudiar
+            su origen y evolución, e investigar fenómenos astronómicos
+            que todavía representan grandes misterios para la ciencia.
+            Además, los avances en los instrumentos de observación
+            han permitido obtener imágenes y datos cada vez más
+            precisos del espacio.
+        </p>
 
-    <h3>2. Segundo concepto</h3>
-    <p>El proceso o el mecanismo, paso a paso.</p>
+        <p class="texto-intro">
+            En esta página encontrarás información sobre los
+            diferentes tipos de telescopios terrestres y espaciales,
+            sus características, diferencias y aportes a la
+            astronomía. También conocerás las principales técnicas
+            de observación astronómica y cómo estas herramientas
+            han transformado nuestra manera de explorar y entender
+            el universo.
+        </p>
+    </section>
 
-    <div class="tarjeta">
-      <p class="dato">CIFRA</p>
-      <p>Qué significa esa cifra, en una frase.</p>
-    </div>
+    <!-- OBJETIVOS -->
+    <section id="objetivos" class="seccion seccion-oscura">
+        <span class="etiqueta">02 / OBJETIVOS</span>
+        <h2>Objetivos del proyecto</h2>
 
-    <h3>3. Datos y cifras</h3>
-    <p>Las magnitudes que hacen concreto el fenómeno.</p>
+        <div class="tarjetas">
+            <article class="tarjeta">
+                <span class="icono">🎯</span>
+                <h3>Objetivo general</h3>
+                <p>
+                    Analizar las tecnologías de observación estelar
+                    a través de un estudio comparativo de telescopios
+                    terrestres, espaciales y métodos astrofísicos
+                    para establecer su contribución a los avances
+                    y hallazgos en la astrofísica moderna.
+                </p>
+            </article>
 
-    <figure>
-      <img src="imagenes/figura2.jpg" alt="Descripcion de lo que muestra la figura">
-      <figcaption>Figura 2. Qué muestra la figura y quién la elaboró.</figcaption>
-    </figure>
-  </section>
+            <article class="tarjeta">
+                <span class="icono">🔭</span>
+                <h3>Objetivo específico 1</h3>
+                <p>
+                    Diferenciar las capacidades operativas, ventajas,
+                    desventajas y limitaciones de los telescopios
+                    terrestres y espaciales en el análisis de
+                    los cuerpos celestes.
+                </p>
+            </article>
 
-  <!-- ===== STAND =======================================
-       RESPONSABLE: stand y fuentes
-  ==================================================== -->
-  <section id="stand">
-    <h2>Nuestro stand durante la presentación del proyecto final</h2>
-    <p>Qué encuentra el visitante.</p>
+            <article class="tarjeta">
+                <span class="icono">🌈</span>
+                <h3>Objetivo específico 2</h3>
+                <p>
+                    Explicar los principios de funcionamiento de
+                    la fotometría, espectroscopia e interferometría,
+                    precisando la información astrofísica que aporta
+                    cada técnica a nuevos descubrimientos.
+                </p>
+            </article>
+        </div>
+    </section>
 
-    <table>
-      <tr>
-        <th>El experimento físico muestra</th>
-        <th>El sitio web muestra</th>
-      </tr>
-      <tr>
-        <td>—</td>
-        <td>—</td>
-      </tr>
-      <tr>
-        <td>—</td>
-        <td>—</td>
-      </tr>
-    </table>
+    <!-- MARCO TEÓRICO -->
+    <section id="marco-teorico" class="seccion">
+        <span class="etiqueta">03 / MARCO TEÓRICO</span>
+        <h2>La tecnología detrás de la observación</h2>
 
-    <figure>
-      <img src="imagenes/stand.jpg" alt="Boceto del stand del grupo">
-      <figcaption>Figura 3. Propuesta de adecuación del stand.</figcaption>
-    </figure>
-  </section>
+        <article class="contenido-teorico">
+            <h3>Telescopios terrestres y espaciales</h3>
 
-  <!-- ===== REFERENCIAS =================================
-       RESPONSABLE: stand y fuentes
-       Autor. (Ano). Titulo. Sitio. Enlace. Fecha de consulta.
-  ==================================================== -->
-  <footer id="referencias">
-    <h2>Referencias</h2>
-    <ol>
-      <li>Primera fuente.</li>
-      <li>Segunda fuente.</li>
-      <li>Tercera fuente.</li>
-    </ol>
+            <p>
+                Los telescopios son instrumentos que permiten observar
+                objetos celestes muy lejanos. Los terrestres se
+                encuentran en la superficie de la Tierra, mientras
+                que los espaciales orbitan fuera de la atmósfera,
+                logrando captar imágenes con mayor claridad en
+                ciertas longitudes de onda.
+            </p>
 
-    <p>
-      Proyecto interdisciplinar Explorando el Universo · Gimnasio Los Arrayanes
-      Bilingüe · Grado 11 · Integrantes: CALDERA TORRES JUAN JOSÉ, MORENO SANABRIA ANDRÉS DAVID, NORMAN SARRIA SANTIAGO, SÁNCHEZ SANABRIA CAMILA
-    </p>
-  </footer>
+            <figure>
+                <img
+                    src="teles.jpeg"
+                    alt="Telescopio utilizado para la observación astronómica"
+                >
+                <figcaption>
+                    Figura 1. Telescopio utilizado para la observación
+                    astronómica. Agregar la fuente de la imagen.
+                </figcaption>
+            </figure>
+
+            <h3>Técnicas de observación astronómica</h3>
+
+            <p>
+                La astronomía utiliza diferentes técnicas para
+                estudiar el universo, como la observación mediante
+                luz visible, infrarroja y ondas de radio. Estas
+                permiten captar información de los cuerpos celestes,
+                analizar su composición, temperatura, distancia
+                y movimiento.
+            </p>
+
+            <figure>
+                <img
+                    src="cielo.jpeg"
+                    alt="Observación astronómica del cielo nocturno"
+                >
+                <figcaption>
+                    Figura 2. Observación astronómica del cielo
+                    nocturno. Agregar la fuente de la imagen.
+                </figcaption>
+            </figure>
+
+            <div class="tarjetas">
+                <article class="tarjeta">
+                    <h3>Fotometría</h3>
+                    <p>
+                        Permite medir el brillo de los objetos
+                        celestes y estudiar sus variaciones
+                        de luminosidad.
+                    </p>
+                </article>
+
+                <article class="tarjeta">
+                    <h3>Espectroscopia</h3>
+                    <p>
+                        Analiza la luz de los cuerpos celestes
+                        para obtener información sobre su
+                        composición y características.
+                    </p>
+                </article>
+
+                <article class="tarjeta">
+                    <h3>Interferometría</h3>
+                    <p>
+                        Combina señales de diferentes instrumentos
+                        para obtener información astronómica
+                        con mayor resolución.
+                    </p>
+                </article>
+            </div>
+        </article>
+
+        <div class="tarjeta dato-destacado">
+            <p class="dato">13.800 millones de años</p>
+            <p>
+                Es la edad aproximada del universo, cuyo estudio
+                es posible gracias a los avances en la observación
+                astronómica.
+            </p>
+        </div>
+    </section>
+
+    <!-- STAND -->
+    <section id="stand" class="seccion seccion-oscura">
+        <span class="etiqueta">04 / STAND</span>
+        <h2>Nuestro stand de exploración espacial</h2>
+
+        <p class="texto-intro">
+            Durante la presentación del proyecto final se busca
+            comparar diferentes tecnologías de observación estelar
+            por medio de una simulación virtual que permita reconocer
+            algunos de los componentes utilizados en los telescopios.
+        </p>
+
+        <a
+            href="https://eyes.nasa.gov/apps/asteroids/#/home"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn-principal"
+        >
+            Explorar NASA Eyes on Asteroids →
+        </a>
+    </section>
+
+    <!-- SIMULACIÓN -->
+    <section id="simulacion" class="seccion">
+        <span class="etiqueta">05 / LABORATORIO VIRTUAL</span>
+
+        <section class="simulacion">
+  <h2>Compara telescopios terrestres y espaciales</h2>
+  <p>Selecciona una condición para observar cómo cambia la imagen.</p>
+
+  <label for="tipoObservacion">Condición de observación:</label>
+  <select id="tipoObservacion">
+    <option value="normal">Condiciones normales</option>
+    <option value="atmosfera">Turbulencia atmosférica</option>
+    <option value="nubes">Cielo nublado</option>
+    <option value="altaResolucion">Alta resolución</option>
+  </select>
+
+  <canvas id="comparacionTelescopios" width="800" height="350"></canvas>
+
+  <p id="detalleComparacion" aria-live="polite"></p>
+</section>
+    </section>
+
+    <!-- REFERENCIAS -->
+    <footer id="referencias">
+        <span class="etiqueta">06 / REFERENCIAS</span>
+        <h2>Fuentes de consulta</h2>
+
+        <ol class="referencias">
+          
+
+
+
+
+
+
+<li>1. NASA. (s. f.). ¿Cómo funcionan los telescopios? NASA Space Place. https://spaceplace.nasa.gov/telescopes/sp/</li>
+<li>2. NASA. (s. f.). Telescopes 101. NASA Science. https://science.nasa.gov/universe/telescopes-101/</li>
+<li>3. NASA. (s. f.). Astronomy Across the Electromagnetic Spectrum. NASA Goddard Space Flight Center. https://imagine.gsfc.nasa.gov/science/toolbox/emspectrum2.html</li>
+<li>4. NASA. (s. f.). Webb's Scientific Instruments. NASA Science. https://science.nasa.gov/mission/webb/science-overview/science-explainers/webbs-scientific-instruments/</li>
+<li>>5. . (s. f.)NASA. What Is the Universe? NASA Science. https://science.nasa.gov/exoplanets/what-is-the-universe/</li>
+        </ol>
+
+        <p>
+            Proyecto interdisciplinar Explorando el Universo ·
+            Gimnasio Los Arrayanes Bilingüe · Grado 11
+        </p>
+
+        <p>
+            Integrantes: Andres Moreno, Santiago Norman,
+            Camila Sanchez y Juan Jose Caldera.
+        </p>
+    </footer>
+
+    <!-- FUNCIONALIDAD DE LA SIMULACIÓN -->
+    <script>
+     const canvas = document.getElementById("comparacionTelescopios");
+const ctx = canvas.getContext("2d");
+const selector = document.getElementById("tipoObservacion");
+const detalle = document.getElementById("detalleComparacion");
+
+const condiciones = {
+  normal: {
+    terrestre: 2,
+    espacial: 0,
+    texto: "En condiciones normales, la atmósfera puede hacer que las estrellas titilen y se vean menos definidas. El telescopio espacial observa por encima de ella."
+  },
+  atmosfera: {
+    terrestre: 7,
+    espacial: 0,
+    texto: "La turbulencia atmosférica distorsiona la luz que llega al telescopio terrestre. La imagen espacial permanece más estable."
+  },
+  nubes: {
+    terrestre: 12,
+    espacial: 0,
+    texto: "Las nubes pueden bloquear la observación desde la Tierra. Un telescopio espacial no está afectado por las nubes terrestres."
+  },
+  altaResolucion: {
+    terrestre: 4,
+    espacial: 0,
+    texto: "El telescopio espacial puede obtener imágenes más nítidas en ciertas longitudes de onda porque no observa a través de la atmósfera. Los telescopios terrestres también pueden lograr gran resolución con técnicas especiales."
+  }
+};
+
+function dibujarEstrellas(ctx, x, y, ancho, alto, nivelDistorsion) {
+  ctx.save();
+
+  // Fondo del panel
+  const fondo = ctx.createLinearGradient(x, y, x, y + alto);
+  fondo.addColorStop(0, "#050817");
+  fondo.addColorStop(1, "#111936");
+  ctx.fillStyle = fondo;
+  ctx.fillRect(x, y, ancho, alto);
+
+  // Estrellas de fondo
+  for (let i = 0; i < 70; i++) {
+    const sx = x + ((i * 83) % ancho);
+    const sy = y + ((i * 47) % alto);
+
+    ctx.fillStyle = "rgba(220,230,255,0.7)";
+    ctx.beginPath();
+    ctx.arc(sx, sy, i % 6 === 0 ? 1.7 : 1, 0, Math.PI * 2);
+    ctx.fill();
+  }
+
+  // Objeto observado: estrella brillante
+  const centroX = x + ancho / 2;
+  const centroY = y + alto / 2;
+
+  ctx.save();
+  ctx.translate(centroX, centroY);
+
+  if (nivelDistorsion > 0) {
+    ctx.scale(1 + nivelDistorsion * 0.04, 1 - nivelDistorsion * 0.025);
+    ctx.rotate(nivelDistorsion * 0.025);
+  }
+
+  ctx.shadowColor = "#ffffff";
+  ctx.shadowBlur = 18 - nivelDistorsion;
+  ctx.fillStyle = "#ffffff";
+  ctx.beginPath();
+  ctx.arc(0, 0, Math.max(3, 8 - nivelDistorsion * 0.3), 0, Math.PI * 2);
+  ctx.fill();
+
+  // Rayos de la estrella
+  ctx.shadowBlur = 0;
+  ctx.strokeStyle = "rgba(220,235,255,0.8)";
+  ctx.lineWidth = 1.5;
+
+  for (let angulo = 0; angulo < Math.PI * 2; angulo += Math.PI / 4) {
+    ctx.beginPath();
+    ctx.moveTo(Math.cos(angulo) * 10, Math.sin(angulo) * 10);
+    ctx.lineTo(Math.cos(angulo) * 20, Math.sin(angulo) * 20);
+    ctx.stroke();
+  }
+
+  ctx.restore();
+
+  // Efecto ilustrativo de turbulencia atmosférica
+  if (nivelDistorsion > 0) {
+    for (let i = 0; i < nivelDistorsion * 3; i++) {
+      const px = x + ((i * 41 + 20) % ancho);
+      const py = y + ((i * 29 + 15) % alto);
+
+      ctx.fillStyle = "rgba(120,170,255,0.08)";
+      ctx.beginPath();
+      ctx.arc(px, py, 8 + (i % 5) * 3, 0, Math.PI * 2);
+      ctx.fill();
+    }
+  }
+
+  ctx.restore();
+}
+
+function dibujarComparacion() {
+  const condicion = condiciones[selector.value];
+  const anchoPanel = canvas.width / 2;
+  const altoPanel = canvas.height;
+
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+  // Vista terrestre
+  dibujarEstrellas(ctx, 0, 0, anchoPanel, altoPanel, condicion.terrestre);
+
+  // Vista espacial
+  dibujarEstrellas(ctx, anchoPanel, 0, anchoPanel, altoPanel, condicion.espacial);
+
+  // Separador entre las dos vistas
+  ctx.strokeStyle = "#8b5cf6";
+  ctx.lineWidth = 2;
+  ctx.beginPath();
+  ctx.moveTo(anchoPanel, 0);
+  ctx.lineTo(anchoPanel, altoPanel);
+  ctx.stroke();
+
+  // Etiquetas
+  ctx.font = "bold 16px Arial";
+  ctx.fillStyle = "#ffffff";
+  ctx.fillText("Telescopio terrestre", 18, 28);
+  ctx.fillText("Telescopio espacial", anchoPanel + 18, 28);
+
+  detalle.textContent = condicion.texto;
+}
+
+selector.addEventListener("change", dibujarComparacion);
+dibujarComparacion();
+    </script>
 
 </body>
 </html>
