@@ -1,0 +1,412 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EXOPLANET-01 | Exploración orbital</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;overflow:hidden;background:#020611;color:#e8f5ff;
+font-family:Inter,system-ui,sans-serif}
+canvas{display:block}
+.hud{position:fixed;inset:0;pointer-events:none}
+header{position:absolute;top:24px;left:28px}
+.eyebrow{font-size:10px;letter-spacing:4px;color:#55d9ff}
+h1{font-size:24px;letter-spacing:2px;margin:7px 0}
+.sub{font-size:11px;color:#8ca6c5;letter-spacing:1px}
+.panel{position:absolute;top:24px;right:24px;width:220px;
+padding:17px;background:#071629b8;border:1px solid #294766;
+backdrop-filter:blur(12px)}
+.panel h3{font-size:10px;letter-spacing:2px;color:#55d9ff;
+margin:0 0 16px}
+.metric{display:flex;justify-content:space-between;
+font-size:11px;margin:12px 0;color:#91a9c5}
+.metric strong{color:#fff;font-weight:500}
+.bottom{position:absolute;bottom:22px;left:26px;right:26px;
+display:flex;justify-content:space-between;align-items:end;gap:18px}
+.controls{pointer-events:auto;display:flex;gap:8px;flex-wrap:wrap}
+button{background:#0a1d32;color:#d8efff;border:1px solid #355573;
+padding:11px 14px;cursor:pointer;font-size:11px;letter-spacing:1px}
+button:hover,button.active{background:#103f5a;border-color:#55d9ff}
+.info{font-size:10px;line-height:1.9;color:#91a9c5;letter-spacing:1px}
+.status{color:#60ffc2}
+.bar{height:3px;background:#152c43;margin-top:8px}
+.bar span{display:block;width:75%;height:100%;background:#54dcff}
+#loading{position:fixed;inset:0;display:grid;place-items:center;
+background:#020611;z-index:10;letter-spacing:3px;font-size:12px;
+color:#5edfff;transition:opacity .7s}
+#loading.done{opacity:0;pointer-events:none}
+#help{font-size:10px;color:#8199b8;max-width:200px;line-height:1.7}
+@media(max-width:650px){
+ header{top:14px;left:15px}h1{font-size:18px}
+ .panel{top:auto;bottom:112px;right:12px;width:174px;padding:12px}
+ .metric{font-size:10px;margin:8px 0}
+ .bottom{left:12px;right:12px;bottom:12px;align-items:start}
+ .info{font-size:9px}button{padding:10px;font-size:10px}
+ #help{display:none}
+}
+</style>
+</head>
+<body>
+<div id="loading">INICIALIZANDO SISTEMAS ORBITALES...</div>
+<div class="hud">
+  <header>
+    <div class="eyebrow">DEEP SPACE EXPLORATION / 01</div>
+    <h1>EXOPLANET-01</h1>
+    <div class="sub">MISIÓN DE RECONOCIMIENTO ATMOSFÉRICO</div>
+  </header>
+
+  <aside class="panel">
+    <h3>TELEMETRÍA EN VIVO</h3>
+    <div class="metric"><span>VELOCIDAD</span><strong id="speed">7.42 km/s</strong></div>
+    <div class="metric"><span>ALTITUD</span><strong id="alt">320 km</strong></div>
+    <div class="metric"><span>PERÍODO</span><strong id="period">92.4 min</strong></div>
+    <div class="metric"><span>FASE ORBITAL</span><strong id="phase">000°</strong></div>
+    <div class="metric"><span>COMBUSTIBLE</span><strong id="fuel">82%</strong></div>
+    <div class="metric"><span>ENLACE</span><strong class="status">ESTABLE ●</strong></div>
+    <div class="bar"><span></span></div>
+    <div class="sub" style="margin-top:9px">SISTEMAS NOMINALES</div>
+  </aside>
+
+  <div class="bottom">
+    <div>
+      <div class="info">DESTINO: KEPLER-186f / SIMULACIÓN</div>
+      <div class="info">MODO: <span class="status" id="mode">ÓRBITA ESTABLE</span></div>
+      <div id="help">Arrastra para rotar la cámara · Rueda para acercar · WASD para ajustar la orientación visual</div>
+    </div>
+    <div class="controls">
+      <button id="pause">Ⅱ PAUSAR</button>
+      <button id="speedBtn">×2 VELOCIDAD</button>
+      <button id="camera">CAMBIAR CÁMARA</button>
+      <button id="reset">REINICIAR</button>
+    </div>
+  </div>
+</div>
+
+<script type="importmap">
+{
+  "imports": {
+    "three": "https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.module.js",
+    "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.170.0/examples/jsm/"
+  }
+}
+</script>
+<script type="module">
+import * as THREE from 'three';
+import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+
+const scene = new THREE.Scene();
+scene.background = new THREE.Color(0x020611);
+scene.fog = new THREE.FogExp2(0x020611, 0.004);
+
+const camera = new THREE.PerspectiveCamera(
+  45, innerWidth/innerHeight, 0.1, 3000
+);
+camera.position.set(0, 7, 24);
+
+const renderer = new THREE.WebGLRenderer({antialias:true});
+renderer.setSize(innerWidth, innerHeight);
+renderer.setPixelRatio(Math.min(devicePixelRatio, 2));
+renderer.outputColorSpace = THREE.SRGBColorSpace;
+renderer.toneMapping = THREE.ACESFilmicToneMapping;
+renderer.toneMappingExposure = 1.2;
+document.body.appendChild(renderer.domElement);
+
+const controls = new OrbitControls(camera, renderer.domElement);
+controls.enableDamping = true;
+controls.dampingFactor = .045;
+controls.minDistance = 7;
+controls.maxDistance = 65;
+
+// Iluminación estelar
+scene.add(new THREE.AmbientLight(0x5276a5, .7));
+const sun = new THREE.DirectionalLight(0xffe5c1, 3.2);
+sun.position.set(-12, 8, 10);
+scene.add(sun);
+
+// Generador de texturas procedurales: no necesita imágenes externas.
+function makeTexture(kind, size=1024) {
+  const c = document.createElement('canvas');
+  c.width=size; c.height=size;
+  const ctx=c.getContext('2d');
+  const im=ctx.createImageData(size,size);
+  for(let y=0;y<size;y++){
+    for(let x=0;x<size;x++){
+      const u=x/size, v=y/size;
+      const n=Math.sin(u*43+Math.sin(v*27)*2)
+        +Math.sin(v*61+u*19)*.6
+        +Math.sin(u*127+v*83)*.23
+        +Math.sin(u*17-v*39)*.8;
+      const cloud=Math.max(0,Math.min(1,(n+1.2)/3.1));
+      let r,g,b;
+      if(kind==='planet'){
+        const land=cloud;
+        r=8+land*22;g=38+land*90;b=85+land*105;
+        if(Math.sin(v*90+u*18)>1.1){g+=12;b+=12}
+      } else {
+        const a=Math.max(0,(cloud-.49)*3.5);
+        r=210*a;g=230*a;b=255*a;
+      }
+      const i=(y*size+x)*4;
+      im.data[i]=r;im.data[i+1]=g;im.data[i+2]=b;
+      im.data[i+3]=kind==='cloud'?Math.min(200,cloud*250):255;
+    }
+  }
+  ctx.putImageData(im,0,0);
+  const t=new THREE.CanvasTexture(c);
+  t.colorSpace=THREE.SRGBColorSpace;
+  return t;
+}
+
+const planetGroup = new THREE.Group();
+scene.add(planetGroup);
+const R=5;
+
+// Superficie del exoplaneta
+const planet=new THREE.Mesh(
+  new THREE.SphereGeometry(R,96,96),
+  new THREE.MeshStandardMaterial({
+    map:makeTexture('planet'),roughness:.88,metalness:.02
+  })
+);
+planetGroup.add(planet);
+
+// Nubes: esfera ligeramente más grande y transparente
+const cloudTex=makeTexture('cloud');
+const clouds=new THREE.Mesh(
+  new THREE.SphereGeometry(R*1.009,96,96),
+  new THREE.MeshStandardMaterial({
+    map:cloudTex,transparent:true,opacity:.26,
+    depthWrite:false,roughness:1
+  })
+);
+planetGroup.add(clouds);
+
+// Halo atmosférico mediante shader Fresnel
+const atmosphere=new THREE.Mesh(
+  new THREE.SphereGeometry(R*1.13,96,96),
+  new THREE.ShaderMaterial({
+    vertexShader:`
+      varying vec3 vNormal;
+      varying vec3 vView;
+      void main(){
+        vec4 mv=modelViewMatrix*vec4(position,1.);
+        vNormal=normalize(normalMatrix*normal);
+        vView=normalize(-mv.xyz);
+        gl_Position=projectionMatrix*mv;
+      }`,
+    fragmentShader:`
+      varying vec3 vNormal;
+      varying vec3 vView;
+      void main(){
+        float f=pow(1.-max(dot(normalize(vNormal),
+          normalize(vView)),0.),3.2);
+        vec3 c=mix(vec3(.03,.30,.85),vec3(.10,.80,1.),f);
+        gl_FragColor=vec4(c,f*.62);
+      }`,
+    transparent:true,side:THREE.BackSide,
+    blending:THREE.AdditiveBlending,depthWrite:false
+  })
+);
+planetGroup.add(atmosphere);
+
+// Estrellas en 3D
+const starCount=4500;
+const starPositions=new Float32Array(starCount*3);
+for(let i=0;i<starCount;i++){
+  const r=100+Math.random()*650;
+  const a=Math.random()*Math.PI*2;
+  const z=Math.random()*2-1;
+  const q=Math.sqrt(1-z*z);
+  starPositions[i*3]=r*q*Math.cos(a);
+  starPositions[i*3+1]=r*z;
+  starPositions[i*3+2]=r*q*Math.sin(a);
+}
+const starGeo=new THREE.BufferGeometry();
+starGeo.setAttribute('position',new THREE.BufferAttribute(starPositions,3));
+const stars=new THREE.Points(starGeo,
+  new THREE.PointsMaterial({
+    color:0xd5e8ff,size:.65,sizeAttenuation:true,
+    transparent:true,opacity:.85
+  })
+);
+scene.add(stars);
+
+// Trayectoria orbital
+const orbitRadius=R+1.45;
+const orbitPoints=[];
+for(let i=0;i<=400;i++){
+  const a=i/400*Math.PI*2;
+  orbitPoints.push(new THREE.Vector3(
+    orbitRadius*Math.cos(a),0,orbitRadius*Math.sin(a)
+  ));
+}
+const orbit=new THREE.Line(
+  new THREE.BufferGeometry().setFromPoints(orbitPoints),
+  new THREE.LineBasicMaterial({
+    color:0x36bfff,transparent:true,opacity:.46
+  })
+);
+scene.add(orbit);
+
+// Cohete: cuerpo, punta, ventanas, aletas y motores
+const rocket=new THREE.Group();
+const silver=new THREE.MeshStandardMaterial({
+  color:0xd7e2ed,metalness:.78,roughness:.27
+});
+const dark=new THREE.MeshStandardMaterial({
+  color:0x28384d,metalness:.65,roughness:.35
+});
+const orange=new THREE.MeshStandardMaterial({
+  color:0xff753c,emissive:0xff3d08,emissiveIntensity:2
+});
+const white=new THREE.MeshStandardMaterial({
+  color:0xffffff,emissive:0x77ccff,emissiveIntensity:.25
+});
+function part(geo,mat,pos,rot){
+  const m=new THREE.Mesh(geo,mat);
+  m.position.set(...pos);
+  if(rot)m.rotation.set(...rot);
+  rocket.add(m);return m;
+}
+
+// El eje longitudinal del cohete es +Y
+part(new THREE.CylinderGeometry(.20,.25,1.65,20),silver,[0,0,0]);
+part(new THREE.ConeGeometry(.20,.60,20),silver,[0,1.12,0]);
+part(new THREE.CylinderGeometry(.255,.20,.22,20),dark,[0,-.88,0]);
+part(new THREE.CylinderGeometry(.12,.17,.38,16),dark,[0,-1.13,0]);
+part(new THREE.ConeGeometry(.11,.42,16),orange,[0,-1.48,0]);
+part(new THREE.SphereGeometry(.105,16,16),white,[0,.35,.198]);
+for(let i=0;i<3;i++){
+  const a=i*Math.PI*2/3;
+  const fin=part(new THREE.BoxGeometry(.075,.62,.34),
+    orange,[Math.sin(a)*.28,-.63,Math.cos(a)*.28]);
+  fin.rotation.y=a;
+}
+const windowRing=part(new THREE.TorusGeometry(.205,.035,8,24),
+  dark,[0,.35,0],[Math.PI/2,0,0]);
+
+scene.add(rocket);
+
+// Propulsión: partículas visibles detrás de los motores
+const exhaustGeometry=new THREE.BufferGeometry();
+const exhaustCount=110;
+const exhaustPositions=new Float32Array(exhaustCount*3);
+exhaustGeometry.setAttribute('position',
+  new THREE.BufferAttribute(exhaustPositions,3));
+const exhaust=new THREE.Points(exhaustGeometry,
+  new THREE.PointsMaterial({
+    color:0x64caff,size:.07,transparent:true,
+    opacity:.8,blending:THREE.AdditiveBlending
+  })
+);
+scene.add(exhaust);
+
+// Animación orbital y controles
+let running=true, multiplier=1, orbitAngle=0, viewMode=0;
+let elapsed=0;
+const clock=new THREE.Clock();
+const $=id=>document.getElementById(id);
+
+$('pause').onclick=()=>{
+  running=!running;
+  $('pause').textContent=running?'Ⅱ PAUSAR':'▶ REANUDAR';
+  $('mode').textContent=running?'ÓRBITA ESTABLE':'SIMULACIÓN PAUSADA';
+};
+$('speedBtn').onclick=()=>{
+  multiplier=multiplier===1?2:multiplier===2?5:1;
+  $('speedBtn').textContent='×'+multiplier+' VELOCIDAD';
+};
+$('camera').onclick=()=>{
+  viewMode=(viewMode+1)%3;
+  $('camera').textContent=['CAMBIAR CÁMARA','VISTA DE NAVE','VISTA PLANETARIA'][viewMode];
+};
+$('reset').onclick=()=>{
+  orbitAngle=0;elapsed=0;multiplier=1;
+  $('speedBtn').textContent='×1 VELOCIDAD';
+  camera.position.set(0,7,24);
+  controls.target.set(0,0,0);
+};
+
+const temp=new THREE.Vector3();
+function animate(){
+  requestAnimationFrame(animate);
+  const dt=Math.min(clock.getDelta(),.05);
+  if(running){
+    elapsed+=dt;
+    orbitAngle+=dt*.20*multiplier;
+    planet.rotation.y+=dt*.025;
+    clouds.rotation.y+=dt*.032;
+    stars.rotation.y+=dt*.001;
+  }
+
+  // Órbita ligeramente inclinada y perspectiva tridimensional
+  const inclination=.20;
+  const x=orbitRadius*Math.cos(orbitAngle);
+  const z=orbitRadius*Math.sin(orbitAngle);
+  const y=Math.sin(orbitAngle)*inclination*orbitRadius;
+  rocket.position.set(x,y,z);
+
+  // Orientar el cohete tangencialmente a la trayectoria.
+  const tangent=new THREE.Vector3(
+    -Math.sin(orbitAngle),
+    inclination*Math.cos(orbitAngle),
+    Math.cos(orbitAngle)
+  ).normalize();
+  const up=new THREE.Vector3(0,1,0);
+  const right=new THREE.Vector3().crossVectors(tangent,up).normalize();
+  const correctedUp=new THREE.Vector3().crossVectors(right,tangent).normalize();
+  const basis=new THREE.Matrix4().makeBasis(right,correctedUp,tangent);
+  rocket.quaternion.setFromRotationMatrix(basis);
+
+  // Partículas de escape
+  const p=exhaustGeometry.attributes.position;
+  for(let i=0;i<exhaustCount;i++){
+    const age=((elapsed*(running?1:0)+i*.137)%1);
+    p.setXYZ(i,
+      (Math.random()-.5)*.13,
+      -1.48-age*.65,
+      (Math.random()-.5)*.13
+    );
+  }
+  p.needsUpdate=true;
+  exhaust.position.copy(rocket.position);
+  exhaust.quaternion.copy(rocket.quaternion);
+
+  // Cámara de seguimiento opcional
+  if(viewMode===1){
+    const offset=tangent.clone().multiplyScalar(-5)
+      .add(new THREE.Vector3(0,2.0,0));
+    temp.copy(rocket.position).add(offset);
+    camera.position.lerp(temp,.045);
+    controls.target.lerp(rocket.position,.06);
+  }else if(viewMode===2){
+    camera.position.lerp(new THREE.Vector3(0,13,22),.035);
+    controls.target.lerp(new THREE.Vector3(0,0,0),.04);
+  }
+
+  controls.update();
+  renderer.render(scene,camera);
+
+  $('phase').textContent=String(
+    Math.floor(((orbitAngle%(Math.PI*2)+Math.PI*2)%(Math.PI*2))
+    *180/Math.PI)).padStart(3,'0')+'°';
+  $('alt').textContent='320 km';
+  $('speed').textContent=(7.42*multiplier).toFixed(2)+' km/s';
+  $('period').textContent=(92.4/multiplier).toFixed(1)+' min';
+  $('fuel').textContent=Math.max(0,82-elapsed*.015).toFixed(1)+'%';
+}
+animate();
+addEventListener('resize',()=>{
+  camera.aspect=innerWidth/innerHeight;
+  camera.updateProjectionMatrix();
+  renderer.setSize(innerWidth,innerHeight);
+});
+setTimeout(()=>{
+  $('loading').classList.add('done');
+  setTimeout(()=>$('loading').remove(),800);
+},700);
+</script>
+</body>
+</html>
